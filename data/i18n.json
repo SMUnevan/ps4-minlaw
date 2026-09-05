@@ -35,6 +35,8 @@
     "principles.3": "<strong>Information, not representation.</strong> This is a preparation aid, not a lawyer, and never predicts a result.",
     "principles.4": "<strong>Depends on you.</strong> Output quality depends entirely on the completeness and accuracy of what you provide.",
 
+    "case.new": "Start a new case",
+    "case.newConfirm": "Start a new case? Your current case map and answers will be cleared.",
     "intake.title": "Structured Intake",
     "intake.sub": "Describe your situation. I'll ask a few targeted questions to fill in the gaps.",
     "intake.placeholder": "Type your answer… (Enter to send, Shift+Enter for new line)",
@@ -207,6 +209,8 @@
     "principles.3": "<strong>提供信息，而非代理。</strong>这是准备工具，不是律师，也绝不预测结果。",
     "principles.4": "<strong>取决于你。</strong>输出质量完全取决于你提供的信息是否完整、准确。",
 
+    "case.new": "开始新案件",
+    "case.newConfirm": "要开始新案件吗？目前的案件图与回答将被清除。",
     "intake.title": "结构化问询",
     "intake.sub": "请描述你的情况。我会提出几个针对性问题，补齐缺漏。",
     "intake.placeholder": "输入你的回答……（Enter 发送，Shift+Enter 换行）",
@@ -379,6 +383,8 @@
     "principles.3": "<strong>Maklumat, bukan perwakilan.</strong> Ini alat persediaan, bukan peguam, dan tidak pernah meramalkan keputusan.",
     "principles.4": "<strong>Bergantung pada anda.</strong> Kualiti keputusan bergantung sepenuhnya pada kelengkapan dan ketepatan maklumat yang anda berikan.",
 
+    "case.new": "Mulakan kes baharu",
+    "case.newConfirm": "Mulakan kes baharu? Peta kes dan jawapan semasa anda akan dikosongkan.",
     "intake.title": "Sesi Soal Jawab Berstruktur",
     "intake.sub": "Terangkan situasi anda. Saya akan bertanya beberapa soalan khusus untuk mengisi maklumat yang tertinggal.",
     "intake.placeholder": "Taip jawapan anda… (Enter untuk hantar, Shift+Enter untuk baris baharu)",
@@ -551,6 +557,8 @@
     "principles.3": "<strong>தகவல், பிரதிநிதித்துவம் அல்ல.</strong> இது தயாரிப்புக் கருவி; வழக்கறிஞர் அல்ல; முடிவைக் கணிக்காது.",
     "principles.4": "<strong>உங்களைச் சார்ந்தது.</strong> நீங்கள் தரும் தகவலின் முழுமையும் துல்லியமும் தான் விளைவின் தரத்தை தீர்மானிக்கும்.",
 
+    "case.new": "புதிய வழக்கைத் தொடங்கு",
+    "case.newConfirm": "புதிய வழக்கைத் தொடங்கவா? தற்போதைய வழக்கு வரைபடமும் பதில்களும் அழிக்கப்படும்.",
     "intake.title": "கட்டமைக்கப்பட்ட விசாரணை",
     "intake.sub": "உங்கள் நிலைமையை விவரிக்கவும். விடுபட்டவற்றை நிரப்ப சில கேள்விகள் கேட்பேன்.",
     "intake.placeholder": "உங்கள் பதிலை உள்ளிடவும்… (அனுப்ப Enter, புதிய வரிக்கு Shift+Enter)",

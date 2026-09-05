@@ -76,9 +76,12 @@
 
     <!-- INTAKE -->
     <section class="view" id="view-intake">
-      <div class="panel-header">
-        <h2 data-i18n="intake.title"></h2>
-        <p class="subtle" data-i18n="intake.sub"></p>
+      <div class="panel-header header-row">
+        <div>
+          <h2 data-i18n="intake.title"></h2>
+          <p class="subtle" data-i18n="intake.sub"></p>
+        </div>
+        <button class="btn btn-ghost btn-sm" data-act="new-case" data-i18n="case.new"></button>
       </div>
       <div class="chat-log" id="intakeLog" aria-live="polite"></div>
       <div class="chat-input-row">
@@ -93,9 +96,12 @@
 
     <!-- CASE MAP -->
     <section class="view" id="view-map">
-      <div class="panel-header">
-        <h2 data-i18n="map.title"></h2>
-        <p class="subtle" id="mapDisputeType"></p>
+      <div class="panel-header header-row">
+        <div>
+          <h2 data-i18n="map.title"></h2>
+          <p class="subtle" id="mapDisputeType"></p>
+        </div>
+        <button class="btn btn-ghost btn-sm" data-act="new-case" data-i18n="case.new"></button>
       </div>
       <div id="mapLoading" class="loading" hidden><span class="spinner" aria-hidden="true"></span><span data-i18n="map.loading"></span></div>
       <div class="map-grid" id="mapGrid"></div>

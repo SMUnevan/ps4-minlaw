@@ -145,14 +145,35 @@
   // ---------- Case intake ----------
   async function startCase() {
     const data = await api('/api/case', { method: 'POST', body: JSON.stringify({}) });
+
+    // Reset everything derived from the previous case so nothing stale carries over.
     state.caseId = data.caseId;
     state.mapBuilt = false;
+    state.mapRenderedLang = null;
+    state.roleplayMode = null;
+    state.lastRelated = null;
     localStorage.setItem(LS_CASE, data.caseId);
+
     $('intakeLog').innerHTML = '';
+    $('mapGrid').innerHTML = '';
+    $('reportGrid').innerHTML = '';
+    $('relatedThreads').innerHTML = '';
+    $('relatedLessons').innerHTML = '';
+    $('roleplayLog').innerHTML = '';
+    $('mapDisputeType').textContent = '';
+    $('reportDisclaimer').textContent = '';
+
     addBubble($('intakeLog'), 'assistant', data.openingPrompt);
     $('intakeCompleteBar').hidden = true;
     showView('intake');
     $('intakeInput').focus();
+  }
+
+  // "Start a new case" from inside an existing one. Only confirms when there is
+  // actual work to lose, so resetting between demo runs stays quick.
+  async function startNewCase() {
+    if (state.mapBuilt && !window.confirm(t('case.newConfirm'))) return;
+    await startCase();
   }
 
   async function sendIntakeMessage() {
@@ -655,6 +676,7 @@
 
     $('brandHome').addEventListener('click', goToCaseView);
     $('btnStartCase').addEventListener('click', startCase);
+    document.querySelectorAll('[data-act="new-case"]').forEach((btn) => btn.addEventListener('click', startNewCase));
     $('btnGoLearnHero').addEventListener('click', loadLearn);
     $('btnGoForumHero').addEventListener('click', loadForum);
     $('btnGoLearnFromSim').addEventListener('click', loadLearn);

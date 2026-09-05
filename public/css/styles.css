@@ -143,6 +143,10 @@ main { max-width: 1120px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 .principles li strong { color: var(--ink); }
 
 /* ---------- Shared ---------- */
+.panel-header.header-row {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.btn-sm { padding: 0.45rem 0.85rem; font-size: 0.84rem; }
 .panel-header h2 { margin: 0 0 0.25rem; font-size: 1.45rem; }
 .panel-header h3 { margin: 0 0 0.25rem; font-size: 1.15rem; }
 .section-gap { margin-top: 2.5rem; }
