@@ -86,10 +86,20 @@
         <button class="btn btn-ghost btn-sm" data-act="new-case" data-i18n="case.new"></button>
       </div>
       <div class="chat-log" id="intakeLog" aria-live="polite"></div>
+      <div class="attachment-area">
+        <div class="attachment-list" id="intakeAttachments" aria-live="polite"></div>
+        <div class="attachment-error" id="intakeAttachmentError" role="alert" hidden></div>
+      </div>
       <div class="chat-input-row">
+        <input id="intakeFileInput" type="file" multiple hidden accept=".pdf,.docx,.txt,.rtf,.csv,.md,.markdown,.json,.xml,image/png,image/jpeg,image/webp,image/gif" />
+        <button class="btn btn-ghost btn-upload" id="btnIntakeUpload" type="button" aria-label="Upload file" title="Upload file">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.4 11.6-8.8 8.8a6 6 0 0 1-8.5-8.5l9.5-9.5a4 4 0 0 1 5.7 5.7l-9.5 9.5a2 2 0 0 1-2.8-2.8l8.8-8.8" /></svg>
+          <span>Upload file</span>
+        </button>
         <textarea id="intakeInput" rows="2" data-i18n-ph="intake.placeholder"></textarea>
         <button class="btn btn-primary" id="btnIntakeSend" data-i18n="intake.send">Send</button>
       </div>
+      <p class="attachment-note">Files are read locally and sent only to your selected AI provider with this chat. They are not uploaded to or stored by Case Compass.</p>
       <div class="cta-bar" id="intakeCompleteBar" hidden>
         <span data-i18n="intake.complete"></span>
         <button class="btn btn-primary" id="btnBuildMap" data-i18n="intake.build"></button>
@@ -294,6 +304,8 @@
     <p class="lang-note" data-i18n="lang.notice"></p>
   </footer>
 
+  <script src="/vendor/pdfjs/pdf.min.js"></script>
+  <script src="/vendor/mammoth/mammoth.browser.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

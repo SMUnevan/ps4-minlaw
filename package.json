@@ -12,6 +12,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "mammoth": "^1.8.0",
+    "pdfjs-dist": "^3.11.174",
     "uuid": "^9.0.1"
   },
   "engines": {

@@ -11,6 +11,10 @@ const strings = require('./data/i18n.json');
 
 const app = express();
 app.use(express.json({ limit: '256kb' }));
+// These browser libraries extract documents locally; uploaded files never reach
+// an application endpoint or are written to the server.
+app.use('/vendor/pdfjs', express.static(path.join(__dirname, 'node_modules', 'pdfjs-dist', 'build')));
+app.use('/vendor/mammoth', express.static(path.join(__dirname, 'node_modules', 'mammoth')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 function asyncRoute(handler) {
