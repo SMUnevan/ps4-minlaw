@@ -18,6 +18,7 @@
       <button class="tab-btn active" data-tab="case" data-i18n="nav.case">Case Preparation</button>
       <button class="tab-btn" data-tab="learn" data-i18n="nav.learn">Learning Hub</button>
       <button class="tab-btn" data-tab="forum" data-i18n="nav.forum">Community Forum</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
     </nav>
 
     <div class="topbar-right">
@@ -246,6 +247,44 @@
         <button class="btn btn-primary" type="submit" data-i18n="forum.submit"></button>
       </form>
       <div id="askResult"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="view" id="view-settings">
+      <div class="panel-header">
+        <h2>AI Settings</h2>
+        <p class="subtle">Choose a provider and keep your API key on this device only.</p>
+      </div>
+      <div class="settings-card">
+        <div class="disclaimer-banner info">Your API key is stored only in this browser. It is sent only to the AI provider you select, never to Case Compass.</div>
+        <div class="settings-grid">
+          <label for="aiProvider">AI provider
+            <select id="aiProvider">
+              <option value="gemini">Gemini</option>
+              <option value="openrouter">OpenRouter</option>
+            </select>
+          </label>
+          <label for="aiModel">Model (optional)
+            <div class="model-input-row">
+              <input id="aiModel" autocomplete="off" spellcheck="false" />
+              <button class="btn btn-ghost btn-sm" id="btnModelMenu" type="button" aria-expanded="false" aria-controls="aiModelMenu">Models</button>
+            </div>
+            <div class="model-menu" id="aiModelMenu" hidden></div>
+          </label>
+        </div>
+        <label for="aiApiKey">API key</label>
+        <div class="key-input-row">
+          <input id="aiApiKey" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your API key" />
+          <button class="btn btn-ghost btn-sm" id="btnToggleKey" type="button">Show</button>
+        </div>
+        <p class="saved-key" id="savedKeyStatus">No API key saved on this device.</p>
+        <div class="settings-actions">
+          <button class="btn btn-primary" id="btnSaveAiSettings" type="button">Save key</button>
+          <button class="btn btn-secondary" id="btnTestAiKey" type="button">Test key</button>
+          <button class="btn btn-ghost" id="btnRemoveAiKey" type="button">Remove key</button>
+        </div>
+        <div id="settingsResult" aria-live="polite"></div>
+      </div>
     </section>
 
   </main>

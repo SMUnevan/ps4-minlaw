@@ -67,9 +67,9 @@ src/lib/i18n.js               Language resolution and content localisation
 src/lib/content.js            Loads Learning Hub tracks from data/lessons/*.json
 src/lib/forumStore.js         Forum state + PII redaction + moderation status
 src/lib/caseStore.js          In-memory per-case state
-src/ai/engine.js              Chooses LLM vs rule engine, with automatic fallback
-src/ai/rulesEngine.js         Self-contained multilingual engine (no network calls)
-src/ai/llmEngine.js           Optional Claude-backed engine, grounded in the knowledge base
+src/ai/engine.js              Records provider output and builds deterministic maps
+src/ai/rulesEngine.js         Self-contained multilingual fact-map and fallback engine
+src/ai/llmEngine.js           Provider-neutral request templates, grounded in the knowledge base
 src/ai/matcher.js             Deterministic case → forum thread / lesson matching
 data/legal-concepts.json      Cited knowledge base (4 languages)
 data/lessons/*.json           Learning Hub content, one file per track
@@ -80,10 +80,8 @@ scripts/smoke-test.js         65-check end-to-end API test
 public/                       Frontend
 ```
 
-### Why a pluggable AI engine
-The rule-based engine runs the **entire product end-to-end with zero external calls** — no API key, no network dependency, no risk of a live-demo failure. It does real extraction (dispute type, amounts, evidence with negation handling, prior contact, desired outcome, timeline) in four languages.
-
-If `ANTHROPIC_API_KEY` is set, intake, readiness reports, and role-play use Claude for more dynamic interaction. The Fact–Evidence–Law map remains deterministic so it is an exact, auditable breakdown of the user's input; related threads and lessons are also deterministic, so references cannot be invented. **Any LLM failure falls back to the rule engine for that single call**, so the app never breaks mid-demo. The active engine is shown in the top-right badge.
+### Bring your own AI key
+Case Preparation uses a Gemini or OpenRouter key configured in the in-app **Settings** tab. The key is stored only in that browser's local storage, masked in the UI, and sent directly to the selected provider. It is never sent to or stored by the Case Compass server. The Fact–Evidence–Law map remains deterministic so it is an exact, auditable breakdown of the user's input; related threads and lessons are also deterministic, so references cannot be invented.
 
 ## Running it
 
@@ -92,7 +90,7 @@ npm install
 npm start
 ```
 
-Open **http://localhost:3000**. No API key or `.env` needed — it runs fully offline out of the box. To enable the Claude engine, copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY`.
+Open **http://localhost:3000**, then configure a Gemini or OpenRouter key in **Settings** before starting Case Preparation. No API key belongs in `.env`.
 
 Run the test suite against a running server:
 

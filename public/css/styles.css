@@ -392,6 +392,26 @@ main { max-width: 1120px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 .ask-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 .ask-row > div { display: flex; flex-direction: column; }
 
+/* ---------- Settings ---------- */
+.settings-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.75rem; box-shadow: var(--shadow-sm); }
+.settings-card > label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--ink-2); margin: 1rem 0 0.4rem; }
+.settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.settings-grid label { display: flex; flex-direction: column; gap: 0.4rem; position: relative; font-size: 0.84rem; font-weight: 600; color: var(--ink-2); }
+.settings-grid select, .settings-grid input, .key-input-row input { width: 100%; padding: 0.65rem 0.8rem; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; background: var(--panel); color: var(--ink); }
+.model-input-row { display: flex; gap: 0.6rem; }
+.model-input-row input { flex: 1; min-width: 0; }
+.model-input-row .btn { flex: none; }
+.model-menu { position: absolute; top: calc(100% + 0.35rem); left: 0; z-index: 5; width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); overflow: hidden; }
+.model-menu button { display: block; width: 100%; border: none; border-bottom: 1px solid var(--line-soft); padding: 0.55rem 0.7rem; background: var(--panel); color: var(--ink-2); text-align: left; cursor: pointer; font: inherit; font-size: 0.82rem; }
+.model-menu button:last-child { border-bottom: none; }
+.model-menu button:hover { background: var(--brand-tint); color: var(--brand-dark); }
+.key-input-row { display: flex; gap: 0.6rem; }
+.key-input-row input { flex: 1; }
+.key-input-row .btn { flex: none; }
+.saved-key { color: var(--ink-soft); font-size: 0.84rem; margin: 0.55rem 0 0; }
+.settings-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 1.25rem; }
+#settingsResult { margin-top: 1rem; }
+
 /* ---------- Footer ---------- */
 .disclaimer-footer {
   background: var(--brand-dark); color: #cfe3de; text-align: center; font-size: 0.78rem;
@@ -410,6 +430,8 @@ main { max-width: 1120px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
   .how-it-works, .map-grid, .report-grid, .mode-cards, .sim-grid, .lesson-row, .related-grid { grid-template-columns: 1fr; }
   .lesson, .thread-detail, .ask-form { padding: 1.25rem; }
   .hero { padding-top: 1.25rem; }
+  .settings-grid { grid-template-columns: 1fr; }
+  .settings-card { padding: 1.25rem; }
 }
 
 @media (min-width: 901px) and (max-width: 1100px) {

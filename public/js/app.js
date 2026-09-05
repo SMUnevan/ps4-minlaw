@@ -4,6 +4,13 @@
   const LS_CASE = 'caseCompassCaseId';
   const LS_LANG = 'caseCompassLang';
   const LS_DONE = 'caseCompassLessonsDone';
+  const LS_AI = 'caseCompassAiSettings';
+  const GEMINI_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta';
+  const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1';
+  const AI_MODELS = {
+    gemini: ['gemini-2.0-flash', 'gemini-2.5-flash', 'gemini-2.5-pro'],
+    openrouter: ['deepseek/deepseek-v4-flash-0731', 'z-ai/glm-5.3-flash']
+  };
 
   const state = {
     lang: 'en',
@@ -18,15 +25,17 @@
     tracks: [],
     topics: [],
     doneLessons: new Set(),
-    lastRelated: null
+    lastRelated: null,
+    aiConfig: null
   };
 
   const $ = (id) => document.getElementById(id);
-  const VIEWS = ['landing', 'intake', 'map', 'roleplay', 'simreport', 'learn', 'lesson', 'forum', 'thread', 'ask'];
+  const VIEWS = ['landing', 'intake', 'map', 'roleplay', 'simreport', 'learn', 'lesson', 'forum', 'thread', 'ask', 'settings'];
   const TAB_FOR_VIEW = {
     landing: 'case', intake: 'case', map: 'case', roleplay: 'case', simreport: 'case',
     learn: 'learn', lesson: 'learn',
-    forum: 'forum', thread: 'forum', ask: 'forum'
+    forum: 'forum', thread: 'forum', ask: 'forum',
+    settings: 'settings'
   };
 
   let currentView = 'landing';
@@ -52,6 +61,274 @@
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
     return data;
+  }
+
+  function readAIConfig() {
+    try {
+      const value = JSON.parse(localStorage.getItem(LS_AI) || 'null');
+      if (!value || !AI_MODELS[value.provider] || typeof value.apiKey !== 'string' || !value.apiKey) return null;
+      return {
+        provider: value.provider,
+        apiKey: value.apiKey,
+        model: typeof value.model === 'string' && value.model.trim() ? value.model.trim() : AI_MODELS[value.provider][0]
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  function hasAIConfig() {
+    return !!state.aiConfig;
+  }
+
+  function maskKey(key) {
+    return `********${key.slice(-4)}`;
+  }
+
+  function populateModels(provider, selectedModel) {
+    const models = AI_MODELS[provider] || AI_MODELS.gemini;
+    $('aiModelMenu').innerHTML = models.map((model) => `<button type="button" data-model="${esc(model)}">${esc(model)}</button>`).join('');
+    $('aiModelMenu').querySelectorAll('[data-model]').forEach((button) => {
+      button.addEventListener('click', () => {
+        $('aiModel').value = button.dataset.model;
+        $('aiModelMenu').hidden = true;
+        $('btnModelMenu').setAttribute('aria-expanded', 'false');
+      });
+    });
+    $('aiModelMenu').hidden = true;
+    $('btnModelMenu').setAttribute('aria-expanded', 'false');
+    $('aiModel').value = selectedModel || models[0];
+  }
+
+  function updateAiBadge() {
+    $('aiBadge').textContent = state.aiConfig ? `AI: ${state.aiConfig.provider === 'gemini' ? 'Gemini' : 'OpenRouter'}` : 'AI: not configured';
+  }
+
+  function renderAISettings() {
+    const config = state.aiConfig;
+    const provider = config ? config.provider : 'gemini';
+    $('aiProvider').value = provider;
+    populateModels(provider, config && config.model);
+    $('aiApiKey').value = '';
+    $('aiApiKey').type = 'password';
+    $('btnToggleKey').textContent = 'Show';
+    $('savedKeyStatus').textContent = config
+      ? `Saved ${config.provider === 'gemini' ? 'Gemini' : 'OpenRouter'} key: ${maskKey(config.apiKey)}`
+      : 'No API key saved on this device.';
+  }
+
+  function setSettingsResult(message, type) {
+    $('settingsResult').innerHTML = message ? `<div class="disclaimer-banner ${type || ''}">${esc(message)}</div>` : '';
+  }
+
+  function openSettings(message) {
+    renderAISettings();
+    setSettingsResult(message || '', 'warn');
+    showView('settings');
+  }
+
+  function ensureAIConfig() {
+    if (hasAIConfig()) return true;
+    openSettings('Configure an AI provider and API key here before using Case Preparation.');
+    return false;
+  }
+
+  function currentAIConfig() {
+    const provider = $('aiProvider').value;
+    const enteredKey = $('aiApiKey').value.trim();
+    const savedKey = state.aiConfig && state.aiConfig.provider === provider ? state.aiConfig.apiKey : '';
+    return {
+      provider,
+      apiKey: enteredKey || savedKey,
+      model: $('aiModel').value.trim() || AI_MODELS[provider][0]
+    };
+  }
+
+  function saveAISettings() {
+    const config = currentAIConfig();
+    if (!config.apiKey) {
+      setSettingsResult('Paste an API key before saving.', 'warn');
+      return;
+    }
+    state.aiConfig = config;
+    try {
+      localStorage.setItem(LS_AI, JSON.stringify(config));
+      renderAISettings();
+      updateAiBadge();
+      setSettingsResult('API key saved on this device only.', '');
+    } catch {
+      setSettingsResult('This browser could not save the API key locally.', 'warn');
+    }
+  }
+
+  function removeAISettings() {
+    localStorage.removeItem(LS_AI);
+    state.aiConfig = null;
+    renderAISettings();
+    updateAiBadge();
+    setSettingsResult('Saved API key removed from this device.', '');
+  }
+
+  function parseProviderJSON(text) {
+    const start = text.indexOf('{');
+    const end = text.lastIndexOf('}');
+    if (start === -1 || end < start) throw new Error('The provider did not return the expected response.');
+    try {
+      return JSON.parse(text.slice(start, end + 1));
+    } catch {
+      throw new Error('The provider returned an invalid response.');
+    }
+  }
+
+  function providerError(kind, message, status) {
+    const error = new Error(message);
+    error.providerKind = kind;
+    error.status = status;
+    return error;
+  }
+
+  async function providerErrorDetail(response) {
+    const text = await response.text().catch(() => '');
+    if (!text) return '';
+    try {
+      const data = JSON.parse(text);
+      return data.error && typeof data.error === 'object'
+        ? data.error.message || data.error.status || ''
+        : data.error || data.message || '';
+    } catch {
+      return text.slice(0, 300);
+    }
+  }
+
+  function classifyProviderFailure(status, detail, context) {
+    const message = String(detail || '').toLowerCase();
+    if (
+      status === 401 ||
+      /(?:api )?key.*(?:invalid|not valid|expired|missing)|(?:invalid|unauthorized).*?(?:api )?key/.test(message)
+    ) {
+      return providerError('key', `The API key was rejected${status ? ` (${status})` : ''}. Check the key and selected provider.`, status);
+    }
+    if (status === 402 || status === 429 || /insufficient (?:credit|balance)|quota|rate limit|resource exhausted/.test(message)) {
+      return providerError('quota', 'The API key is valid, but the provider reports insufficient credits, quota, or a rate limit.', status);
+    }
+    if (
+      context === 'model' ||
+      /model.*(?:not found|does not exist|invalid|unavailable|unsupported)|(?:not found|does not exist|unavailable).*model/.test(message)
+    ) {
+      return providerError('model', 'The API key is valid, but the selected model is invalid or unavailable.', status);
+    }
+    return providerError('provider', `The provider could not complete the request${status ? ` (${status})` : ''}. Try again later.`, status);
+  }
+
+  async function providerFetch(url, options, context) {
+    let response;
+    try {
+      response = await fetch(url, options);
+    } catch {
+      throw providerError('network', 'A network or CORS error prevented the provider request. Check your connection and browser privacy settings.');
+    }
+    if (!response.ok) throw classifyProviderFailure(response.status, await providerErrorDetail(response), context);
+    return response;
+  }
+
+  async function verifyGeminiModel(config) {
+    let pageToken = '';
+    for (let page = 0; page < 10; page++) {
+      const params = new URLSearchParams({ pageSize: '1000' });
+      if (pageToken) params.set('pageToken', pageToken);
+      const response = await providerFetch(`${GEMINI_BASE_URL}/models?${params}`, {
+        headers: { 'x-goog-api-key': config.apiKey }
+      }, 'key');
+      const data = await response.json().catch(() => ({}));
+      const model = (data.models || []).find((item) => item.name === `models/${config.model}`);
+      if (model) {
+        if (Array.isArray(model.supportedGenerationMethods) && !model.supportedGenerationMethods.includes('generateContent')) {
+          throw classifyProviderFailure(0, 'Selected model does not support generateContent.', 'model');
+        }
+        return;
+      }
+      pageToken = data.nextPageToken;
+      if (!pageToken) break;
+    }
+    throw classifyProviderFailure(0, 'Selected model was not found.', 'model');
+  }
+
+  async function verifyProviderKey(config) {
+    if (config.provider === 'openrouter') {
+      await providerFetch(`${OPENROUTER_BASE_URL}/key`, {
+        headers: { Authorization: `Bearer ${config.apiKey}` }
+      }, 'key');
+      return;
+    }
+    await verifyGeminiModel(config);
+  }
+
+  async function callProvider(config, request) {
+    let response;
+    if (config.provider === 'gemini') {
+      response = await providerFetch(`${GEMINI_BASE_URL}/models/${encodeURIComponent(config.model)}:generateContent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': config.apiKey },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: request.systemPrompt }] },
+          contents: [{ role: 'user', parts: [{ text: request.userPrompt }] }],
+          generationConfig: { maxOutputTokens: request.maxTokens, responseMimeType: 'application/json' }
+        })
+      }, 'completion');
+      const data = await response.json();
+      const text = data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts
+        ? data.candidates[0].content.parts.map((part) => part.text || '').join('')
+        : '';
+      return parseProviderJSON(text);
+    }
+
+    response = await providerFetch(`${OPENROUTER_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${config.apiKey}` },
+      body: JSON.stringify({
+        model: config.model,
+        max_tokens: request.maxTokens,
+        messages: [
+          { role: 'system', content: request.systemPrompt },
+          { role: 'user', content: request.userPrompt }
+        ]
+      })
+    }, 'completion');
+    const data = await response.json();
+    return parseProviderJSON(data.choices && data.choices[0] && data.choices[0].message ? data.choices[0].message.content || '' : '');
+  }
+
+  async function requestAI(task, payload) {
+    if (!ensureAIConfig()) throw new Error('AI configuration is required.');
+    const request = await api(`/api/case/${state.caseId}/ai-request`, {
+      method: 'POST',
+      body: JSON.stringify({ task, ...payload })
+    });
+    return callProvider(state.aiConfig, request);
+  }
+
+  async function testAIKey() {
+    const config = currentAIConfig();
+    if (!config.apiKey) {
+      setSettingsResult('Paste an API key before testing it.', 'warn');
+      return;
+    }
+    const button = $('btnTestAiKey');
+    button.disabled = true;
+    setSettingsResult('Testing key with the selected provider...', 'info');
+    try {
+      await verifyProviderKey(config);
+      await callProvider(config, {
+        systemPrompt: 'Return only a JSON object.',
+        userPrompt: 'Return {"ok":true}.',
+        maxTokens: 24
+      });
+      setSettingsResult('Key works with the selected provider and model.', '');
+    } catch (err) {
+      setSettingsResult(err.message || 'The provider request failed. Try again.', 'warn');
+    } finally {
+      button.disabled = false;
+    }
   }
 
   function esc(str) {
@@ -109,6 +386,7 @@
   // rendered in a different language, so switching language elsewhere in the
   // app never leaves a stale translation behind.
   async function goToCaseView() {
+    if (!ensureAIConfig()) return;
     if (!state.caseId) return showView('landing');
     if (!state.mapBuilt) return showView('intake');
     if (state.mapRenderedLang !== state.lang) return buildMap();
@@ -135,7 +413,7 @@
     try {
       const meta = await api('/api/meta');
       state.languages = meta.languages;
-      $('aiBadge').textContent = t(meta.llmActive ? 'engine.llm' : 'engine.rules');
+      updateAiBadge();
       renderLangSwitch();
     } catch {
       $('aiBadge').textContent = '—';
@@ -144,6 +422,7 @@
 
   // ---------- Case intake ----------
   async function startCase() {
+    if (!ensureAIConfig()) return;
     const data = await api('/api/case', { method: 'POST', body: JSON.stringify({}) });
 
     // Reset everything derived from the previous case so nothing stale carries over.
@@ -180,17 +459,20 @@
     const input = $('intakeInput');
     const text = input.value.trim();
     if (!text || !state.caseId) return;
+    if (!ensureAIConfig()) return;
     addBubble($('intakeLog'), 'user', text);
     input.value = '';
     input.disabled = true;
     try {
+      const aiResult = await requestAI('intake', { message: text });
       const result = await api(`/api/case/${state.caseId}/intake`, {
         method: 'POST',
-        body: JSON.stringify({ message: text })
+        body: JSON.stringify({ message: text, aiResult })
       });
       addBubble($('intakeLog'), 'assistant', result.assistantText);
       if (result.complete) $('intakeCompleteBar').hidden = false;
     } catch (err) {
+      input.value = text;
       addBubble($('intakeLog'), 'system', err.message);
     } finally {
       input.disabled = false;
@@ -304,12 +586,14 @@
   }
 
   async function buildMap() {
+    if (!ensureAIConfig()) return;
     showView('map');
     $('mapLoading').hidden = false;
     try {
+      const aiResult = await requestAI('report', {});
       const { map, report, related } = await api(`/api/case/${state.caseId}/analyze`, {
         method: 'POST',
-        body: JSON.stringify({})
+        body: JSON.stringify({ aiResult })
       });
       state.mapBuilt = true;
       state.mapRenderedLang = state.lang;
@@ -325,14 +609,16 @@
 
   // ---------- Role-play ----------
   async function startRoleplay(mode) {
+    if (!ensureAIConfig()) return;
     state.roleplayMode = mode;
     $('roleplayTitle').textContent = t(mode === 'opposing' ? 'stress.opposing.title' : 'stress.tribunal.title');
     $('roleplayLog').innerHTML = '';
     showView('roleplay');
     try {
+      const aiResult = await requestAI('roleplay-start', { mode });
       const result = await api(`/api/case/${state.caseId}/roleplay/start`, {
         method: 'POST',
-        body: JSON.stringify({ mode })
+        body: JSON.stringify({ mode, aiResult })
       });
       $('roleplayDisclaimer').textContent = result.disclaimer;
       addBubble($('roleplayLog'), 'assistant', result.assistantText);
@@ -346,17 +632,20 @@
     const input = $('roleplayInput');
     const text = input.value.trim();
     if (!text || !state.caseId) return;
+    if (!ensureAIConfig()) return;
     addBubble($('roleplayLog'), 'user', text);
     input.value = '';
     input.disabled = true;
     try {
+      const aiResult = await requestAI('roleplay-turn', { mode: state.roleplayMode, message: text });
       const result = await api(`/api/case/${state.caseId}/roleplay/message`, {
         method: 'POST',
-        body: JSON.stringify({ mode: state.roleplayMode, message: text })
+        body: JSON.stringify({ mode: state.roleplayMode, message: text, aiResult })
       });
       addBubble($('roleplayLog'), 'assistant', result.assistantText);
       if (result.ended) addBubble($('roleplayLog'), 'system', t('rp.ended'));
     } catch (err) {
+      input.value = text;
       addBubble($('roleplayLog'), 'system', err.message);
     } finally {
       input.disabled = false;
@@ -365,8 +654,10 @@
   }
 
   async function endRoleplay() {
+    if (!ensureAIConfig()) return;
     try {
-      const report = await api(`/api/case/${state.caseId}/roleplay/report`, { method: 'POST', body: JSON.stringify({}) });
+      const aiResult = await requestAI('simulation-report', {});
+      const report = await api(`/api/case/${state.caseId}/roleplay/report`, { method: 'POST', body: JSON.stringify({ aiResult }) });
       $('simModeLabel').textContent = `${t('sim.mode')}: ${t(report.mode === 'opposing' ? 'stress.opposing.title' : 'stress.tribunal.title')}`;
       const cols = [
         ['held', t('sim.held'), report.heldUp],
@@ -639,6 +930,10 @@
     try {
       const c = await api('/api/case/' + saved);
       state.caseId = c.id;
+      if (!hasAIConfig()) {
+        openSettings('Configure an AI provider and API key here to resume Case Preparation.');
+        return;
+      }
       $('intakeLog').innerHTML = '';
       for (const m of c.intake.messages) addBubble($('intakeLog'), m.role, m.text);
       if (c.intake.complete) $('intakeCompleteBar').hidden = false;
@@ -668,6 +963,7 @@
   async function init() {
     const savedLang = localStorage.getItem(LS_LANG);
     if (savedLang) state.lang = savedLang;
+    state.aiConfig = readAIConfig();
     loadDoneLessons();
 
     await loadStrings();
@@ -681,11 +977,31 @@
     $('btnGoForumHero').addEventListener('click', loadForum);
     $('btnGoLearnFromSim').addEventListener('click', loadLearn);
 
+    $('aiProvider').addEventListener('change', () => populateModels($('aiProvider').value));
+    $('btnModelMenu').addEventListener('click', () => {
+      const menu = $('aiModelMenu');
+      menu.hidden = !menu.hidden;
+      $('btnModelMenu').setAttribute('aria-expanded', String(!menu.hidden));
+    });
+    $('btnToggleKey').addEventListener('click', () => {
+      const keyInput = $('aiApiKey');
+      const show = keyInput.type === 'password';
+      if (show && !keyInput.value && state.aiConfig) keyInput.value = state.aiConfig.apiKey;
+      keyInput.type = show ? 'text' : 'password';
+      $('btnToggleKey').textContent = show ? 'Hide' : 'Show';
+      if (!show && state.aiConfig && keyInput.value === state.aiConfig.apiKey) keyInput.value = '';
+    });
+    $('btnSaveAiSettings').addEventListener('click', saveAISettings);
+    $('btnTestAiKey').addEventListener('click', testAIKey);
+    $('btnRemoveAiKey').addEventListener('click', removeAISettings);
+    renderAISettings();
+
     document.querySelectorAll('.tab-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const tab = btn.dataset.tab;
         if (tab === 'learn') loadLearn();
         else if (tab === 'forum') loadForum();
+        else if (tab === 'settings') openSettings();
         else goToCaseView();
       });
     });

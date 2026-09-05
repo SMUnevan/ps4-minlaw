@@ -1,48 +1,49 @@
-// Single entry point used by all routes. It uses the LLM for conversation and
-// reports when an API key is configured, otherwise falls back to rules. The
-// fact map is always deterministic so it remains an exact record of user input.
-// This is the only file that decides which backend runs and mutates shared
-// caseRecord state — both engines are called as near-pure functions.
+// Single entry point used by all routes. Provider calls happen in the browser
+// with the user's local BYOK setting; this server only supplies safe request
+// templates and records the returned result. The fact map remains deterministic
+// so it is an exact record of user input.
 
 const rulesEngine = require('./rulesEngine');
 const matcher = require('./matcher');
 const { normaliseLang } = require('../lib/i18n');
 
-let llmEngine = null;
+const llmEngine = require('./llmEngine');
 
-function useLLM() {
-  return !!process.env.ANTHROPIC_API_KEY;
+function isLLMActive() {
+  return false;
 }
 
-function getLLM() {
-  if (!llmEngine) llmEngine = require('./llmEngine');
-  return llmEngine;
-}
-
-async function tryLLM(fn, label) {
-  if (!useLLM()) return null;
-  try {
-    return await fn(getLLM());
-  } catch (err) {
-    console.warn(`[engine] LLM ${label} failed, falling back to rule engine: ${err.message}`);
-    return null;
+function getAIRequest(caseRecord, task, lang, options = {}) {
+  const l = normaliseLang(lang);
+  switch (task) {
+    case 'intake': return llmEngine.buildIntakeRequest(caseRecord, options.message, l);
+    case 'report': return llmEngine.buildReadinessReportRequest(caseRecord, buildCaseMap(caseRecord, l), l);
+    case 'roleplay-start': return llmEngine.buildRoleplayStartRequest(caseRecord, options.mode, l);
+    case 'roleplay-turn': return llmEngine.buildRoleplayTurnRequest(caseRecord, options.mode, options.message, l);
+    case 'simulation-report': return llmEngine.buildSimulationReportRequest(caseRecord, l);
+    default: {
+      const err = new Error('Unknown AI request');
+      err.status = 400;
+      throw err;
+    }
   }
 }
 
-function isLLMActive() {
-  return useLLM();
+function validResult(result, fields) {
+  return result && typeof result === 'object' && fields.every((field) => typeof result[field] !== 'undefined');
 }
 
 function getOpeningPrompt(lang) {
   return rulesEngine.getOpeningPrompt(normaliseLang(lang));
 }
 
-async function intakeTurn(caseRecord, userText, lang) {
+async function intakeTurn(caseRecord, userText, lang, aiResult) {
   const l = normaliseLang(lang);
   caseRecord.intake.messages.push({ role: 'user', text: userText });
 
-  let result = await tryLLM((llm) => llm.intakeTurn(caseRecord, userText, l), 'intakeTurn');
+  let result = aiResult;
   if (result) {
+    if (!validResult(result, ['slots', 'assistantText'])) throw new Error('Invalid AI response');
     caseRecord.intake.slots = { ...caseRecord.intake.slots, ...result.slots };
   } else {
     result = rulesEngine.intakeTurn(caseRecord, userText, l); // mutates slots directly
@@ -53,7 +54,7 @@ async function intakeTurn(caseRecord, userText, lang) {
   return { assistantText: result.assistantText, complete: !!result.complete };
 }
 
-async function buildCaseMap(caseRecord, lang) {
+function buildCaseMap(caseRecord, lang) {
   const l = normaliseLang(lang);
   // Cached per language: switching language rebuilds rather than showing stale text.
   if (caseRecord.map && caseRecord.mapLang === l) return caseRecord.map;
@@ -68,12 +69,15 @@ async function buildCaseMap(caseRecord, lang) {
   return map;
 }
 
-async function buildReadinessReport(caseRecord, lang) {
+async function buildReadinessReport(caseRecord, lang, aiResult) {
   const l = normaliseLang(lang);
   if (caseRecord.report && caseRecord.reportLang === l) return caseRecord.report;
 
   const map = await buildCaseMap(caseRecord, l);
-  let report = await tryLLM((llm) => llm.buildReadinessReport(caseRecord, map, l), 'buildReadinessReport');
+  let report = aiResult;
+  if (report && !validResult(report, ['strengths', 'weaknesses', 'missingInfo', 'documentsToGather', 'counterarguments', 'disclaimer'])) {
+    throw new Error('Invalid AI response');
+  }
   if (!report) report = rulesEngine.buildReadinessReport(caseRecord, map, l);
 
   caseRecord.report = report;
@@ -85,13 +89,14 @@ function buildRelated(caseRecord, lang) {
   return matcher.matchRelated(caseRecord, normaliseLang(lang));
 }
 
-async function startRoleplay(caseRecord, mode, lang) {
+async function startRoleplay(caseRecord, mode, lang, aiResult) {
   const l = normaliseLang(lang);
   caseRecord.roleplay.mode = mode;
   caseRecord.roleplay.turns = [];
   caseRecord.roleplay.queue = [];
 
-  let result = await tryLLM((llm) => llm.roleplayStart(caseRecord, mode, l), 'roleplayStart');
+  let result = aiResult;
+  if (result && !validResult(result, ['assistantText'])) throw new Error('Invalid AI response');
   if (!result) result = rulesEngine.roleplayStart(caseRecord, mode, l);
 
   caseRecord.roleplay.turns.push({ role: 'ai', text: result.assistantText });
@@ -102,20 +107,22 @@ async function startRoleplay(caseRecord, mode, lang) {
   };
 }
 
-async function continueRoleplay(caseRecord, mode, userText, lang) {
+async function continueRoleplay(caseRecord, mode, userText, lang, aiResult) {
   const l = normaliseLang(lang);
   caseRecord.roleplay.turns.push({ role: 'user', text: userText });
 
-  let result = await tryLLM((llm) => llm.roleplayTurn(caseRecord, mode, userText, l), 'roleplayTurn');
+  let result = aiResult;
+  if (result && !validResult(result, ['assistantText'])) throw new Error('Invalid AI response');
   if (!result) result = rulesEngine.roleplayTurn(caseRecord, mode, userText, l);
 
   caseRecord.roleplay.turns.push({ role: 'ai', text: result.assistantText });
   return { assistantText: result.assistantText, ended: !!result.ended };
 }
 
-async function buildSimulationReport(caseRecord, lang) {
+async function buildSimulationReport(caseRecord, lang, aiResult) {
   const l = normaliseLang(lang);
-  let report = await tryLLM((llm) => llm.buildSimulationReport(caseRecord, l), 'buildSimulationReport');
+  let report = aiResult;
+  if (report && !validResult(report, ['heldUp', 'recommendations'])) throw new Error('Invalid AI response');
   if (!report) report = rulesEngine.buildSimulationReport(caseRecord, l);
   caseRecord.simulationReport = report;
   return report;
@@ -123,6 +130,7 @@ async function buildSimulationReport(caseRecord, lang) {
 
 module.exports = {
   isLLMActive,
+  getAIRequest,
   getOpeningPrompt,
   intakeTurn,
   buildCaseMap,

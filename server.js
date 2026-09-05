@@ -73,7 +73,17 @@ app.post(
     const caseRecord = requireCase(req.params.id);
     const message = requireText(res, req.body.message, 'message');
     if (!message) return;
-    res.json(await engine.intakeTurn(caseRecord, message, langOf(req)));
+    res.json(await engine.intakeTurn(caseRecord, message, langOf(req), req.body.aiResult));
+  })
+);
+
+// Request templates contain case context but never credentials. The browser
+// sends them directly to Gemini or OpenRouter using its locally stored key.
+app.post(
+  '/api/case/:id/ai-request',
+  asyncRoute(async (req, res) => {
+    const caseRecord = requireCase(req.params.id);
+    res.json(engine.getAIRequest(caseRecord, req.body.task, langOf(req), req.body));
   })
 );
 
@@ -83,7 +93,7 @@ app.post(
     const caseRecord = requireCase(req.params.id);
     const lang = langOf(req);
     const map = await engine.buildCaseMap(caseRecord, lang);
-    const report = await engine.buildReadinessReport(caseRecord, lang);
+    const report = await engine.buildReadinessReport(caseRecord, lang, req.body.aiResult);
     const related = engine.buildRelated(caseRecord, lang);
     res.json({ map, report, related });
   })
@@ -105,7 +115,7 @@ app.post(
     if (mode !== 'opposing' && mode !== 'tribunal') {
       return res.status(400).json({ error: 'mode must be "opposing" or "tribunal"' });
     }
-    res.json(await engine.startRoleplay(caseRecord, mode, langOf(req)));
+    res.json(await engine.startRoleplay(caseRecord, mode, langOf(req), req.body.aiResult));
   })
 );
 
@@ -119,7 +129,7 @@ app.post(
     }
     const message = requireText(res, req.body.message, 'message');
     if (!message) return;
-    res.json(await engine.continueRoleplay(caseRecord, mode, message, langOf(req)));
+    res.json(await engine.continueRoleplay(caseRecord, mode, message, langOf(req), req.body.aiResult));
   })
 );
 
@@ -127,7 +137,7 @@ app.post(
   '/api/case/:id/roleplay/report',
   asyncRoute(async (req, res) => {
     const caseRecord = requireCase(req.params.id);
-    res.json(await engine.buildSimulationReport(caseRecord, langOf(req)));
+    res.json(await engine.buildSimulationReport(caseRecord, langOf(req), req.body.aiResult));
   })
 );
 
@@ -189,6 +199,6 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Case Compass running at http://localhost:${PORT}`);
-  console.log(`AI engine: ${engine.isLLMActive() ? 'Claude (LLM)' : 'rule-based (no API key set)'}`);
+  console.log('AI providers: browser BYOK (Gemini or OpenRouter)');
   console.log(`Languages: ${i18n.LANGS.join(', ')} · Lessons: ${content.lessonCount()}`);
 });
