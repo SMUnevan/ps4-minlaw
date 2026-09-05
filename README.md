@@ -83,7 +83,7 @@ public/                       Frontend
 ### Why a pluggable AI engine
 The rule-based engine runs the **entire product end-to-end with zero external calls** — no API key, no network dependency, no risk of a live-demo failure. It does real extraction (dispute type, amounts, evidence with negation handling, prior contact, desired outcome, timeline) in four languages.
 
-If `ANTHROPIC_API_KEY` is set, every call is routed through Claude instead for more dynamic intake and role-play — still grounded in the same curated knowledge base, and with related threads and lessons still chosen deterministically so no citation can be hallucinated. **Any LLM failure falls back to the rule engine for that single call**, so the app never breaks mid-demo. The active engine is shown in the top-right badge.
+If `ANTHROPIC_API_KEY` is set, intake, readiness reports, and role-play use Claude for more dynamic interaction. The Fact–Evidence–Law map remains deterministic so it is an exact, auditable breakdown of the user's input; related threads and lessons are also deterministic, so references cannot be invented. **Any LLM failure falls back to the rule engine for that single call**, so the app never breaks mid-demo. The active engine is shown in the top-right badge.
 
 ## Running it
 

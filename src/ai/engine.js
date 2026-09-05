@@ -1,8 +1,8 @@
-// Single entry point used by all routes. Picks the LLM engine when an API key
-// is configured, otherwise (or on any LLM failure) uses the rule-based engine.
-// This is the only file that decides which backend runs, and the only file
-// that mutates shared caseRecord state — both engines are called as near-pure
-// functions.
+// Single entry point used by all routes. It uses the LLM for conversation and
+// reports when an API key is configured, otherwise falls back to rules. The
+// fact map is always deterministic so it remains an exact record of user input.
+// This is the only file that decides which backend runs and mutates shared
+// caseRecord state — both engines are called as near-pure functions.
 
 const rulesEngine = require('./rulesEngine');
 const matcher = require('./matcher');
@@ -58,8 +58,9 @@ async function buildCaseMap(caseRecord, lang) {
   // Cached per language: switching language rebuilds rather than showing stale text.
   if (caseRecord.map && caseRecord.mapLang === l) return caseRecord.map;
 
-  let map = await tryLLM((llm) => llm.buildCaseMap(caseRecord, l), 'buildCaseMap');
-  if (!map) map = rulesEngine.buildCaseMap(caseRecord, l);
+  // The case map is deliberately deterministic. It is the record of what the
+  // user said, so it must not depend on a model paraphrasing or merging facts.
+  const map = rulesEngine.buildCaseMap(caseRecord, l);
 
   caseRecord.map = map;
   caseRecord.mapLang = l;

@@ -61,7 +61,9 @@ async function callJSON(systemPrompt, userPrompt, maxTokens = 1024) {
 }
 
 async function intakeTurn(caseRecord, userText, lang) {
-  const history = caseRecord.intake.messages.map((m) => `${m.role.toUpperCase()}: ${m.text}`).join('\n');
+  // engine.js records the current message before calling us. Keep it out of
+  // history because it is supplied once below as the latest message.
+  const history = caseRecord.intake.messages.slice(0, -1).map((m) => `${m.role.toUpperCase()}: ${m.text}`).join('\n');
   const system = `${RESPONSIBLE_AI_PREAMBLE}
 
 ${languageRule(lang)}
@@ -77,8 +79,15 @@ You are conducting a structured intake interview to fill these slots from the us
 - priorContact: "Yes", "No", or null
 - desiredOutcome: one of refund, replacement, repair, compensation, deposit_return, repayment, unpaid_salary, or null
 
-Ask ONE targeted follow-up question at a time for the single most useful missing slot. After at most 6 user
-turns, or once you have enough for a reasonable preparation view, stop asking and set complete=true.
+First, address the substance of the LATEST USER MESSAGE in one or two plain sentences. If it answers a question
+you asked, acknowledge the specific information supplied; do not ask that question again. If it asks a direct
+question, answer only from the supplied facts and these instructions. Say exactly what is unknown when the facts
+do not support an answer. Do not use generic acknowledgements, restate the user's question, or repeat a previous
+follow-up.
+
+Then ask ONE targeted follow-up question at a time for the single most useful missing slot. After at most 6 user
+turns, or once you have enough for a reasonable preparation view, stop asking and set complete=true. The reply
+must contain an answer or acknowledgement before a follow-up unless the intake is complete.
 Note: employment/salary disputes are NOT heard by the Small Claims Tribunals; do not tell the user to file there.
 
 Respond with ONLY a JSON object, no other text:
@@ -119,9 +128,10 @@ async function buildCaseMap(caseRecord, lang) {
 ${languageRule(lang)}
 
 Build a "Fact-Evidence-Law map" from the user's intake. You are given a curated knowledge base below. You MUST
-only cite concepts from it — do not invent statutes, cases, or URLs. Tag each fact and evidence item with a
-status: "supported" (clearly stated or held), "uncertain" (partially clear or unverified), or "missing"
-(not provided or not yet gathered).
+only cite concepts from it — do not invent statutes, cases, or URLs. Each fact must be one atomic proposition,
+not a copied narrative. Put dates, sequences, and deadlines only in the timeline fact; never repeat a timeline
+entry as a general fact. Tag each fact and evidence item with a status: "supported" (clearly stated or held),
+"uncertain" (partially clear or unverified), or "missing" (not provided or not yet gathered).
 
 RELEVANT CONCEPT IDS FOR THIS DISPUTE TYPE: ${JSON.stringify(dt.concepts)}
 KNOWLEDGE BASE: ${JSON.stringify(knowledgeBaseFor(lang))}
@@ -180,7 +190,10 @@ ${languageRule(lang)}
 
 ${roleDescription}
 Case facts you may draw on (do not invent facts beyond these): ${JSON.stringify(caseRecord.intake.slots)}
-Keep each line short (under 40 words), one question or challenge at a time, and never break character to give legal advice.`;
+Keep each line short (under 40 words), one question or challenge at a time, and never break character to give legal advice.
+Every turn after the opening must directly engage with the user's immediately preceding answer: identify one
+concrete point that needs proof, is unclear, or is challenged, then ask one new question about that point. Never
+repeat a question already asked or ignore an answer by moving to a generic scripted question.`;
 }
 
 async function roleplayStart(caseRecord, mode, lang) {

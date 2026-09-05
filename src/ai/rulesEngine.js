@@ -150,9 +150,73 @@ function extractDesiredOutcome(text) {
   return null;
 }
 
-function looksLikeTimeline(text) {
-  if (/\d{1,2}\/\d{1,2}|\b(19|20)\d{2}\b/.test(text)) return true;
-  return matchesAny(text, Object.values(kw.timelineHints));
+const TEMPORAL_MARKER = /\d{1,2}\/\d{1,2}|\b(?:19|20)\d{2}\b|\b(?:today|yesterday|tomorrow|last|next|ago|before|after|since|until|deadline|week|weeks|month|months|year|years|day|days)\b|发生|之前|之后|上个月|昨天|今天|明天|minggu|bulan|tahun|semalam|hari ini|esok|sebelum|selepas|minggu lalu|bulan lalu|வருட|மாத|வாரம்|நேற்று|இன்று|நாளை|முன்|பின்/i;
+
+function timelineEntries(text) {
+  return String(text)
+    .split(/[.!?。？！\n]+/)
+    .flatMap((sentence) => sentence.split(/\s+(?:but|however|although)\s+/i))
+    .map((part) => part.trim())
+    .filter((part) => part && TEMPORAL_MARKER.test(part));
+}
+
+function mergeTimeline(existing, entries) {
+  const all = [...(existing && existing !== '__not_specified__' ? existing.split(' | ') : []), ...entries];
+  return [...new Set(all.map((entry) => entry.trim()).filter(Boolean))].join(' | ') || null;
+}
+
+function normaliseStatement(text) {
+  return String(text).toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+}
+
+function isTimelineOnly(text) {
+  const trimmed = text.trim();
+  if (/(?:happened|occurred|发生|berlaku|நடந்த)/i.test(trimmed) && TEMPORAL_MARKER.test(trimmed)) return true;
+  return /^(?:on\s+)?(?:\d{1,2}\/\d{1,2}|(?:19|20)\d{2}|today|yesterday|tomorrow|last\b|next\b|发生|上个月|昨天|今天|明天|minggu|bulan|tahun|semalam|hari ini|esok|வருட|மாத|வாரம்|நேற்று|இன்று|நாளை)/i.test(trimmed);
+}
+
+function withoutTimelineDetails(text) {
+  return text
+    .replace(/\b(?:on|around)\s+\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+(?:\s+(?:19|20)\d{2})?/gi, '')
+    .replace(/\b(?:19|20)\d{2}\b/g, '')
+    .replace(/\b(?:after|before|since|until)\s+\d+\s+(?:day|days|week|weeks|month|months|year|years)\b/gi, '')
+    .replace(/\b\d+\s+(?:day|days|week|weeks|month|months|year|years)\s+ago\b/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/^[,;:\-\s]+|[,;:\-\s]+$/g, '')
+    .trim();
+}
+
+function atomicFacts(caseRecord) {
+  const statements = [];
+  const timeline = new Set(
+    (caseRecord.intake.slots.timeline || '')
+      .split(' | ')
+      .map(normaliseStatement)
+      .filter(Boolean)
+  );
+
+  for (const message of caseRecord.intake.messages) {
+    if (message.role !== 'user') continue;
+    for (const sentence of String(message.text).split(/[.!?。？！\n]+/)) {
+      for (const fragment of sentence.split(/\s+(?:but|however|although)\s+|(?<=,\s)/i)) {
+        const trimmed = fragment.trim();
+        // A dated event belongs in the timeline only. This keeps a timeline
+        // entry from reappearing as an indistinguishable fact.
+        if (!trimmed || isTimelineOnly(trimmed) || TEMPORAL_MARKER.test(trimmed)) continue;
+        if (/^(?:yes|no|ya|tidak|是|否|有|没有|ஆம்|இல்லை)[,，.!?。？！]?$/i.test(trimmed)) continue;
+        const fact = withoutTimelineDetails(trimmed);
+        const key = normaliseStatement(fact);
+        if (key && !timeline.has(key) && !statements.some((entry) => normaliseStatement(entry) === key)) {
+          statements.push(fact);
+        }
+      }
+    }
+  }
+
+  if (!statements.length && caseRecord.intake.slots.whatHappened) {
+    statements.push(caseRecord.intake.slots.whatHappened);
+  }
+  return statements.slice(0, 8).map((text) => ({ text, status: 'supported' }));
 }
 
 function firstMissingSlot(slots) {
@@ -191,7 +255,8 @@ function intakeTurn(caseRecord, userText, lang) {
   const outcome = extractDesiredOutcome(userText);
   if (outcome && !slots.desiredOutcome) slots.desiredOutcome = outcome;
 
-  if (!slots.timeline && looksLikeTimeline(userText)) slots.timeline = userText;
+  const entries = timelineEntries(userText);
+  if (entries.length) slots.timeline = mergeTimeline(slots.timeline, entries);
 
   const userTurns = caseRecord.intake.messages.filter((m) => m.role === 'user').length + 1;
   const missing = firstMissingSlot(slots);
@@ -225,21 +290,20 @@ function buildCaseMap(caseRecord, lang) {
   const dt = findDisputeType(slots.disputeType || 'other');
   const notSpecified = t(l, 'map.notSpecified');
 
-  const facts = [
-    { text: slots.whatHappened || t(l, 'map.notDescribed'), status: slots.whatHappened ? 'supported' : 'missing' },
-    {
-      text: `${t(l, 'map.amount')}: ${slots.amountClaimed || notSpecified}`,
-      status: slots.amountClaimed ? 'supported' : 'missing'
-    },
-    {
-      text: `${t(l, 'map.priorContact')}: ${slots.priorContact ? localPriorContact(slots.priorContact, l) : notSpecified}`,
-      status: slots.priorContact ? (slots.priorContact === 'Yes' ? 'supported' : 'uncertain') : 'missing'
-    },
-    {
-      text: `${t(l, 'map.outcome')}: ${slots.desiredOutcome ? localOutcome(slots.desiredOutcome, l) : notSpecified}`,
-      status: slots.desiredOutcome ? 'supported' : 'missing'
-    }
-  ];
+  const facts = atomicFacts(caseRecord);
+  if (!facts.length) facts.push({ text: t(l, 'map.notDescribed'), status: 'missing' });
+  facts.push({
+    text: `${t(l, 'map.amount')}: ${slots.amountClaimed || notSpecified}`,
+    status: slots.amountClaimed ? 'supported' : 'missing'
+  });
+  facts.push({
+    text: `${t(l, 'map.priorContact')}: ${slots.priorContact ? localPriorContact(slots.priorContact, l) : notSpecified}`,
+    status: slots.priorContact ? (slots.priorContact === 'Yes' ? 'supported' : 'uncertain') : 'missing'
+  });
+  facts.push({
+    text: `${t(l, 'map.outcome')}: ${slots.desiredOutcome ? localOutcome(slots.desiredOutcome, l) : notSpecified}`,
+    status: slots.desiredOutcome ? 'supported' : 'missing'
+  });
 
   if (slots.timeline && slots.timeline !== '__not_specified__') {
     facts.push({ text: `${t(l, 'map.timeline')}: ${slots.timeline}`, status: 'supported' });
@@ -340,14 +404,16 @@ function roleplayStart(caseRecord, mode, lang) {
 
 function roleplayTurn(caseRecord, mode, userText, lang) {
   const rp = caseRecord.roleplay;
+  const answer = String(userText).trim().replace(/\s+/g, ' ').slice(0, 160);
+  const responsePrefix = t(lang, mode === 'opposing' ? 'rp.reply.opposing' : 'rp.reply.tribunal', { answer });
   if (!rp.queue || rp.queue.length === 0) {
     return {
-      assistantText: t(lang, mode === 'opposing' ? 'rp.close.opposing' : 'rp.close.tribunal'),
+      assistantText: responsePrefix + t(lang, mode === 'opposing' ? 'rp.close.opposing' : 'rp.close.tribunal'),
       ended: true
     };
   }
   const next = rp.queue.shift();
-  return { assistantText: next, ended: rp.queue.length === 0 };
+  return { assistantText: responsePrefix + next, ended: rp.queue.length === 0 };
 }
 
 const UNCERTAIN_PHRASES = [

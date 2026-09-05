@@ -79,6 +79,12 @@ async function runCaseFlow(lang, messages, expectations) {
   const { map, report, related } = analyzed.body;
   check(`${lang}: dispute type = ${expectations.disputeTypeId}`, map.disputeTypeId === expectations.disputeTypeId, `got ${map.disputeTypeId}`);
   check(`${lang}: map has facts, evidence and law`, map.facts.length > 0 && map.evidence.length > 0 && map.law.length > 0);
+  check(
+    `${lang}: timeline is not duplicated as a fact`,
+    !map.facts.some((fact, index) =>
+      map.facts.some((other, otherIndex) => index !== otherIndex && other.text.toLowerCase().includes(fact.text.toLowerCase()))
+    )
+  );
   check(`${lang}: every law entry cites at least one source`, map.law.every((l) => (l.sources || []).length > 0));
   check(`${lang}: report has counterarguments`, report.counterarguments.length > 0);
   check(`${lang}: related forum threads matched`, related.threads.length > 0, `got ${related.threads.length}`);
@@ -115,11 +121,15 @@ async function runCaseFlow(lang, messages, expectations) {
   const started = await request('POST', `/api/case/${id}/roleplay/start?lang=${lang}`, { mode: 'opposing', lang });
   check(`${lang}: roleplay started with a disclaimer`, started.status === 200 && !!started.body.disclaimer && !!started.body.assistantText);
 
-  await request('POST', `/api/case/${id}/roleplay/message?lang=${lang}`, {
+  const firstRoleplayReply = await request('POST', `/api/case/${id}/roleplay/message?lang=${lang}`, {
     mode: 'opposing',
     message: 'I have the chat messages and the transfer record dated 22 August 2026.',
     lang
   });
+  check(
+    `${lang}: roleplay engages with the latest answer`,
+    firstRoleplayReply.status === 200 && firstRoleplayReply.body.assistantText.includes('chat messages')
+  );
   await request('POST', `/api/case/${id}/roleplay/message?lang=${lang}`, { mode: 'opposing', message: 'I am not sure.', lang });
 
   const simReport = await request('POST', `/api/case/${id}/roleplay/report?lang=${lang}`, { lang });
