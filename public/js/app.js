@@ -170,13 +170,18 @@
   }
 
   function parseProviderJSON(text) {
+    if (typeof text !== 'string' || !text.trim()) {
+      throw providerError('malformed', 'The model returned an empty response instead of the required JSON object.');
+    }
     const start = text.indexOf('{');
     const end = text.lastIndexOf('}');
-    if (start === -1 || end < start) throw new Error('The provider did not return the expected response.');
+    if (start === -1 || end < start) {
+      throw providerError('malformed', 'The model returned an incomplete response instead of the required JSON object. Try again.');
+    }
     try {
       return JSON.parse(text.slice(start, end + 1));
     } catch {
-      throw new Error('The provider returned an invalid response.');
+      throw providerError('malformed', 'The model returned malformed JSON. Try again.');
     }
   }
 
@@ -213,9 +218,12 @@
     }
     if (
       context === 'model' ||
-      /model.*(?:not found|does not exist|invalid|unavailable|unsupported)|(?:not found|does not exist|unavailable).*model/.test(message)
+      /(?:invalid|unknown|unsupported|unavailable|not found|does not exist).*model|model.*(?:invalid|unknown|unsupported|unavailable|not found|does not exist)/.test(message)
     ) {
       return providerError('model', 'The API key is valid, but the selected model is invalid or unavailable.', status);
+    }
+    if (status === 403) {
+      return providerError('forbidden', 'The provider denied this request (403). Check that this API key is permitted to use the selected model.', status);
     }
     return providerError('provider', `The provider could not complete the request${status ? ` (${status})` : ''}. Try again later.`, status);
   }
@@ -229,6 +237,16 @@
     }
     if (!response.ok) throw classifyProviderFailure(response.status, await providerErrorDetail(response), context);
     return response;
+  }
+
+  async function providerJSON(response, provider) {
+    try {
+      const data = await response.json();
+      if (!data || typeof data !== 'object') throw new Error('not an object');
+      return data;
+    } catch {
+      throw providerError('malformed', `${provider} returned a malformed JSON response. Try again.`);
+    }
   }
 
   async function verifyGeminiModel(config) {
@@ -255,9 +273,13 @@
 
   async function verifyProviderKey(config) {
     if (config.provider === 'openrouter') {
-      await providerFetch(`${OPENROUTER_BASE_URL}/key`, {
-        headers: { Authorization: `Bearer ${config.apiKey}` }
+      const response = await providerFetch(`${OPENROUTER_BASE_URL}/key`, {
+        headers: { Authorization: `Bearer ${config.apiKey}`, Accept: 'application/json' }
       }, 'key');
+      const data = await providerJSON(response, 'OpenRouter');
+      if (!data.data || typeof data.data !== 'object') {
+        throw providerError('malformed', 'OpenRouter returned an invalid key verification response.');
+      }
       return;
     }
     await verifyGeminiModel(config);
@@ -275,7 +297,7 @@
           generationConfig: { maxOutputTokens: request.maxTokens, responseMimeType: 'application/json' }
         })
       }, 'completion');
-      const data = await response.json();
+      const data = await providerJSON(response, 'Gemini');
       const text = data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts
         ? data.candidates[0].content.parts.map((part) => part.text || '').join('')
         : '';
@@ -284,18 +306,25 @@
 
     response = await providerFetch(`${OPENROUTER_BASE_URL}/chat/completions`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${config.apiKey}` },
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json', Authorization: `Bearer ${config.apiKey}` },
       body: JSON.stringify({
         model: config.model,
         max_tokens: request.maxTokens,
+        response_format: { type: 'json_object' },
         messages: [
           { role: 'system', content: request.systemPrompt },
           { role: 'user', content: request.userPrompt }
         ]
       })
     }, 'completion');
-    const data = await response.json();
-    return parseProviderJSON(data.choices && data.choices[0] && data.choices[0].message ? data.choices[0].message.content || '' : '');
+    const data = await providerJSON(response, 'OpenRouter');
+    const content = data.choices && data.choices[0] && data.choices[0].message
+      ? data.choices[0].message.content
+      : null;
+    if (typeof content !== 'string' || !content.trim()) {
+      throw providerError('malformed', 'OpenRouter returned a malformed completion response (missing choices[0].message.content).');
+    }
+    return parseProviderJSON(content);
   }
 
   async function requestAI(task, payload) {
@@ -321,7 +350,7 @@
       await callProvider(config, {
         systemPrompt: 'Return only a JSON object.',
         userPrompt: 'Return {"ok":true}.',
-        maxTokens: 24
+        maxTokens: 128
       });
       setSettingsResult('Key works with the selected provider and model.', '');
     } catch (err) {
