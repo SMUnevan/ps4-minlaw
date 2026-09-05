@@ -62,7 +62,7 @@ h1, h2, h3, .brand-name { font-family: var(--serif); letter-spacing: -0.01em; }
   background: none; border: none; padding: 0; cursor: pointer;
   font-size: 1.08rem; font-weight: 700; color: var(--ink);
 }
-.brand-mark { color: var(--brand); font-size: 1.15rem; }
+.brand-mark { width: 2rem; height: 2rem; flex: none; }
 .tabs { display: flex; gap: 0.35rem; flex: 1; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab-btn {
