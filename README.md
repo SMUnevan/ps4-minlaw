@@ -1,53 +1,89 @@
 # Case Compass
 
-**A responsible AI case-preparation companion for self-represented persons (SRPs), with a role-play stress-test mode and a separate Legal Literacy Hub.**
+**A responsible AI case-preparation companion for self-represented persons — with a bias-resistant role-play stress test, a cited Learning Hub, and a moderated anonymous legal forum. Available in English, 中文, Bahasa Melayu and தமிழ்.**
 
 Built for the **SMU LIT Legal-Tech Hackathon 2026 — Problem Statement 4 (Ministry of Law)**.
 
-> One-sentence pitch: A responsible AI case-preparation companion that does not just help self-represented persons build their case — it challenges their assumptions, exposes missing evidence, and prepares them for the questions and counterarguments they may face.
+> A responsible AI case-preparation companion that does not just help self-represented persons build their case — it challenges their assumptions, exposes missing evidence, and prepares them for the questions and counterarguments they may face.
 
 ## Why this exists
 
-People preparing a small claim on their own increasingly turn to general-purpose chatbots. The risk isn't a wrong answer — it's an *unchallenged* one: omitted facts, reinforced assumptions, unverifiable claims. Case Compass focuses on **guided preparation**, not answers: it organises a dispute into facts/evidence/law, then actively argues against the user (as the opposing party, or as a probing tribunal) before a real hearing does.
+People preparing a small claim on their own increasingly turn to general-purpose chatbots. The risk isn't a wrong answer — it's an *unchallenged* one: omitted facts, reinforced assumptions, unverifiable claims. Case Compass focuses on **guided preparation**, not answers: it organises a dispute into facts / evidence / law, argues against the user, and then connects them to people who faced the same problem and to the concepts behind it.
 
-## Demo flow (matches the problem statement's suggested flow)
+## The four parts
 
-1. **Structured intake** — describe the dispute in plain language; targeted follow-up questions fill gaps (dispute type, amount, evidence, prior contact, desired outcome, timeline).
-2. **Fact–Evidence–Law map** — everything is organised and tagged **Supported / Uncertain / Missing**, with legal concepts linked to a named source to verify.
-3. **Case Readiness Report** — a neutral view: strengths, weaknesses, missing info, documents to gather, possible counterarguments. It never predicts a result.
-4. **Stress-test** — **Opposing Party Mode** (AI argues as the other side) or **Tribunal Questioning Mode** (AI probes for gaps; explicitly does not impersonate a real judge).
-5. **Post-simulation report** — which answers held up, which were weak, and what to prepare next.
-6. **Legal Literacy Hub** — a separate, "Duolingo for law"-style set of short lessons, recommended based on the dispute type but always accessible standalone, so an active dispute is never trivialised.
+### 1. Guided case preparation
+Structured intake asks targeted follow-up questions, then produces a **Fact–Evidence–Law map** (every item tagged Supported / Uncertain / Missing) and a neutral **Case Readiness Report** — supported points, weak points, missing documents, and the counterarguments the other side is likely to make. It never predicts an outcome.
+
+It also routes correctly: employment and salary claims are told to start at **TADM**, not the Small Claims Tribunals.
+
+### 2. Role-play stress testing (the differentiator)
+- **Opposing Party Mode** — the AI argues as the other side would.
+- **Tribunal Questioning Mode** — probing questions that expose unclear facts. It explicitly does not impersonate a judge or predict a ruling.
+- **Post-simulation report** — each answer is classified as *held up* / *could be stronger* / *weak*, with concrete preparation actions.
+
+### 3. Learning Hub — bite-sized, and cited
+11 short lessons across 4 tracks, each 2–4 minutes with a quick check and progress tracking. **Every lesson cites the actual statute or judgment it is based on**, with a link to the primary source, and is summarised in plain language rather than paraphrased from a secondary site. Singapore cases used include:
+
+| Case | Used for |
+|---|---|
+| *Chwee Kin Keong v Digilandmall.com Pte Ltd* [2005] SGCA 2; [2005] 1 SLR(R) 502 | Unilateral mistake in online pricing — the $66 laser printer |
+| *Spandeck Engineering (S) Pte Ltd v DSTA* [2007] SGCA 37; [2007] 4 SLR(R) 100 | The two-stage test for duty of care |
+| *See Toh Siew Kee v Ho Ah Lam Ferrocement (Pte) Ltd* [2013] SGCA 29; [2013] 3 SLR 384 | Occupiers' liability folded into the Spandeck test |
+| *Gay Choon Ing v Loh Sze Ti Terence Peter* [2009] SGCA 3; [2009] 2 SLR(R) 332 | The elements of contract formation |
+
+Statutes cited link to Singapore Statutes Online: [Small Claims Tribunals Act 1984](https://sso.agc.gov.sg/Act/SCTA1984), [Consumer Protection (Fair Trading) Act 2003](https://sso.agc.gov.sg/Act/CPFTA2003), [Limitation Act 1959](https://sso.agc.gov.sg/Act/LA1959), [Employment Act 1968](https://sso.agc.gov.sg/Act/EmA1968). Procedure is cited to the [Singapore Judiciary](https://www.judiciary.gov.sg/civil/small-claims) and [TADM](https://www.tal.sg/tadm/know-your-options).
+
+### 4. Community Forum — anonymous, expert-answered, moderated
+Members of the public ask legal questions **anonymously**; answers come from **verified legal professionals** and are published only after approval by a public legal body (the model assumes a body such as **Pro Bono SG** or **MinLaw** as moderator). Threads are public so others with the same problem can find them.
+
+Anonymity is enforced, not just promised: `src/lib/forumStore.js` **redacts NRIC/FIN numbers, emails and phone numbers before the question is stored**, and tells the user what was removed.
+
+> The seeded threads are clearly labelled **demonstration content** in the UI and in the data file. They are illustrative examples written for this prototype, not real advice given to real people.
+
+### Cross-linking: the AI points you at real discussions and lessons
+After the readiness report, Case Compass surfaces **"People who faced something similar"** — matched forum threads — and **"Learn the concepts behind your case"** — matched lessons, each with a visible *why this matches* reason. This is deliberately **deterministic** (`src/ai/matcher.js`): the model never invents a reference, it only ever points at content that exists.
+
+### Languages
+Full interface, intake questions, role-play, reports, legal concepts and lessons in **English, 中文, Bahasa Melayu and தமிழ்**, switchable at any time — the case map rebuilds in the new language rather than showing a stale translation. The offline rule engine classifies free text in all four languages (`data/keywords.json`), including negation ("but no receipt", "但没有收据", "ரசீது இல்லை"). English is stated in-product as the authoritative version.
 
 ## Responsible-AI design, and where it lives in the code
 
-| Brief requirement | Where it's implemented |
+| Brief requirement | Implementation |
 |---|---|
-| No black-box legal conclusions | `data/legal-concepts.json` — every legal point carries a `verify` field naming the source to check, and a `confidence` flag. Rendered directly in the UI under "Relevant Law & Process". |
-| Confirmation-bias mitigation | `disputeTypes[].counterarguments` in the knowledge base + the entire role-play system (`src/ai/rulesEngine.js`, `src/ai/llmEngine.js`) is built to argue *against* the user, not validate them. |
-| Information, not representation | Every AI system prompt (`RESPONSIBLE_AI_PREAMBLE` in `src/ai/llmEngine.js`) explicitly forbids predicting outcomes or impersonating a judge; the same disclaimer is shown in the UI (`disclaimer-footer`, per-report disclaimers, role-play mode banners). |
-| Depends on user input | Stated in the landing page principles and in every generated Case Readiness Report's `disclaimer` field. |
+| No black-box legal conclusions | Every legal point in `data/legal-concepts.json` and every lesson carries `sources` (linking to SSO / eLitigation / Judiciary), a `verify` note, and a `confidence` flag rendered in the UI as *verified source* or *general principle*. |
+| Confirmation-bias mitigation | Counterarguments are first-class data per dispute type; the entire role-play system exists to argue against the user. |
+| Information, not representation | `RESPONSIBLE_AI_PREAMBLE` in `src/ai/llmEngine.js` forbids predicting outcomes, impersonating a judge, and inventing citations. The same limits appear in the UI disclaimers and footer. |
+| User-input limitations | Stated on the landing page and in every generated report's `disclaimer`. |
+| Anonymity (forum) | Server-side PII redaction before storage, plus a pending-moderation state so nothing is published as an answer without a verified professional and a moderator. |
 
 ## Architecture
 
-Deliberately dependency-light so it's trivial to run and judge: **Node/Express backend + vanilla HTML/CSS/JS frontend**, no build step.
+Dependency-light and no build step, so it is trivial to run and to judge: **Node/Express + vanilla HTML/CSS/JS**.
 
 ```
-server.js                 Express app: static file serving + REST API
-src/lib/caseStore.js       In-memory per-case state (fine for a hackathon demo)
-src/ai/engine.js           Picks LLM vs rule-based per call, with automatic fallback
-src/ai/rulesEngine.js      Fully self-contained deterministic engine (no network calls)
-src/ai/llmEngine.js        Optional Claude-backed engine (used only if an API key is set)
-data/legal-concepts.json   Small curated knowledge base (Singapore SCT-flavoured)
-data/literacy-lessons.json Legal Literacy Hub content
-public/                    Frontend (index.html, css/styles.css, js/app.js)
+server.js                     Express app: static serving + REST API
+src/lib/i18n.js               Language resolution and content localisation
+src/lib/content.js            Loads Learning Hub tracks from data/lessons/*.json
+src/lib/forumStore.js         Forum state + PII redaction + moderation status
+src/lib/caseStore.js          In-memory per-case state
+src/ai/engine.js              Chooses LLM vs rule engine, with automatic fallback
+src/ai/rulesEngine.js         Self-contained multilingual engine (no network calls)
+src/ai/llmEngine.js           Optional Claude-backed engine, grounded in the knowledge base
+src/ai/matcher.js             Deterministic case → forum thread / lesson matching
+data/legal-concepts.json      Cited knowledge base (4 languages)
+data/lessons/*.json           Learning Hub content, one file per track
+data/forum-threads.json       Seeded demonstration threads
+data/i18n.json                UI and engine strings
+data/keywords.json            Multilingual keyword matching for the offline engine
+scripts/smoke-test.js         65-check end-to-end API test
+public/                       Frontend
 ```
 
 ### Why a pluggable AI engine
+The rule-based engine runs the **entire product end-to-end with zero external calls** — no API key, no network dependency, no risk of a live-demo failure. It does real extraction (dispute type, amounts, evidence with negation handling, prior contact, desired outcome, timeline) in four languages.
 
-The rule-based engine (`src/ai/rulesEngine.js`) runs the **entire product end-to-end with zero external calls** — no API key, no network dependency, no risk of a live-demo failure from rate limits or connectivity. It does real extraction (dispute type, amounts, evidence, negation-aware evidence detection, prior contact, desired outcome) from free text, not just canned responses.
-
-If `ANTHROPIC_API_KEY` is set (see `.env.example`), `src/ai/engine.js` automatically routes every call through Claude instead, for more dynamic intake questions, case analysis, and role-play — while still grounding legal content in the same curated knowledge base to avoid hallucinated statutes. **Any LLM failure (bad JSON, network error, rate limit) transparently falls back to the rule engine for that single call**, so the app never breaks mid-demo. The running engine is shown live in the top-right badge.
+If `ANTHROPIC_API_KEY` is set, every call is routed through Claude instead for more dynamic intake and role-play — still grounded in the same curated knowledge base, and with related threads and lessons still chosen deterministically so no citation can be hallucinated. **Any LLM failure falls back to the rule engine for that single call**, so the app never breaks mid-demo. The active engine is shown in the top-right badge.
 
 ## Running it
 
@@ -56,14 +92,20 @@ npm install
 npm start
 ```
 
-Then open **http://localhost:3000**. No API key or `.env` file is required — it runs fully offline out of the box.
+Open **http://localhost:3000**. No API key or `.env` needed — it runs fully offline out of the box. To enable the Claude engine, copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY`.
 
-To enable the Claude-backed engine instead, copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY`.
+Run the test suite against a running server:
 
-Requires Node.js 14.18+ (tested on 14.16 and up via the `uuid` package for broad compatibility).
+```bash
+npm test
+```
+
+Requires Node.js 14.18+ (`npm run dev` uses `node --watch`, which needs Node 18+).
 
 ## Scope notes (honest about what this is)
 
-- State is in-memory (`src/lib/caseStore.js`) — restarting the server clears active cases. A production build would swap in a real database behind the same interface.
-- The legal knowledge base (`data/legal-concepts.json`) is intentionally small, general, and marked "needs verification" — it is a demonstration of the *pattern* (cite + flag uncertainty), not a legal-research product.
-- Per the hackathon's judging weighting (technical feasibility 30%, relevance 25%, innovation 25%, presentation 20%), this MVP leads with the case-preparation + stress-testing workflow and treats the Literacy Hub as the secondary feature, per the brief's own suggested scoping.
+- Case and forum state is in-memory; restarting the server clears it. A production build would swap in a database behind the same interfaces.
+- The knowledge base and lesson set are a curated starter set, not a legal-research product. Every entry is deliberately marked with what to verify and where.
+- Forum answers are seeded demonstration content, labelled as such in the UI. The moderation and verification workflow is modelled, not connected to a real panel of lawyers.
+- Non-English content is written for plain meaning and is not a certified translation; the product states in-product that English is authoritative.
+- Citations were checked against primary sources in September 2026. eLitigation was under scheduled maintenance at the time of the final link check, so judgment links follow eLitigation's documented URL scheme (verified against three separately indexed judgments).

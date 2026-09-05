@@ -1,0 +1,248 @@
+{
+  "track": {
+    "id": "contracts",
+    "order": 3,
+    "icon": "§",
+    "title": {
+      "en": "Contracts & consumer rights",
+      "zh": "合约与消费者权益",
+      "ms": "Kontrak & hak pengguna",
+      "ta": "ஒப்பந்தங்கள் & நுகர்வோர் உரிமைகள்"
+    },
+    "description": {
+      "en": "When a deal becomes binding, what you can ask for when goods are faulty, and what happens when a website shows the wrong price.",
+      "zh": "约定何时具有约束力、商品有毛病时可以要求什么，以及网站标错价格会怎样。",
+      "ms": "Bila perjanjian menjadi mengikat, apa yang boleh dituntut bila barang rosak, dan apa berlaku bila laman web tersilap harga.",
+      "ta": "ஒரு உடன்பாடு எப்போது கட்டுப்படுத்தும், பொருள் பழுதானால் என்ன கோரலாம், இணையதளம் தவறான விலை காட்டினால் என்ன ஆகும்."
+    }
+  },
+  "lessons": [
+    {
+      "id": "contract-basics",
+      "order": 1,
+      "minutes": 3,
+      "tags": ["contracts", "goods", "services", "debt", "tenancy"],
+      "title": {
+        "en": "The four things that make a contract",
+        "zh": "构成合约的四个要素",
+        "ms": "Empat perkara yang membentuk kontrak",
+        "ta": "ஒப்பந்தத்தை உருவாக்கும் நான்கு கூறுகள்"
+      },
+      "summary": {
+        "en": "Offer, acceptance, consideration, and intention — set out by Singapore's Court of Appeal.",
+        "zh": "要约、承诺、对价与意图——由新加坡上诉庭阐明。",
+        "ms": "Tawaran, penerimaan, balasan, dan niat — dinyatakan oleh Mahkamah Rayuan Singapura.",
+        "ta": "சலுகை, ஏற்பு, பரிசீலனை, நோக்கம் — சிங்கப்பூர் மேல்முறையீட்டு நீதிமன்றம் வகுத்தது."
+      },
+      "content": {
+        "en": [
+          "In Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3, the Court of Appeal set out the familiar building blocks of a contract: an offer, an acceptance of that offer, consideration, and an intention to create legal relations.",
+          "Consideration means each side gives something of value — money, goods, work, or a promise. This is why a bare promise to give someone a gift is usually not enforceable, while a promise to pay for work is.",
+          "Intention to create legal relations asks whether the parties meant this to be legally binding. Commercial dealings are generally presumed to be; casual family or social arrangements generally are not.",
+          "None of this requires a formal signed document. A WhatsApp exchange agreeing a price and a delivery date can tick every box. What matters in practice is whether you can prove the terms."
+        ],
+        "zh": [
+          "在 Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 一案中，上诉庭列明了合约的基本要素：要约、对该要约的承诺、对价，以及创设法律关系的意图。",
+          "对价指双方各自付出具有价值的东西——金钱、货品、劳务或承诺。这也是为何单纯赠与的承诺通常无法强制执行，而承诺为工作付款则可以。",
+          "创设法律关系的意图，是问当事人是否有意让这项约定具法律约束力。商业往来一般推定有此意图；随意的家庭或社交安排一般则没有。",
+          "以上都不要求正式签署的文件。一段谈定价格与交付日期的 WhatsApp 对话，就可能符合全部要素。实务上真正关键的，是你能否证明这些条件。"
+        ],
+        "ms": [
+          "Dalam Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3, Mahkamah Rayuan menetapkan asas sesuatu kontrak: tawaran, penerimaan tawaran itu, balasan, dan niat untuk mewujudkan hubungan undang-undang.",
+          "Balasan bermaksud setiap pihak memberi sesuatu yang bernilai — wang, barang, kerja, atau janji. Sebab itu janji semata-mata untuk memberi hadiah biasanya tidak boleh dikuatkuasakan, manakala janji membayar untuk kerja boleh.",
+          "Niat mewujudkan hubungan undang-undang bertanya sama ada pihak-pihak berhasrat ia mengikat di sisi undang-undang. Urusan komersial umumnya dianggap begitu; aturan keluarga atau sosial biasa umumnya tidak.",
+          "Semua ini tidak memerlukan dokumen rasmi bertandatangan. Perbualan WhatsApp yang mempersetujui harga dan tarikh penghantaran boleh memenuhi setiap elemen. Yang penting dalam praktik ialah sama ada anda boleh membuktikan termanya."
+        ],
+        "ta": [
+          "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 வழக்கில், மேல்முறையீட்டு நீதிமன்றம் ஒப்பந்தத்தின் அடிப்படைக் கூறுகளை வகுத்தது: சலுகை, அந்தச் சலுகையை ஏற்றல், பரிசீலனை, சட்ட உறவை உருவாக்கும் நோக்கம்.",
+          "பரிசீலனை என்பது இரு தரப்பும் மதிப்புள்ள ஏதேனும் தருவது — பணம், பொருள், வேலை அல்லது வாக்குறுதி. அதனால்தான் வெறும் அன்பளிப்பு வாக்குறுதியை நடைமுறைப்படுத்த முடியாது; ஆனால் வேலைக்குப் பணம் தரும் வாக்குறுதியை முடியும்.",
+          "சட்ட உறவை உருவாக்கும் நோக்கம் என்பது, இது சட்டப்படி கட்டுப்படுத்த வேண்டும் என்று தரப்பினர் கருதினார்களா என்பதைக் கேட்கிறது. வணிக பரிவர்த்தனைகளில் பொதுவாக அது இருப்பதாகக் கருதப்படும்; சாதாரண குடும்ப அல்லது சமூக ஏற்பாடுகளில் இல்லை.",
+          "இவற்றில் எதற்கும் கையெழுத்திட்ட முறையான ஆவணம் தேவையில்லை. விலையையும் வழங்கும் தேதியையும் ஒப்புக்கொள்ளும் WhatsApp உரையாடல் எல்லாக் கூறுகளையும் நிறைவு செய்யலாம். நடைமுறையில் முக்கியம் — நிபந்தனைகளை நீங்கள் நிரூபிக்க முடியுமா என்பதே."
+        ]
+      },
+      "sources": [
+        { "label": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2009_SGCA_3" }
+      ],
+      "caseNote": {
+        "citation": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3; [2009] 2 SLR(R) 332",
+        "url": "https://www.elitigation.sg/gd/s/2009_SGCA_3",
+        "why": {
+          "en": "A leading Singapore statement of the elements of contract formation, including a discussion of consideration and of when a compromise agreement is valid.",
+          "zh": "新加坡关于合约成立要素的重要判词，并讨论了对价，以及和解协议何时有效。",
+          "ms": "Kenyataan utama Singapura tentang elemen pembentukan kontrak, termasuk perbincangan tentang balasan dan bila perjanjian kompromi sah.",
+          "ta": "ஒப்பந்த உருவாக்கக் கூறுகள் குறித்த சிங்கப்பூரின் முக்கியத் தீர்ப்பு; பரிசீலனை மற்றும் சமரச ஒப்பந்தத்தின் செல்லுபடி குறித்தும் விவாதிக்கிறது."
+        }
+      },
+      "check": {
+        "question": {
+          "en": "Which element is usually missing from a purely social promise between family members?",
+          "zh": "家人之间纯属社交性质的承诺，通常缺少哪一个要素？",
+          "ms": "Elemen manakah yang biasanya tiada dalam janji sosial semata-mata antara ahli keluarga?",
+          "ta": "குடும்ப உறுப்பினர்களிடையே வெறும் சமூக வாக்குறுதியில் பொதுவாக எந்தக் கூறு இல்லை?"
+        },
+        "options": {
+          "en": ["Offer", "Acceptance", "Intention to create legal relations", "A signed document"],
+          "zh": ["要约", "承诺", "创设法律关系的意图", "签署的文件"],
+          "ms": ["Tawaran", "Penerimaan", "Niat mewujudkan hubungan undang-undang", "Dokumen bertandatangan"],
+          "ta": ["சலுகை", "ஏற்பு", "சட்ட உறவை உருவாக்கும் நோக்கம்", "கையெழுத்திட்ட ஆவணம்"]
+        },
+        "answerIndex": 2,
+        "explanation": {
+          "en": "Social and family arrangements are generally presumed not to be intended as legally binding. A signed document is never itself a required element.",
+          "zh": "社交与家庭安排一般推定为不具法律约束意图。而签署文件本身从来都不是必要要素。",
+          "ms": "Aturan sosial dan keluarga umumnya dianggap tidak berniat mengikat di sisi undang-undang. Dokumen bertandatangan pula bukan elemen wajib.",
+          "ta": "சமூக மற்றும் குடும்ப ஏற்பாடுகள் சட்டப்படி கட்டுப்படுத்தும் நோக்கம் இல்லாதவை எனக் கருதப்படும். கையெழுத்திட்ட ஆவணம் ஒருபோதும் கட்டாயக் கூறு அல்ல."
+        }
+      }
+    },
+    {
+      "id": "faulty-goods",
+      "order": 2,
+      "minutes": 3,
+      "tags": ["goods", "consumer", "contracts"],
+      "title": {
+        "en": "Faulty goods and unfair practices",
+        "zh": "商品有毛病与不公平交易行为",
+        "ms": "Barang rosak dan amalan tidak adil",
+        "ta": "பழுதான பொருட்களும் நியாயமற்ற நடைமுறைகளும்"
+      },
+      "summary": {
+        "en": "What you can ask a seller for, and the extra protection the Consumer Protection (Fair Trading) Act gives.",
+        "zh": "你可以向卖方要求什么，以及《消费者保护（公平交易）法令》提供的额外保障。",
+        "ms": "Apa yang boleh anda tuntut daripada penjual, dan perlindungan tambahan daripada Akta Perlindungan Pengguna (Perdagangan Adil).",
+        "ta": "விற்பனையாளரிடம் என்ன கோரலாம், நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டம் தரும் கூடுதல் பாதுகாப்பு என்ன."
+      },
+      "content": {
+        "en": [
+          "As a general contract-law principle, goods sold should match their description and be of satisfactory quality. Where they are not, you may be able to ask for a repair, a replacement, a price reduction, or a refund, depending on the contract and the circumstances.",
+          "The Consumer Protection (Fair Trading) Act 2003 adds a separate layer. It gives consumers a remedy against a supplier's 'unfair practice' — for example misleading you about what goods or services are, or taking advantage of a consumer who cannot reasonably protect their own interests.",
+          "Unfair practice claims within the money limit can be brought at the Small Claims Tribunals, alongside an ordinary contract claim.",
+          "Buying second-hand or 'sold as seen' changes what quality you can reasonably expect, but it does not automatically strip away every protection — particularly where the seller actively misrepresented the item's condition."
+        ],
+        "zh": [
+          "作为一般合约法原则，售出的商品应与描述相符并具备令人满意的品质。若不符合，你可以视合约与具体情况，要求维修、更换、减价或退款。",
+          "《2003 年消费者保护（公平交易）法令》另外提供一层保障。它让消费者在供应商从事「不公平交易行为」时取得救济——例如就商品或服务作出误导陈述，或利用无法合理保护自身利益的消费者。",
+          "金额在上限之内的不公平交易行为申索，可与一般合约申索一并在小额索偿审裁处提出。",
+          "购买二手或「现状出售」的商品，会改变你可以合理期待的品质水平，但并不会自动免除一切保障——尤其是在卖方主动就商品状况作虚假陈述的情况下。"
+        ],
+        "ms": [
+          "Sebagai prinsip am undang-undang kontrak, barang yang dijual patut menepati perihalnya dan berkualiti memuaskan. Jika tidak, anda mungkin boleh menuntut pembaikan, penggantian, pengurangan harga, atau bayaran balik, bergantung pada kontrak dan keadaan.",
+          "Akta Perlindungan Pengguna (Perdagangan Adil) 2003 menambah lapisan berasingan. Ia memberi pengguna remedi terhadap 'amalan tidak adil' pembekal — contohnya mengelirukan anda tentang barang atau perkhidmatan, atau mengambil kesempatan ke atas pengguna yang tidak dapat melindungi kepentingan sendiri.",
+          "Tuntutan amalan tidak adil dalam had jumlah boleh dibawa ke Tribunal Tuntutan Kecil, bersama tuntutan kontrak biasa.",
+          "Membeli barang terpakai atau 'dijual seadanya' mengubah kualiti yang boleh anda jangkakan, tetapi tidak menghapuskan semua perlindungan secara automatik — terutamanya jika penjual sengaja memberi gambaran palsu tentang keadaan barang."
+        ],
+        "ta": [
+          "பொது ஒப்பந்தச் சட்டக் கோட்பாட்டின்படி, விற்கப்படும் பொருள் அதன் விளக்கத்திற்கு ஏற்பவும் திருப்திகரமான தரத்திலும் இருக்க வேண்டும். இல்லையெனில், ஒப்பந்தத்தையும் சூழ்நிலையையும் பொறுத்து பழுதுபார்ப்பு, மாற்றுப் பொருள், விலைக் குறைப்பு அல்லது பணத்தைத் திரும்பக் கோரலாம்.",
+          "2003 நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டம் தனி அடுக்கு பாதுகாப்பைத் தருகிறது. வழங்குநரின் 'நியாயமற்ற நடைமுறைக்கு' எதிராக நுகர்வோருக்குத் தீர்வு அளிக்கிறது — எடுத்துக்காட்டாக பொருள் அல்லது சேவை குறித்து தவறாக வழிநடத்துதல், அல்லது தன் நலனைக் காக்க இயலாத நுகர்வோரைப் பயன்படுத்திக் கொள்ளுதல்.",
+          "தொகை வரம்புக்குள் இருக்கும் நியாயமற்ற நடைமுறை கோரிக்கைகளை, சாதாரண ஒப்பந்தக் கோரிக்கையுடன் சேர்த்து சிறு வழக்கு தீர்ப்பாயத்தில் தொடரலாம்.",
+          "பழைய பொருள் அல்லது 'பார்த்தபடி விற்பனை' என்பது நீங்கள் எதிர்பார்க்கக்கூடிய தரத்தை மாற்றும்; ஆனால் எல்லாப் பாதுகாப்பையும் தானாக நீக்காது — குறிப்பாக விற்பனையாளர் பொருளின் நிலை குறித்து வேண்டுமென்றே தவறாகக் கூறியிருந்தால்."
+        ]
+      },
+      "sources": [
+        { "label": "Consumer Protection (Fair Trading) Act 2003 (SSO)", "url": "https://sso.agc.gov.sg/Act/CPFTA2003" },
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "Which statute gives consumers a remedy specifically against a supplier's 'unfair practice'?",
+          "zh": "哪一部法令专门就供应商的「不公平交易行为」为消费者提供救济？",
+          "ms": "Akta manakah yang memberi pengguna remedi khusus terhadap 'amalan tidak adil' pembekal?",
+          "ta": "வழங்குநரின் 'நியாயமற்ற நடைமுறைக்கு' எதிராக நுகர்வோருக்குத் தீர்வு அளிக்கும் சட்டம் எது?"
+        },
+        "options": {
+          "en": ["Limitation Act 1959", "Consumer Protection (Fair Trading) Act 2003", "Employment Act 1968", "Small Claims Tribunals Act 1984"],
+          "zh": ["《1959 年时效法令》", "《2003 年消费者保护（公平交易）法令》", "《1968 年雇佣法令》", "《1984 年小额索偿审裁处法令》"],
+          "ms": ["Akta Had Masa 1959", "Akta Perlindungan Pengguna (Perdagangan Adil) 2003", "Akta Pekerjaan 1968", "Akta Tribunal Tuntutan Kecil 1984"],
+          "ta": ["1959 கால வரம்புச் சட்டம்", "2003 நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டம்", "1968 வேலைவாய்ப்புச் சட்டம்", "1984 சிறு வழக்கு தீர்ப்பாயச் சட்டம்"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "The Consumer Protection (Fair Trading) Act 2003 targets unfair practices by suppliers. The other Acts deal with deadlines, employment, and the tribunal's structure.",
+          "zh": "《2003 年消费者保护（公平交易）法令》针对的正是供应商的不公平交易行为。其他法令分别处理时效、雇佣与审裁处的组织架构。",
+          "ms": "Akta Perlindungan Pengguna (Perdagangan Adil) 2003 menyasarkan amalan tidak adil pembekal. Akta lain berkaitan tempoh had, pekerjaan, dan struktur tribunal.",
+          "ta": "2003 நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டமே வழங்குநர்களின் நியாயமற்ற நடைமுறைகளை இலக்காகக் கொண்டது. மற்ற சட்டங்கள் கால வரம்பு, வேலை, தீர்ப்பாய அமைப்பு பற்றியவை."
+        }
+      }
+    },
+    {
+      "id": "online-pricing-error",
+      "order": 3,
+      "minutes": 4,
+      "tags": ["goods", "consumer", "contracts"],
+      "title": {
+        "en": "The $66 laser printer: online pricing mistakes",
+        "zh": "66 元的激光打印机：网上标错价",
+        "ms": "Pencetak laser $66: kesilapan harga dalam talian",
+        "ta": "$66 லேசர் அச்சுப்பொறி: ஆன்லைன் விலைப் பிழை"
+      },
+      "summary": {
+        "en": "Singapore's best-known e-commerce case, and what it means when a website lists the wrong price.",
+        "zh": "新加坡最著名的电子商务案例，以及网站标错价格时意味着什么。",
+        "ms": "Kes e-dagang paling terkenal di Singapura, dan maksudnya apabila laman web tersilap harga.",
+        "ta": "சிங்கப்பூரின் மிகப் பிரபல மின்வணிக வழக்கு; இணையதளம் தவறான விலை காட்டினால் என்ன அர்த்தம்."
+      },
+      "content": {
+        "en": [
+          "In Chwee Kin Keong v Digilandmall.com Pte Ltd, an employee mistakenly published a commercial laser printer at S$66 instead of S$3,854. Before the error was caught, 784 people ordered more than 4,000 printers. Six of them sued when the seller refused to deliver.",
+          "The courts held the contracts were void. The buyers had actual or constructive knowledge of the pricing mistake — they had discussed how obviously wrong the price was — and the law of unilateral mistake does not let you snap up a bargain you know to be an error.",
+          "The practical lesson for shoppers: an automated order confirmation does not always mean you have an enforceable contract, particularly where the price was obviously and knowably wrong.",
+          "The equally practical lesson for the other direction: this is a narrow doctrine. A seller who simply regrets a low price, without any obvious mistake known to the buyer, generally cannot escape the deal that easily."
+        ],
+        "zh": [
+          "在 Chwee Kin Keong v Digilandmall.com Pte Ltd 一案中，一名员工误将商用激光打印机的售价标为 66 元，而非 3,854 元。在错误被发现前，784 人下单订购了超过 4,000 台打印机。其中六人在卖方拒绝交货后提起诉讼。",
+          "法院裁定这些合约无效。买方对标价错误具有实际或推定的认知——他们曾讨论这个价格明显有误——而单方错误的法则，不允许你趁明知有误的情况下攫取便宜。",
+          "对消费者的实务启示：自动发出的订单确认，并不总代表你已取得可强制执行的合约，尤其是在价格明显且可被察觉为错误的情况下。",
+          "反过来同样实务的启示：这项法则适用范围很窄。若卖方只是事后后悔价格太低，而买方并不知道存在明显错误，卖方通常无法如此轻易脱身。"
+        ],
+        "ms": [
+          "Dalam Chwee Kin Keong v Digilandmall.com Pte Ltd, seorang pekerja tersilap menyiarkan pencetak laser komersial pada S$66 dan bukan S$3,854. Sebelum kesilapan dikesan, 784 orang memesan lebih 4,000 pencetak. Enam daripada mereka menyaman apabila penjual enggan menghantar.",
+          "Mahkamah memutuskan kontrak itu terbatal. Pembeli mempunyai pengetahuan sebenar atau konstruktif tentang kesilapan harga itu — mereka telah membincangkan betapa jelasnya harga itu salah — dan undang-undang kesilapan unilateral tidak membenarkan anda meraih tawaran yang anda tahu satu kesilapan.",
+          "Pengajaran praktikal bagi pembeli: pengesahan pesanan automatik tidak semestinya bermakna anda mempunyai kontrak yang boleh dikuatkuasakan, terutamanya apabila harga jelas dan boleh diketahui sebagai silap.",
+          "Pengajaran sebaliknya juga praktikal: doktrin ini sempit. Penjual yang sekadar menyesal harga terlalu rendah, tanpa kesilapan jelas yang diketahui pembeli, umumnya tidak boleh terlepas semudah itu."
+        ],
+        "ta": [
+          "Chwee Kin Keong v Digilandmall.com Pte Ltd வழக்கில், ஒரு ஊழியர் வணிக லேசர் அச்சுப்பொறியை S$3,854-க்குப் பதிலாக S$66 என தவறாக வெளியிட்டார். பிழை கண்டறியப்படும் முன் 784 பேர் 4,000-க்கும் மேற்பட்ட அச்சுப்பொறிகளை ஆர்டர் செய்தனர். விற்பனையாளர் வழங்க மறுத்தபோது அவர்களில் ஆறு பேர் வழக்குத் தொடர்ந்தனர்.",
+          "ஒப்பந்தங்கள் செல்லாதவை என நீதிமன்றங்கள் தீர்ப்பளித்தன. விலைப் பிழை குறித்து வாங்கியவர்களுக்கு உண்மையான அல்லது கருதப்படும் அறிவு இருந்தது — விலை எவ்வளவு தெளிவாகத் தவறு என்று அவர்களே பேசியிருந்தனர். ஒருதலைப் பிழை பற்றிய சட்டம், பிழை என்று தெரிந்தே பயன்படுத்திக் கொள்வதை அனுமதிக்காது.",
+          "வாங்குபவர்களுக்கான நடைமுறைப் பாடம்: தானியங்கி ஆர்டர் உறுதிப்படுத்தல் எப்போதும் நடைமுறைப்படுத்தக்கூடிய ஒப்பந்தத்தைக் குறிக்காது — குறிப்பாக விலை வெளிப்படையாகத் தவறு எனத் தெரியும்போது.",
+          "மறுபக்கத்திற்கான பாடமும் முக்கியம்: இது குறுகிய கோட்பாடு. விலை குறைவாகப் போய்விட்டதே என்று வருந்தும் விற்பனையாளர், வாங்குபவருக்குத் தெரிந்த வெளிப்படையான பிழை இல்லாமல், அவ்வளவு எளிதாக ஒப்பந்தத்திலிருந்து விலக முடியாது."
+        ]
+      },
+      "sources": [
+        { "label": "Chwee Kin Keong v Digilandmall.com Pte Ltd [2005] SGCA 2 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2005_SGCA_2" },
+        { "label": "Consumer Protection (Fair Trading) Act 2003 (SSO)", "url": "https://sso.agc.gov.sg/Act/CPFTA2003" }
+      ],
+      "caseNote": {
+        "citation": "Chwee Kin Keong and others v Digilandmall.com Pte Ltd [2005] SGCA 2; [2005] 1 SLR(R) 502 (CA), affirming [2004] SGHC 71",
+        "url": "https://www.elitigation.sg/gd/s/2005_SGCA_2",
+        "why": {
+          "en": "The leading Singapore authority on unilateral mistake in online contracting. The buyers' knowledge that the S$66 price was an error was enough to render the contracts void.",
+          "zh": "新加坡关于网上缔约中单方错误的权威判例。买方明知 66 元的标价是错误，已足以使合约无效。",
+          "ms": "Autoriti utama Singapura tentang kesilapan unilateral dalam kontrak dalam talian. Pengetahuan pembeli bahawa harga S$66 itu satu kesilapan sudah memadai untuk membatalkan kontrak.",
+          "ta": "ஆன்லைன் ஒப்பந்தத்தில் ஒருதலைப் பிழை குறித்த சிங்கப்பூரின் முக்கியத் தீர்ப்பு. S$66 விலை பிழை என்று வாங்கியவர்களுக்குத் தெரிந்திருந்ததே ஒப்பந்தங்களைச் செல்லாததாக்கப் போதுமானதாக இருந்தது."
+        }
+      },
+      "check": {
+        "question": {
+          "en": "Why did the buyers in the Digilandmall case lose?",
+          "zh": "在 Digilandmall 一案中，买方为何败诉？",
+          "ms": "Mengapa pembeli dalam kes Digilandmall kalah?",
+          "ta": "Digilandmall வழக்கில் வாங்கியவர்கள் ஏன் தோற்றனர்?"
+        },
+        "options": {
+          "en": ["Online orders can never form a contract", "They knew, or ought to have known, that the price was a mistake", "They ordered too many printers", "The website had no terms and conditions"],
+          "zh": ["网上订单永远无法成立合约", "他们知道、或理应知道该价格是错误的", "他们订购的打印机数量太多", "该网站没有条款与细则"],
+          "ms": ["Pesanan dalam talian tidak boleh membentuk kontrak", "Mereka tahu, atau sepatutnya tahu, bahawa harga itu satu kesilapan", "Mereka memesan terlalu banyak pencetak", "Laman web itu tiada terma dan syarat"],
+          "ta": ["ஆன்லைன் ஆர்டர்கள் ஒருபோதும் ஒப்பந்தமாகா", "விலை பிழை என்று அவர்களுக்குத் தெரிந்திருந்தது அல்லது தெரிந்திருக்க வேண்டும்", "அவர்கள் அதிக அச்சுப்பொறிகளை ஆர்டர் செய்தனர்", "இணையதளத்தில் விதிமுறைகள் இல்லை"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "It was their knowledge of the seller's error, not the medium or the quantity, that made the contracts void for unilateral mistake.",
+          "zh": "使合约因单方错误而无效的，是他们对卖方错误的认知，而非交易媒介或订购数量。",
+          "ms": "Pengetahuan mereka tentang kesilapan penjual — bukan medium atau kuantiti — yang membatalkan kontrak kerana kesilapan unilateral.",
+          "ta": "ஒப்பந்தங்களை ஒருதலைப் பிழையால் செல்லாததாக்கியது, விற்பனையாளரின் பிழை குறித்த அவர்களின் அறிவே; ஊடகமோ எண்ணிக்கையோ அல்ல."
+        }
+      }
+    }
+  ]
+}

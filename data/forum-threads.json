@@ -1,0 +1,243 @@
+{
+  "_notice": "DEMONSTRATION DATA. These questions and answers are illustrative examples written for this prototype. They are not real legal advice given to real people, and the 'verified legal professional' labels denote a role in the moderation model, not any identified individual. In a live deployment, questions would come from the public and answers from verified volunteer lawyers, published only after moderation by a public legal body such as Pro Bono SG or MinLaw.",
+  "topics": [
+    { "id": "consumer", "label": { "en": "Consumer & goods", "zh": "消费与商品", "ms": "Pengguna & barang", "ta": "நுகர்வோர் & பொருட்கள்" } },
+    { "id": "services", "label": { "en": "Services & contractors", "zh": "服务与承包商", "ms": "Perkhidmatan & kontraktor", "ta": "சேவைகள் & ஒப்பந்ததாரர்கள்" } },
+    { "id": "tenancy", "label": { "en": "Housing & tenancy", "zh": "住房与租约", "ms": "Perumahan & penyewaan", "ta": "வீடு & வாடகை" } },
+    { "id": "debt", "label": { "en": "Money owed", "zh": "欠款", "ms": "Wang terhutang", "ta": "தர வேண்டிய பணம்" } },
+    { "id": "employment", "label": { "en": "Employment", "zh": "雇佣", "ms": "Pekerjaan", "ta": "வேலைவாய்ப்பு" } },
+    { "id": "negligence", "label": { "en": "Damage & negligence", "zh": "损坏与疏忽", "ms": "Kerosakan & kecuaian", "ta": "சேதம் & கவனக்குறைவு" } },
+    { "id": "procedure", "label": { "en": "Court & tribunal process", "zh": "法庭与审裁程序", "ms": "Proses mahkamah & tribunal", "ta": "நீதிமன்ற & தீர்ப்பாய நடைமுறை" } }
+  ],
+  "threads": [
+    {
+      "id": "t-phone-faulty",
+      "topic": "consumer",
+      "tags": ["goods", "consumer", "contracts", "evidence"],
+      "lang": "en",
+      "title": "Bought a phone from an online marketplace seller, it died after 5 days. Seller says 'no refunds'.",
+      "body": "I bought a used phone for $520 from a seller on an online marketplace. It worked for about five days and then stopped charging completely. The seller says his listing stated 'no refunds, sold as seen' so he doesn't have to do anything. I have the chat history and the PayNow transfer but no formal receipt. Is 'no refunds' the end of the matter?",
+      "askedAt": "2026-07-14",
+      "views": 2841,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-phone-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-07-16",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "A 'no refunds' line in a listing is not automatically the end of the matter. Two separate things can be in play. First, ordinary contract principles: goods should generally match their description and be of satisfactory quality, and a seller cannot always exclude that simply by writing a disclaimer. Second, the Consumer Protection (Fair Trading) Act 2003 gives a remedy where a supplier has engaged in an 'unfair practice', for example misrepresenting the condition of the item.\n\nBuying second-hand does lower what you can reasonably expect — but 'sold as seen' does not license a seller to misdescribe a phone that fails within days.\n\nYour chat history and transfer record are more useful than you think: the chat may show what the seller said about the phone's condition, which is exactly what a misrepresentation argument turns on. Save the full chat export now.\n\nIf it stays unresolved, a claim of this size falls within the Small Claims Tribunals, which hear contracts for the sale of goods and unfair practice claims under the CPFTA. Note the 2-year filing window. This is general information, not advice on your specific facts — a free legal clinic can look at the actual chat."
+        }
+      ]
+    },
+    {
+      "id": "t-deposit-repaint",
+      "topic": "tenancy",
+      "tags": ["tenancy", "housing", "evidence"],
+      "lang": "en",
+      "title": "Landlord kept $1,200 of my deposit for 'repainting'. The walls were just faded.",
+      "body": "I rented a place for two years and moved out last month. The landlord returned only part of the deposit and deducted $1,200 for repainting the whole unit. There was no damage — the paint was just faded and there were a couple of small scuff marks near the door. He refuses to give me any receipt for the painting. Can he do this?",
+      "askedAt": "2026-08-02",
+      "views": 4127,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-deposit-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-08-04",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "Start with your tenancy agreement — it governs what may be deducted. Many agreements allow deductions for unpaid rent, unpaid utilities and damage beyond fair wear and tear, and some separately require professional cleaning or painting on exit. If your agreement has an express repainting clause, that changes the analysis considerably, so read that clause closely.\n\nAbsent such a clause, faded paint after two years of ordinary living is generally treated as fair wear and tear rather than damage, and fair wear and tear is normally not deductible.\n\nTwo practical steps. Ask in writing for an itemised breakdown with the painter's invoice or quote. A deduction that cannot be substantiated with a receipt is much harder to defend. And gather your move-in and move-out photos, since most deposit disputes are really about the condition of the unit on day one.\n\nResidential tenancy disputes for a term not exceeding two years can be brought at the Small Claims Tribunals if unresolved. General information only."
+        },
+        {
+          "id": "a-deposit-2",
+          "authorRole": "agency",
+          "authorLabel": "Moderator note · public legal body",
+          "answeredAt": "2026-08-04",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "Adding a procedural note for other readers: before filing, check whether your tenancy term was 2 years or less, as that affects whether the Small Claims Tribunals can hear it. Filing details and eligibility are on the Singapore Judiciary website."
+        }
+      ]
+    },
+    {
+      "id": "t-loan-gift",
+      "topic": "debt",
+      "tags": ["debt", "contracts", "evidence"],
+      "lang": "en",
+      "title": "Lent a friend $3,000 by PayNow. He now says it was a gift.",
+      "body": "In early 2025 I transferred $3,000 to a friend who said he needed it for a family emergency and would return it 'once things settle'. There was nothing in writing. He has now stopped replying properly and last month told me it was a gift and he owes me nothing. I still have the PayNow record and some WhatsApp messages from around that time. What can I actually do?",
+      "askedAt": "2026-06-21",
+      "views": 5390,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-loan-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-06-23",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "A verbal loan can still be a binding agreement — a contract does not need to be signed. The difficulty is evidential: the burden is on you to show it was a loan rather than a gift.\n\nThe transfer record alone proves only that money moved. What usually decides these cases is the surrounding conversation. Go back through the WhatsApp messages from that period and look for anything where he refers to returning, repaying, or 'settling' the money, or where he explains why he needs it. Even a message saying 'I'll return you once I get my bonus' is powerful, because it shows both of you treated it as a debt.\n\nOne practical step while the matter is live: send him a calm, factual message setting out your understanding — the date, the amount, and that it was to be repaid — and ask him to confirm. Whatever he replies, including silence, is potentially useful.\n\nOn timing, keep the Small Claims Tribunals' 2-year filing window in mind, counted from the event giving rise to the claim, and note the separate general limitation period under the Limitation Act 1959. General information only; a free legal clinic can review the actual messages."
+        }
+      ]
+    },
+    {
+      "id": "t-reno-abandoned",
+      "topic": "services",
+      "tags": ["services", "contracts", "evidence"],
+      "lang": "en",
+      "title": "Renovation contractor took 60% deposit and stopped showing up.",
+      "body": "We paid a contractor 60% upfront (about $14,000) for a kitchen and bathroom renovation. He did the hacking and some plumbing, then stopped coming. It's been seven weeks. He replies occasionally saying he's short of manpower. We have the signed quotation, the payment records, and photos of the unfinished work. What are our options?",
+      "askedAt": "2026-08-19",
+      "views": 3266,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-reno-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-08-21",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "You are in a stronger evidential position than most people who post here: a signed quotation, payment records and dated photographs are exactly the three things these disputes turn on.\n\nA few things worth doing before escalating. First, write to him setting a clear, reasonable deadline to resume and complete the works, and say what you will do if he does not. This creates a record that you gave him the opportunity to perform — tribunals generally expect that step. Second, photograph the current state of the works with dates, and get one or two quotes from other contractors for completing the job, since the cost of completion is usually the measure of your loss. Third, keep every message; his admissions about manpower and delay are useful to you.\n\nOn forum: your figure exceeds the Small Claims Tribunals limit of $20,000 only if your total claim does; if your claim is within $20,000 (or $30,000 with a Memorandum of Consent) the SCT can hear a contract for the provision of services. If your loss is larger, that is a different track and worth taking proper advice on. General information only."
+        }
+      ]
+    },
+    {
+      "id": "t-salary-unpaid",
+      "topic": "employment",
+      "tags": ["employment", "procedure", "evidence"],
+      "lang": "en",
+      "title": "Employer owes me two months' salary. Do I file at the Small Claims Tribunals?",
+      "body": "I work for a small company and haven't been paid for two months. The boss keeps saying cashflow is tight and that payment is coming. I'm still employed there for now. Someone told me to file at the Small Claims Tribunals but someone else said that's wrong. Which is it, and how long do I have?",
+      "askedAt": "2026-08-28",
+      "views": 6015,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-salary-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-08-29",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "The second person is right: salary claims do not start at the Small Claims Tribunals.\n\nThe route for employment disputes is to register the claim for mediation with the Tripartite Alliance for Dispute Management (TADM) first. A large number of salary claims are resolved at mediation without any tribunal hearing. If mediation does not resolve it, TADM issues a claim referral certificate, and you then file at the Employment Claims Tribunals through the Community Justice and Tribunals System within the stated period.\n\nThe ECT limit is $20,000, or $30,000 where the claim went through TADM or union-assisted mediation.\n\nOn timing — this matters in your case specifically — there is a filing time limit that applies while you are still employed, so do not let this drift on the strength of repeated verbal promises. Meanwhile, collect your employment contract or appointment letter, payslips, bank records showing what was actually paid, and any messages where your employer acknowledges the arrears. That last category is often the most useful. General information only."
+        }
+      ]
+    },
+    {
+      "id": "t-ceiling-leak",
+      "topic": "negligence",
+      "tags": ["negligence", "housing", "evidence"],
+      "lang": "en",
+      "title": "Upstairs neighbour's leak damaged my ceiling and they won't respond.",
+      "body": "Water has been seeping through my bedroom ceiling for about a month. A plumber I engaged said it is coming from the unit above. I've knocked on their door twice and sent a note; no response. The repair quote for my ceiling is around $2,300. What do I need to prove and what should I be doing now?",
+      "askedAt": "2026-07-30",
+      "views": 3902,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-leak-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-08-01",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "For a negligence claim you would generally need to show that the other party owed you a duty of care, breached it, and that the breach caused your loss. Singapore applies a single two-stage test for duty of care from Spandeck Engineering v DSTA [2007] SGCA 37: a threshold question of factual foreseeability, then legal proximity, then policy considerations.\n\nWhat that means practically for you is evidence of source and causation. Keep the plumber's written findings — ideally a report rather than a verbal opinion — with dates and photographs of the staining over time. Keep your repair quotes. Keep a record of every attempt you made to contact the neighbour, since it shows you gave them an opportunity to act.\n\nBefore litigating, it is usually worth involving the managing agent or town council, who often have an inspection process for inter-floor leaks, and the Community Mediation Centre for neighbour disputes.\n\nDamage to property is within the Small Claims Tribunals' categories and $2,300 is well within the limit. Note that personal injury claims are not. General information only."
+        }
+      ]
+    },
+    {
+      "id": "t-too-late",
+      "topic": "procedure",
+      "tags": ["procedure", "goods", "evidence"],
+      "lang": "en",
+      "title": "The problem happened almost 2 years ago. Am I too late?",
+      "body": "A workshop damaged my car during servicing in late 2024. I complained at the time but let it drop because I was overseas for work. I want to pursue it now. Someone mentioned there is a 6-year limit so I assumed I had plenty of time. Is that right?",
+      "askedAt": "2026-08-11",
+      "views": 2510,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-late-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Verified legal professional · volunteer",
+          "answeredAt": "2026-08-12",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "Be careful — you may be conflating two different deadlines.\n\nThe general limitation period under the Limitation Act 1959 for actions founded on contract or tort is commonly 6 years from when the cause of action accrued. That is the figure you were told about.\n\nBut the Small Claims Tribunals have their own, much shorter requirement: a claim must be filed within 2 years of the event giving rise to it. If your incident was in late 2024, you are close to that window, and it should be treated as urgent rather than as something with years left to run.\n\nSeparately, delay itself weakens claims: service records get archived, the staff who handled your car move on, and photographs get deleted. If you still have the original complaint correspondence from 2024, that is valuable — it fixes the date and shows you raised it contemporaneously.\n\nCheck the current filing requirements on the Judiciary's small claims pages and act quickly. General information only."
+        }
+      ]
+    },
+    {
+      "id": "t-zh-listing",
+      "topic": "consumer",
+      "tags": ["goods", "consumer", "contracts"],
+      "lang": "zh",
+      "title": "网上标明「全新」，收到却是用过的，可以退款吗？",
+      "body": "我在网上向一名卖家买了一台空气清新机，商品页面写明「全新未拆封」。收到后发现滤网已经用过，外壳也有刮痕。卖家说那是「展示品」，还说页面写的只是参考。我付了 380 元，有商品页面截图和转账记录。这种情况我可以要求退款吗？",
+      "askedAt": "2026-08-06",
+      "views": 1874,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-zh-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "已核实的法律专业人士 · 义务律师",
+          "answeredAt": "2026-08-08",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "你保留的商品页面截图，很可能是这宗纠纷中最关键的一份证据，请务必完整保存（连同网址与日期）。\n\n有两条路径可以考虑。第一，一般合约原则：货品应与描述相符。页面写明「全新未拆封」，而实际交付的是已使用的展示品，这与描述并不相符。第二，《2003 年消费者保护（公平交易）法令》就供应商的「不公平交易行为」提供救济，其中包括就商品的性质或状况作出误导陈述。\n\n卖方称页面内容「只是参考」，通常不能仅凭这句话就推翻其在页面上作出的明确陈述。\n\n建议的下一步：以书面（信息或电邮）向卖方说明页面写明全新、实物为展示品，并明确提出你要求的补救——退款、更换或减价，并保留其回复。\n\n若无法私下解决，此金额在小额索偿审裁处的受理范围内；该处受理买卖货品合约纠纷，以及《消费者保护（公平交易）法令》下的不公平交易行为申索。请注意 2 年的申请期限。以上为一般法律信息，并非针对你个案的法律意见。"
+        }
+      ]
+    },
+    {
+      "id": "t-ms-aircon",
+      "topic": "services",
+      "tags": ["services", "contracts", "evidence"],
+      "lang": "ms",
+      "title": "Kontraktor penghawa dingin rosakkan dinding saya semasa pemasangan. Siapa tanggung?",
+      "body": "Saya upah sebuah syarikat untuk memasang penghawa dingin. Semasa kerja, mereka menembusi paip tersembunyi dan menyebabkan air merosakkan dinding serta lantai kayu bilik tidur. Sebut harga pembaikan ialah kira-kira $1,800. Syarikat itu kata ia 'risiko biasa' pemasangan dan enggan bayar. Saya ada kontrak, resit bayaran dan gambar kerosakan.",
+      "askedAt": "2026-07-25",
+      "views": 1447,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-ms-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "Profesional undang-undang disahkan · sukarelawan",
+          "answeredAt": "2026-07-27",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "Anda mungkin mempunyai dua asas tuntutan yang berjalan seiring.\n\nPertama, kontrak: syarikat itu dikontrak untuk melaksanakan kerja pemasangan, dan kerja itu umumnya dijangka dilakukan dengan kemahiran dan kehati-hatian yang munasabah. Menyatakan sesuatu sebagai 'risiko biasa' tidak dengan sendirinya melepaskan mereka daripada tanggungjawab jika kerja itu dilakukan secara cuai.\n\nKedua, kecuaian: di Singapura, kewajipan berjaga-jaga dinilai menggunakan ujian dua peringkat dalam Spandeck Engineering v DSTA [2007] SGCA 37 — kebolehjangkaan fakta sebagai ambang, kemudian kedekatan undang-undang, kemudian pertimbangan dasar. Anda juga perlu menunjukkan pelanggaran dan bahawa ia menyebabkan kerugian anda.\n\nLangkah praktikal: simpan gambar bertarikh kerosakan dan lokasi paip yang tertembus, dapatkan sebut harga pembaikan bertulis (dua lebih baik daripada satu), dan minta syarikat itu menyatakan pendirian mereka secara bertulis. Semak juga sama ada kontrak anda mengandungi klausa tentang kerosakan semasa pemasangan atau insurans.\n\nKerosakan harta benda termasuk dalam kategori Tribunal Tuntutan Kecil, dan $1,800 jauh di bawah had. Ini maklumat am, bukan nasihat untuk fakta khusus anda."
+        }
+      ]
+    },
+    {
+      "id": "t-ta-deposit",
+      "topic": "tenancy",
+      "tags": ["tenancy", "housing", "evidence", "procedure"],
+      "lang": "ta",
+      "title": "வீட்டு உரிமையாளர் வைப்புத்தொகையைத் திருப்பித் தரவில்லை. அடுத்து என்ன செய்வது?",
+      "body": "ஒரு வருடம் அறை வாடகைக்கு இருந்தேன். வெளியேறி ஆறு வாரங்கள் ஆகின்றன; $1,000 வைப்புத்தொகையை உரிமையாளர் இன்னும் திருப்பித் தரவில்லை. காரணம் எதுவும் சொல்லவில்லை, செய்திகளுக்கும் பதிலளிப்பதில்லை. என்னிடம் வாடகை ஒப்பந்தமும், வெளியேறும்போது எடுத்த புகைப்படங்களும் உள்ளன.",
+      "askedAt": "2026-08-15",
+      "views": 986,
+      "status": "answered",
+      "answers": [
+        {
+          "id": "a-ta-1",
+          "authorRole": "verified_lawyer",
+          "authorLabel": "சரிபார்க்கப்பட்ட சட்ட நிபுணர் · தன்னார்வலர்",
+          "answeredAt": "2026-08-17",
+          "moderated": true,
+          "moderatedBy": "Pro Bono SG",
+          "body": "உங்களிடம் வாடகை ஒப்பந்தமும் வெளியேறும்போது எடுத்த புகைப்படங்களும் இருப்பது நல்ல நிலை. இந்த வகைப் பிரச்சினைகள் பொதுவாக வீட்டின் நிலை குறித்த கருத்து வேறுபாட்டால் வருபவை.\n\nமுதலில் ஒப்பந்தத்தைப் படியுங்கள்: வைப்புத்தொகையை எப்போது திரும்பத் தர வேண்டும், எவற்றைக் கழிக்கலாம் என்று அதில் இருக்கும். பொதுவாக நிலுவை வாடகை, செலுத்தப்படாத பயன்பாட்டுக் கட்டணம், சாதாரண தேய்மானத்தைத் தாண்டிய சேதம் ஆகியவற்றுக்கே கழிவு அனுமதிக்கப்படும்.\n\nஅடுத்த நடைமுறைப் படி: ஒரு எழுத்துப்பூர்வ செய்தி அனுப்புங்கள் — தொகை, வெளியேறிய தேதி, ஒப்பந்தத்தின் தொடர்புடைய விதி ஆகியவற்றைக் குறிப்பிட்டு, கழிவு இருந்தால் விவரப் பட்டியலையும் ரசீதுகளையும் கேளுங்கள். ஒரு தெளிவான காலக்கெடுவைக் கொடுங்கள். இது பதில் வராவிட்டாலும் உங்களுக்குப் பயனுள்ள பதிவாக இருக்கும்.\n\n2 ஆண்டுகளுக்கு மிகாத குடியிருப்பு வாடகைப் பிரச்சினைகளை சிறு வழக்கு தீர்ப்பாயத்தில் தொடரலாம்; $1,000 வரம்புக்குள் உள்ளது. தாக்கல் செய்யக் காலவரம்பு உண்டு என்பதை நினைவில் கொள்ளுங்கள். இது பொதுத் தகவல் மட்டுமே; உங்கள் குறிப்பிட்ட உண்மைகளுக்கான ஆலோசனை அல்ல — இலவச சட்ட மையத்தை நாடலாம்."
+        }
+      ]
+    }
+  ]
+}

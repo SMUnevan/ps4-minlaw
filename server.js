@@ -4,27 +4,57 @@ const path = require('path');
 
 const engine = require('./src/ai/engine');
 const { newCase, requireCase } = require('./src/lib/caseStore');
-const literacyLessons = require('./data/literacy-lessons.json');
+const content = require('./src/lib/content');
+const forumStore = require('./src/lib/forumStore');
+const i18n = require('./src/lib/i18n');
+const strings = require('./data/i18n.json');
 
 const app = express();
-app.use(express.json());
+app.use(express.json({ limit: '256kb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 function asyncRoute(handler) {
   return (req, res, next) => handler(req, res, next).catch(next);
 }
 
+// Language comes from ?lang= or the JSON body, and is always normalised to a
+// supported code so an unknown value degrades to English rather than erroring.
+function langOf(req) {
+  return i18n.normaliseLang((req.query && req.query.lang) || (req.body && req.body.lang));
+}
+
+function requireText(res, value, field) {
+  if (!value || typeof value !== 'string' || !value.trim()) {
+    res.status(400).json({ error: `${field} is required` });
+    return null;
+  }
+  return value.trim();
+}
+
+// ---- Meta ----
+
 app.get('/api/meta', (req, res) => {
-  res.json({ llmActive: engine.isLLMActive(), name: 'Case Compass' });
+  res.json({
+    name: 'Case Compass',
+    llmActive: engine.isLLMActive(),
+    languages: i18n.languages(),
+    lessonCount: content.lessonCount()
+  });
 });
 
-// ---- Case preparation flow ----
+app.get('/api/strings', (req, res) => {
+  const lang = langOf(req);
+  res.json({ lang, strings: strings[lang] });
+});
+
+// ---- Case preparation ----
 
 app.post(
   '/api/case',
   asyncRoute(async (req, res) => {
+    const lang = langOf(req);
     const caseRecord = newCase();
-    const openingPrompt = engine.getOpeningPrompt();
+    const openingPrompt = engine.getOpeningPrompt(lang);
     caseRecord.intake.messages.push({ role: 'assistant', text: openingPrompt });
     res.json({ caseId: caseRecord.id, openingPrompt });
   })
@@ -33,8 +63,7 @@ app.post(
 app.get(
   '/api/case/:id',
   asyncRoute(async (req, res) => {
-    const caseRecord = requireCase(req.params.id);
-    res.json(caseRecord);
+    res.json(requireCase(req.params.id));
   })
 );
 
@@ -42,12 +71,9 @@ app.post(
   '/api/case/:id/intake',
   asyncRoute(async (req, res) => {
     const caseRecord = requireCase(req.params.id);
-    const { message } = req.body;
-    if (!message || typeof message !== 'string' || !message.trim()) {
-      return res.status(400).json({ error: 'message is required' });
-    }
-    const result = await engine.intakeTurn(caseRecord, message.trim());
-    res.json(result);
+    const message = requireText(res, req.body.message, 'message');
+    if (!message) return;
+    res.json(await engine.intakeTurn(caseRecord, message, langOf(req)));
   })
 );
 
@@ -55,9 +81,19 @@ app.post(
   '/api/case/:id/analyze',
   asyncRoute(async (req, res) => {
     const caseRecord = requireCase(req.params.id);
-    const map = await engine.buildCaseMap(caseRecord);
-    const report = await engine.buildReadinessReport(caseRecord);
-    res.json({ map, report });
+    const lang = langOf(req);
+    const map = await engine.buildCaseMap(caseRecord, lang);
+    const report = await engine.buildReadinessReport(caseRecord, lang);
+    const related = engine.buildRelated(caseRecord, lang);
+    res.json({ map, report, related });
+  })
+);
+
+app.get(
+  '/api/case/:id/related',
+  asyncRoute(async (req, res) => {
+    const caseRecord = requireCase(req.params.id);
+    res.json(engine.buildRelated(caseRecord, langOf(req)));
   })
 );
 
@@ -69,8 +105,7 @@ app.post(
     if (mode !== 'opposing' && mode !== 'tribunal') {
       return res.status(400).json({ error: 'mode must be "opposing" or "tribunal"' });
     }
-    const result = await engine.startRoleplay(caseRecord, mode);
-    res.json(result);
+    res.json(await engine.startRoleplay(caseRecord, mode, langOf(req)));
   })
 );
 
@@ -78,15 +113,13 @@ app.post(
   '/api/case/:id/roleplay/message',
   asyncRoute(async (req, res) => {
     const caseRecord = requireCase(req.params.id);
-    const { mode, message } = req.body;
+    const { mode } = req.body;
     if (mode !== 'opposing' && mode !== 'tribunal') {
       return res.status(400).json({ error: 'mode must be "opposing" or "tribunal"' });
     }
-    if (!message || typeof message !== 'string' || !message.trim()) {
-      return res.status(400).json({ error: 'message is required' });
-    }
-    const result = await engine.continueRoleplay(caseRecord, mode, message.trim());
-    res.json(result);
+    const message = requireText(res, req.body.message, 'message');
+    if (!message) return;
+    res.json(await engine.continueRoleplay(caseRecord, mode, message, langOf(req)));
   })
 );
 
@@ -94,29 +127,56 @@ app.post(
   '/api/case/:id/roleplay/report',
   asyncRoute(async (req, res) => {
     const caseRecord = requireCase(req.params.id);
-    const report = await engine.buildSimulationReport(caseRecord);
-    res.json(report);
+    res.json(await engine.buildSimulationReport(caseRecord, langOf(req)));
   })
 );
 
-// ---- Legal Literacy Hub (kept fully separate from the active-case flow) ----
+// ---- Learning Hub ----
 
-app.get('/api/literacy', (req, res) => {
-  const { disputeType } = req.query;
-  const lessons = literacyLessons.map(({ check, ...rest }) => ({
-    ...rest,
-    recommended: disputeType ? rest.tags.includes(disputeType) : false
-  }));
-  if (disputeType) {
-    lessons.sort((a, b) => Number(b.recommended) - Number(a.recommended));
-  }
-  res.json(lessons);
+app.get('/api/learn/tracks', (req, res) => {
+  res.json(content.getTracks(langOf(req)));
 });
 
-app.get('/api/literacy/:id', (req, res) => {
-  const lesson = literacyLessons.find((l) => l.id === req.params.id);
+app.get('/api/learn/lessons/:id', (req, res) => {
+  const lesson = content.getLesson(req.params.id, langOf(req));
   if (!lesson) return res.status(404).json({ error: 'Lesson not found' });
   res.json(lesson);
+});
+
+// ---- Community Forum ----
+
+app.get('/api/forum/topics', (req, res) => {
+  res.json(forumStore.getTopics(langOf(req)));
+});
+
+app.get('/api/forum/threads', (req, res) => {
+  const lang = langOf(req);
+  res.json(
+    forumStore.listThreads({
+      lang,
+      query: req.query.q || '',
+      topic: req.query.topic || 'all'
+    })
+  );
+});
+
+app.get('/api/forum/threads/:id', (req, res) => {
+  const thread = forumStore.getThread(req.params.id, langOf(req));
+  if (!thread) return res.status(404).json({ error: 'Thread not found' });
+  res.json(thread);
+});
+
+app.post('/api/forum/threads', (req, res) => {
+  const lang = langOf(req);
+  const title = requireText(res, req.body.title, 'title');
+  if (!title) return;
+  const body = requireText(res, req.body.body, 'body');
+  if (!body) return;
+  if (title.length > 200 || body.length > 4000) {
+    return res.status(400).json({ error: 'Question is too long' });
+  }
+  const result = forumStore.addQuestion({ title, body, topic: req.body.topic, lang });
+  res.json(result);
 });
 
 // ---- Error handling ----
@@ -130,4 +190,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Case Compass running at http://localhost:${PORT}`);
   console.log(`AI engine: ${engine.isLLMActive() ? 'Claude (LLM)' : 'rule-based (no API key set)'}`);
+  console.log(`Languages: ${i18n.LANGS.join(', ')} · Lessons: ${content.lessonCount()}`);
 });

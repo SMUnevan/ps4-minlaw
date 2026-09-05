@@ -1,133 +1,581 @@
 {
-  "_disclaimer": "General, plain-language information only. Figures and procedures change over time and this file is NOT a substitute for checking the current official source. Every entry below carries a 'verify' field naming where to confirm it is still accurate. This app never presents these as certain legal conclusions.",
+  "_disclaimer": "Plain-language summaries of Singapore law with citations to the primary source. Figures and procedures change; every concept carries a 'verify' note and at least one source link. Facts marked confidence 'verified' were checked against the cited primary/official source in September 2026. Nothing here is legal advice.",
   "disputeTypes": [
     {
       "id": "goods",
-      "label": "Goods / purchase dispute",
-      "keywords": ["bought", "purchase", "product", "item", "defective", "faulty", "refund", "seller", "shop", "store", "goods", "warranty", "broken", "delivered", "wrong item"],
-      "concepts": ["sct_jurisdiction", "consumer_protection_fair_trading", "sale_of_goods_basics", "limitation_period"],
-      "counterarguments": [
-        "The item was in good condition when it left the seller; any defect arose afterwards from misuse or normal wear and tear.",
-        "The buyer did not report the problem within a reasonable time after discovering it.",
-        "The buyer inspected or tested the item before accepting it and raised no objection at the time.",
-        "Any defect was minor and does not justify a full refund rather than a repair or replacement."
-      ]
+      "label": {
+        "en": "Goods / purchase dispute",
+        "zh": "商品／购买纠纷",
+        "ms": "Pertikaian barang / pembelian",
+        "ta": "பொருள் / கொள்முதல் பிரச்சினை"
+      },
+      "keywords": ["bought", "purchase", "product", "item", "defective", "faulty", "refund", "seller", "shop", "store", "goods", "warranty", "broken", "delivered", "wrong item", "phone", "laptop", "furniture", "carousell", "lazada", "shopee"],
+      "concepts": ["sct_jurisdiction", "sct_time_limit", "cpfta_unfair_practice", "sale_of_goods_quality", "limitation_period"],
+      "forumTags": ["consumer", "goods"],
+      "lessonTags": ["goods", "consumer", "contracts", "procedure", "evidence"],
+      "counterarguments": {
+        "en": [
+          "The item was in good condition when it left me; any defect arose afterwards from misuse or normal wear and tear.",
+          "You did not report the problem within a reasonable time after discovering it.",
+          "You inspected or tested the item before accepting it and raised no objection at the time.",
+          "Any defect was minor and justifies a repair or replacement, not a full refund."
+        ],
+        "zh": [
+          "货品离开我手时状况良好；任何毛病都是之后因使用不当或正常损耗造成的。",
+          "你在发现问题后没有在合理时间内通知我。",
+          "你在收货前已检查或测试过，当时并未提出异议。",
+          "即使有瑕疵也属轻微，理应维修或更换，而非全额退款。"
+        ],
+        "ms": [
+          "Barang itu dalam keadaan baik semasa diserahkan; sebarang kerosakan berlaku selepas itu akibat salah guna atau haus biasa.",
+          "Anda tidak melaporkan masalah itu dalam masa yang munasabah selepas menyedarinya.",
+          "Anda telah memeriksa atau menguji barang itu sebelum menerimanya dan tidak membantah ketika itu.",
+          "Sebarang kecacatan adalah kecil dan wajar dibaiki atau diganti, bukan bayaran balik penuh."
+        ],
+        "ta": [
+          "பொருள் என்னிடமிருந்து சென்றபோது நல்ல நிலையில் இருந்தது; பிழை பின்னர் தவறான பயன்பாடு அல்லது சாதாரண தேய்மானத்தால் ஏற்பட்டது.",
+          "பிரச்சினையைக் கண்டறிந்த பிறகு நியாயமான காலத்திற்குள் நீங்கள் தெரிவிக்கவில்லை.",
+          "பெற்றுக்கொள்வதற்கு முன் நீங்கள் பொருளைச் சோதித்தீர்கள், அப்போது எந்த ஆட்சேபனையும் தெரிவிக்கவில்லை.",
+          "பிழை சிறியது; முழுப் பணத்தைத் திருப்பித் தருவதற்குப் பதிலாக பழுதுபார்ப்பு அல்லது மாற்றுப் பொருளே போதுமானது."
+        ]
+      }
     },
     {
       "id": "services",
-      "label": "Services dispute (contractor, repair, event, etc.)",
-      "keywords": ["contractor", "renovation", "service", "repair", "booked", "vendor", "deposit", "cancelled", "incomplete work", "shoddy", "quality", "did not finish", "photographer", "mover"],
-      "concepts": ["sct_jurisdiction", "consumer_protection_fair_trading", "breach_of_contract_basics", "limitation_period"],
-      "counterarguments": [
-        "The scope of work was verbally changed or expanded by the customer beyond the original agreement.",
-        "The customer delayed payment or access, which caused the delay or incomplete work.",
-        "The standard of work delivered was reasonable and any dissatisfaction is subjective.",
-        "The customer did not give an opportunity to rectify the issue before making a claim."
-      ]
+      "label": {
+        "en": "Services dispute (contractor, repair, event, etc.)",
+        "zh": "服务纠纷（承包商、维修、活动等）",
+        "ms": "Pertikaian perkhidmatan (kontraktor, pembaikan, acara, dll.)",
+        "ta": "சேவை பிரச்சினை (ஒப்பந்ததாரர், பழுதுபார்ப்பு, நிகழ்ச்சி)"
+      },
+      "keywords": ["contractor", "renovation", "service", "repair", "booked", "vendor", "cancelled", "incomplete work", "shoddy", "quality", "did not finish", "photographer", "mover", "aircon", "plumber", "electrician", "wedding", "reno"],
+      "concepts": ["sct_jurisdiction", "sct_time_limit", "cpfta_unfair_practice", "contract_formation", "limitation_period"],
+      "forumTags": ["consumer", "services"],
+      "lessonTags": ["services", "contracts", "consumer", "procedure", "evidence"],
+      "counterarguments": {
+        "en": [
+          "You changed or expanded the scope of work verbally, beyond what we originally agreed.",
+          "Your own delay in payment or in giving me access caused the delay or incomplete work.",
+          "The standard of work delivered was reasonable; your dissatisfaction is subjective.",
+          "You never gave me an opportunity to rectify the issue before making a claim."
+        ],
+        "zh": [
+          "你口头更改或扩大了工作范围，超出我们原本的约定。",
+          "是你延迟付款或延迟让我进场，才造成工程延误或未完成。",
+          "交付的工艺水平属合理范围；你的不满意是主观感受。",
+          "你在提出申索之前，从未给我补救的机会。"
+        ],
+        "ms": [
+          "Anda menukar atau menambah skop kerja secara lisan, melebihi apa yang kita persetujui pada asalnya.",
+          "Kelewatan anda membayar atau memberi akses menyebabkan kerja lewat atau tidak siap.",
+          "Mutu kerja yang disiapkan adalah munasabah; rasa tidak puas hati anda bersifat subjektif.",
+          "Anda tidak pernah memberi saya peluang membetulkan masalah sebelum membuat tuntutan."
+        ],
+        "ta": [
+          "நாம் முதலில் ஒப்புக்கொண்டதை மீறி, வாய்மொழியாக நீங்கள் வேலையின் அளவை மாற்றினீர்கள்.",
+          "நீங்கள் பணம் செலுத்துவதில் அல்லது இடம் தருவதில் தாமதித்ததே வேலை தாமதத்திற்குக் காரணம்.",
+          "செய்யப்பட்ட வேலையின் தரம் நியாயமானது; உங்கள் அதிருப்தி தனிப்பட்ட கருத்து.",
+          "வழக்கு தொடுப்பதற்கு முன் சரிசெய்ய எனக்கு நீங்கள் வாய்ப்பே தரவில்லை."
+        ]
+      }
     },
     {
       "id": "deposit_tenancy",
-      "label": "Deposit / tenancy dispute",
-      "keywords": ["deposit", "landlord", "tenant", "rental", "lease", "tenancy agreement", "security deposit", "did not return my deposit", "damages to unit"],
-      "concepts": ["sct_jurisdiction", "tenancy_deposit_basics", "limitation_period"],
-      "counterarguments": [
-        "Deductions from the deposit were for damage beyond fair wear and tear.",
-        "The tenant did not give the required notice period before vacating.",
-        "There are unpaid utility bills or outstanding rent owed by the tenant.",
-        "The condition of the unit at move-out was documented and differs from the tenant's account."
-      ]
+      "label": {
+        "en": "Deposit / tenancy dispute",
+        "zh": "押金／租约纠纷",
+        "ms": "Pertikaian deposit / penyewaan",
+        "ta": "வைப்புத்தொகை / வாடகை பிரச்சினை"
+      },
+      "keywords": ["deposit", "landlord", "tenant", "rental", "lease", "tenancy agreement", "security deposit", "did not return my deposit", "damages to unit", "hdb rental", "room rental", "aircon servicing clause"],
+      "concepts": ["sct_jurisdiction", "sct_time_limit", "tenancy_deposit_basics", "contract_formation", "limitation_period"],
+      "forumTags": ["tenancy", "housing"],
+      "lessonTags": ["tenancy", "contracts", "procedure", "evidence"],
+      "counterarguments": {
+        "en": [
+          "The deductions were for damage beyond fair wear and tear, not normal use.",
+          "You did not give the required notice period before vacating.",
+          "There are unpaid utility bills or outstanding rent that I am entitled to set off.",
+          "The condition of the unit at move-out was documented and differs from your account."
+        ],
+        "zh": [
+          "扣款是针对超出正常损耗的损坏，而非一般使用痕迹。",
+          "你退租前没有依约给足通知期。",
+          "尚有未缴的水电费或欠租，我有权从押金中扣抵。",
+          "退租时单位状况已有记录，与你的说法不符。"
+        ],
+        "ms": [
+          "Potongan itu untuk kerosakan melebihi haus dan lusuh yang munasabah, bukan penggunaan biasa.",
+          "Anda tidak memberi tempoh notis yang diperlukan sebelum berpindah keluar.",
+          "Terdapat bil utiliti atau sewa tertunggak yang berhak saya tolak.",
+          "Keadaan unit semasa anda berpindah keluar telah direkodkan dan berbeza daripada cerita anda."
+        ],
+        "ta": [
+          "கழிவுகள் சாதாரண பயன்பாட்டுத் தேய்மானத்தைத் தாண்டிய சேதத்திற்கானவை.",
+          "வெளியேறுவதற்கு முன் தேவையான அறிவிப்புக் காலத்தை நீங்கள் தரவில்லை.",
+          "செலுத்தப்படாத பயன்பாட்டுக் கட்டணங்கள் அல்லது நிலுவை வாடகை உள்ளது; அதை நான் கழிக்க உரிமை உண்டு.",
+          "வெளியேறும்போது வீட்டின் நிலை ஆவணப்படுத்தப்பட்டது; அது உங்கள் கூற்றிலிருந்து வேறுபடுகிறது."
+        ]
+      }
     },
     {
       "id": "debt_loan",
-      "label": "Money owed / loan between individuals",
-      "keywords": ["owes me money", "loan", "borrowed", "iou", "repay", "debt", "lent him", "lent her", "friend owes"],
-      "concepts": ["sct_jurisdiction", "breach_of_contract_basics", "limitation_period", "evidence_for_informal_agreements"],
-      "counterarguments": [
-        "There was no agreement that the money was a loan rather than a gift.",
-        "The amount or repayment terms alleged are disputed.",
-        "Partial repayment has already been made and should be offset.",
-        "There is no written record, so the terms alleged cannot be verified."
-      ]
+      "label": {
+        "en": "Money owed / loan between individuals",
+        "zh": "欠款／私人借贷",
+        "ms": "Wang terhutang / pinjaman antara individu",
+        "ta": "தர வேண்டிய பணம் / தனிநபர் கடன்"
+      },
+      "keywords": ["owes me money", "loan", "borrowed", "iou", "repay", "debt", "lent him", "lent her", "friend owes", "paynow", "never paid me back"],
+      "concepts": ["sct_jurisdiction", "contract_formation", "limitation_period", "evidence_for_informal_agreements"],
+      "forumTags": ["debt", "contracts"],
+      "lessonTags": ["debt", "contracts", "evidence", "procedure"],
+      "counterarguments": {
+        "en": [
+          "There was never an agreement that the money was a loan rather than a gift.",
+          "The amount, or the repayment terms you allege, are disputed.",
+          "I have already made partial repayment, which should be set off.",
+          "There is nothing in writing, so the terms you allege cannot be verified."
+        ],
+        "zh": [
+          "我们从未约定这笔钱是借款，而不是赠与。",
+          "你所称的金额或还款条件，我并不认同。",
+          "我已经部分还款，应予以抵扣。",
+          "没有任何书面记录，你所称的条件无从查证。"
+        ],
+        "ms": [
+          "Tidak pernah ada persetujuan bahawa wang itu pinjaman dan bukan hadiah.",
+          "Jumlah atau terma bayaran balik yang anda dakwa itu dipertikaikan.",
+          "Saya telah membuat bayaran balik sebahagian, yang patut ditolak.",
+          "Tiada apa-apa secara bertulis, jadi terma yang anda dakwa tidak dapat disahkan."
+        ],
+        "ta": [
+          "அந்தப் பணம் அன்பளிப்பு அல்ல, கடன் என்று நாம் ஒருபோதும் ஒப்புக்கொள்ளவில்லை.",
+          "நீங்கள் கூறும் தொகை அல்லது திருப்பிச் செலுத்தும் நிபந்தனைகள் மறுக்கப்படுகின்றன.",
+          "நான் ஏற்கனவே ஒரு பகுதியைத் திருப்பிச் செலுத்திவிட்டேன்; அது கழிக்கப்பட வேண்டும்.",
+          "எழுத்துப்பூர்வமாக எதுவும் இல்லை; எனவே நீங்கள் கூறும் நிபந்தனைகளைச் சரிபார்க்க முடியாது."
+        ]
+      }
     },
     {
       "id": "property_damage",
-      "label": "Property damage dispute",
-      "keywords": ["damaged my", "broke my", "scratched", "accident", "damaged property", "car park", "neighbour damaged"],
-      "concepts": ["sct_jurisdiction", "negligence_basics", "limitation_period"],
-      "counterarguments": [
-        "The damage pre-existed and was not caused by the respondent.",
-        "The amount claimed for repair or replacement is excessive relative to the actual damage.",
-        "The claimant contributed to the damage through their own actions.",
-        "There is no independent evidence (photos, witness, report) linking the respondent to the damage."
-      ]
+      "label": {
+        "en": "Property damage dispute",
+        "zh": "财物损坏纠纷",
+        "ms": "Pertikaian kerosakan harta benda",
+        "ta": "சொத்து சேத பிரச்சினை"
+      },
+      "keywords": ["damaged my", "broke my", "scratched", "accident", "damaged property", "car park", "neighbour damaged", "leak", "ceiling", "water damage", "dented"],
+      "concepts": ["sct_jurisdiction", "sct_time_limit", "negligence_basics", "limitation_period"],
+      "forumTags": ["negligence", "housing"],
+      "lessonTags": ["negligence", "evidence", "procedure"],
+      "counterarguments": {
+        "en": [
+          "The damage pre-existed and was not caused by me.",
+          "The amount you claim for repair or replacement is excessive relative to the actual damage.",
+          "You contributed to the damage through your own actions.",
+          "There is no independent evidence — no photo, witness or report — linking me to the damage."
+        ],
+        "zh": [
+          "损坏原本就存在，不是我造成的。",
+          "你索赔的维修或更换费用，相对实际损坏明显过高。",
+          "你自己的行为也促成了这项损坏。",
+          "没有独立证据——没有照片、证人或报告——能把损坏与我联系起来。"
+        ],
+        "ms": [
+          "Kerosakan itu sudah sedia ada dan bukan disebabkan oleh saya.",
+          "Jumlah yang anda tuntut untuk pembaikan atau penggantian adalah keterlaluan berbanding kerosakan sebenar.",
+          "Anda turut menyumbang kepada kerosakan itu melalui tindakan anda sendiri.",
+          "Tiada bukti bebas — tiada gambar, saksi atau laporan — yang mengaitkan saya dengan kerosakan itu."
+        ],
+        "ta": [
+          "சேதம் முன்பே இருந்தது; அதை நான் ஏற்படுத்தவில்லை.",
+          "உண்மையான சேதத்துடன் ஒப்பிடும்போது நீங்கள் கோரும் பழுதுபார்ப்புத் தொகை மிக அதிகம்.",
+          "உங்கள் சொந்த செயல்களும் இந்தச் சேதத்திற்குக் காரணமாக இருந்தன.",
+          "சேதத்தை என்னுடன் இணைக்கும் சுயாதீன ஆதாரம் — புகைப்படம், சாட்சி அல்லது அறிக்கை — எதுவும் இல்லை."
+        ]
+      }
+    },
+    {
+      "id": "employment",
+      "label": {
+        "en": "Employment / unpaid salary dispute",
+        "zh": "雇佣／欠薪纠纷",
+        "ms": "Pertikaian pekerjaan / gaji tidak dibayar",
+        "ta": "வேலை / சம்பள பிரச்சினை"
+      },
+      "keywords": ["salary", "unpaid salary", "employer", "boss", "wages", "overtime", "dismissed", "fired", "retrenched", "payslip", "cpf", "notice period", "resigned", "employment"],
+      "concepts": ["employment_claims", "contract_formation", "limitation_period"],
+      "forumTags": ["employment"],
+      "lessonTags": ["employment", "evidence", "procedure"],
+      "counterarguments": {
+        "en": [
+          "The amount claimed does not match the agreed salary or hours actually worked.",
+          "Deductions were authorised under the employment contract or by law.",
+          "You resigned without serving the required notice, so a set-off applies.",
+          "There is no written record of the overtime or extra work you say you performed."
+        ],
+        "zh": [
+          "所索金额与约定薪资或实际工时不符。",
+          "有关扣款是依雇佣合约或法律授权进行的。",
+          "你未依约服完通知期就离职，因此应予抵扣。",
+          "你所称的加班或额外工作，并无任何书面记录。"
+        ],
+        "ms": [
+          "Jumlah yang dituntut tidak sepadan dengan gaji yang dipersetujui atau jam kerja sebenar.",
+          "Potongan itu dibenarkan di bawah kontrak pekerjaan atau oleh undang-undang.",
+          "Anda meletak jawatan tanpa memberi notis yang diperlukan, jadi tolakan dikenakan.",
+          "Tiada rekod bertulis tentang kerja lebih masa atau kerja tambahan yang anda dakwa."
+        ],
+        "ta": [
+          "கோரப்படும் தொகை ஒப்புக்கொண்ட சம்பளத்துடனோ உண்மையில் வேலை செய்த நேரத்துடனோ பொருந்தவில்லை.",
+          "கழிவுகள் வேலை ஒப்பந்தத்தின் கீழ் அல்லது சட்டப்படி அனுமதிக்கப்பட்டவை.",
+          "தேவையான அறிவிப்புக் காலம் இல்லாமல் நீங்கள் வேலையை விட்டீர்கள்; எனவே கழிவு பொருந்தும்.",
+          "நீங்கள் கூறும் கூடுதல் நேர வேலைக்கு எழுத்துப்பூர்வ ஆதாரம் எதுவும் இல்லை."
+        ]
+      }
     },
     {
       "id": "other",
-      "label": "Other / not sure yet",
+      "label": {
+        "en": "Other / not sure yet",
+        "zh": "其他／尚不确定",
+        "ms": "Lain-lain / belum pasti",
+        "ta": "மற்றவை / இன்னும் உறுதியில்லை"
+      },
       "keywords": [],
       "concepts": ["sct_jurisdiction", "limitation_period"],
-      "counterarguments": [
-        "The facts alleged are disputed and require independent evidence.",
-        "The claim may fall outside the tribunal's jurisdiction and needs to be checked."
-      ]
+      "forumTags": ["general"],
+      "lessonTags": ["procedure", "evidence"],
+      "counterarguments": {
+        "en": [
+          "The facts you allege are disputed and need independent evidence.",
+          "This claim may fall outside this tribunal's jurisdiction and that needs to be checked first."
+        ],
+        "zh": [
+          "你所主张的事实存在争议，需要独立证据支持。",
+          "这项申索可能不属于本审裁处的管辖范围，须先行查证。"
+        ],
+        "ms": [
+          "Fakta yang anda dakwa dipertikaikan dan memerlukan bukti bebas.",
+          "Tuntutan ini mungkin di luar bidang kuasa tribunal ini dan perlu disemak dahulu."
+        ],
+        "ta": [
+          "நீங்கள் கூறும் உண்மைகள் மறுக்கப்படுகின்றன; சுயாதீன ஆதாரம் தேவை.",
+          "இந்தக் கோரிக்கை இந்தத் தீர்ப்பாயத்தின் அதிகார எல்லைக்கு வெளியே இருக்கலாம்; முதலில் அதைச் சரிபார்க்க வேண்டும்."
+        ]
+      }
     }
   ],
+
   "concepts": {
     "sct_jurisdiction": {
-      "title": "Small Claims Tribunal (SCT) jurisdiction & claim limits",
-      "plainLanguage": "Singapore's Small Claims Tribunals handle certain civil claims (e.g. disputes over goods and services, and some tenancy claims) without the parties needing lawyers, generally where the claim value falls within a statutory limit (commonly cited as $20,000, or up to $30,000 if both parties consent in writing). Rules on what qualifies and current limits can change.",
-      "verify": "Check the current limits and eligible claim types on the Community Justice and Tribunals System / State Courts of Singapore website before relying on this.",
-      "confidence": "general_info_needs_verification"
+      "title": {
+        "en": "Small Claims Tribunals: what they hear and the money limit",
+        "zh": "小额索偿审裁处：受理范围与金额上限",
+        "ms": "Tribunal Tuntutan Kecil: apa yang dibicarakan dan had jumlah",
+        "ta": "சிறு வழக்கு தீர்ப்பாயம்: எவற்றை விசாரிக்கும், தொகை வரம்பு என்ன"
+      },
+      "plainLanguage": {
+        "en": "The Small Claims Tribunals (part of the State Courts) hear claims up to $20,000 — or up to $30,000 if both sides sign a Memorandum of Consent. Typical claims include contracts for the sale of goods, contracts for the provision of services, damage to property, residential tenancy agreements not exceeding 2 years, and unfair practice claims under the Consumer Protection (Fair Trading) Act. Lawyers generally do not represent parties there.",
+        "zh": "小额索偿审裁处（隶属国家法院）受理不超过 2 万元的申索；若双方签署同意书（Memorandum of Consent），上限可达 3 万元。常见类型包括：买卖货品合约、提供服务合约、财物损坏、不超过 2 年的住宅租约纠纷，以及《消费者保护（公平交易）法令》下的不公平交易行为申索。当事人一般不由律师代表出庭。",
+        "ms": "Tribunal Tuntutan Kecil (sebahagian daripada Mahkamah Negeri) membicarakan tuntutan sehingga $20,000 — atau sehingga $30,000 jika kedua-dua pihak menandatangani Memorandum Persetujuan. Tuntutan biasa termasuk kontrak jualan barang, kontrak perkhidmatan, kerosakan harta benda, perjanjian penyewaan kediaman tidak melebihi 2 tahun, dan tuntutan amalan tidak adil di bawah Akta Perlindungan Pengguna (Perdagangan Adil). Peguam umumnya tidak mewakili pihak-pihak di sana.",
+        "ta": "சிறு வழக்கு தீர்ப்பாயங்கள் (மாநில நீதிமன்றங்களின் ஒரு பகுதி) $20,000 வரையிலான கோரிக்கைகளை விசாரிக்கும் — இரு தரப்பும் ஒப்புதல் ஆவணத்தில் கையெழுத்திட்டால் $30,000 வரை. பொதுவான வகைகள்: பொருள் விற்பனை ஒப்பந்தம், சேவை ஒப்பந்தம், சொத்து சேதம், 2 ஆண்டுகளுக்கு மிகாத குடியிருப்பு வாடகை ஒப்பந்தம், மற்றும் நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டத்தின் கீழ் நியாயமற்ற நடைமுறை. பொதுவாக வழக்கறிஞர்கள் தரப்பினரை பிரதிநிதித்துவப்படுத்த மாட்டார்கள்."
+      },
+      "verify": {
+        "en": "Limits and eligible claim types can change. Confirm on the Singapore Judiciary's small claims pages before you rely on this.",
+        "zh": "上限与受理范围可能变动。依赖前请在新加坡司法机构的小额索偿页面确认。",
+        "ms": "Had dan jenis tuntutan boleh berubah. Sahkan di laman tuntutan kecil Badan Kehakiman Singapura sebelum bergantung padanya.",
+        "ta": "வரம்புகளும் தகுதியான வகைகளும் மாறலாம். நம்புவதற்கு முன் சிங்கப்பூர் நீதித்துறையின் பக்கங்களில் உறுதிப்படுத்தவும்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "Singapore Judiciary — Small claims", "url": "https://www.judiciary.gov.sg/civil/small-claims" },
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" },
+        { "label": "Small Claims Tribunals Act 1984 (SSO)", "url": "https://sso.agc.gov.sg/Act/SCTA1984" }
+      ]
     },
-    "consumer_protection_fair_trading": {
-      "title": "Consumer protection for unfair practices",
-      "plainLanguage": "Singapore's Consumer Protection (Fair Trading) Act gives consumers remedies against unfair practices by suppliers, such as false claims about goods/services or failing to deliver as promised, in addition to any contractual remedies.",
-      "verify": "Check the current text and scope of the Consumer Protection (Fair Trading) Act on the Singapore Statutes Online website.",
-      "confidence": "general_info_needs_verification"
+    "sct_time_limit": {
+      "title": {
+        "en": "The 2-year deadline to file a small claim",
+        "zh": "小额索偿的 2 年申请期限",
+        "ms": "Tempoh 2 tahun untuk memfailkan tuntutan kecil",
+        "ta": "சிறு வழக்கு தாக்கல் செய்ய 2 ஆண்டு கால அவகாசம்"
+      },
+      "plainLanguage": {
+        "en": "A claim in the Small Claims Tribunals must be filed within 2 years of the event that gave rise to it. This is much shorter than the general limitation period for contract and tort claims, so waiting can push you out of the Tribunals even if you could still sue elsewhere.",
+        "zh": "小额索偿必须在引发申索的事件发生后 2 年内提出。这远短于合约与侵权申索的一般时效，因此拖延可能让你失去在审裁处提告的资格，即使你仍可在其他法庭起诉。",
+        "ms": "Tuntutan di Tribunal Tuntutan Kecil mesti difailkan dalam tempoh 2 tahun dari peristiwa yang menimbulkannya. Tempoh ini jauh lebih singkat daripada tempoh had umum bagi tuntutan kontrak dan tort, jadi kelewatan boleh menyebabkan anda hilang akses ke Tribunal walaupun anda masih boleh menyaman di tempat lain.",
+        "ta": "சிறு வழக்கு தீர்ப்பாயத்தில் வழக்கு, அதற்குக் காரணமான நிகழ்வு நடந்த 2 ஆண்டுகளுக்குள் தாக்கல் செய்யப்பட வேண்டும். ஒப்பந்தம் மற்றும் டார்ட் வழக்குகளுக்கான பொதுவான கால வரம்பை விட இது மிகக் குறைவு; எனவே தாமதித்தால் வேறு நீதிமன்றத்தில் வழக்குத் தொடர முடிந்தாலும் தீர்ப்பாயத்தில் வாய்ப்பு போய்விடும்."
+      },
+      "verify": {
+        "en": "Confirm the current filing deadline on the Judiciary's small claims pages; do not assume you are still in time.",
+        "zh": "请在司法机构的小额索偿页面确认现行期限；切勿假设自己仍在期限内。",
+        "ms": "Sahkan tarikh akhir semasa di laman tuntutan kecil Badan Kehakiman; jangan andaikan anda masih dalam tempoh.",
+        "ta": "தற்போதைய கால அவகாசத்தை நீதித்துறையின் பக்கங்களில் உறுதிப்படுத்தவும்; இன்னும் காலம் உள்ளது என்று ஊகிக்க வேண்டாம்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" },
+        { "label": "Singapore Judiciary — File a small claim", "url": "https://www.judiciary.gov.sg/civil/file-small-claim" }
+      ]
     },
-    "sale_of_goods_basics": {
-      "title": "Basic rights when goods are faulty",
-      "plainLanguage": "As a general contract-law concept, goods sold are generally expected to match their description and be of acceptable quality. If they are not, a buyer may have a right to repair, replacement, price reduction, or refund depending on the circumstances.",
-      "verify": "Specific remedies depend on the contract and applicable law (e.g. Sale of Goods Act / Consumer Protection (Fair Trading) Act) - verify against the actual statute or a legal aid resource.",
-      "confidence": "general_info_needs_verification"
+    "cpfta_unfair_practice": {
+      "title": {
+        "en": "Consumer Protection (Fair Trading) Act: unfair practices",
+        "zh": "《消费者保护（公平交易）法令》：不公平交易行为",
+        "ms": "Akta Perlindungan Pengguna (Perdagangan Adil): amalan tidak adil",
+        "ta": "நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டம்: நியாயமற்ற நடைமுறைகள்"
+      },
+      "plainLanguage": {
+        "en": "The Consumer Protection (Fair Trading) Act 2003 gives consumers a remedy when a supplier engages in an 'unfair practice' — for example misleading a consumer about goods or services, or taking advantage of a consumer who cannot reasonably protect their own interests. Such claims can be brought in the Small Claims Tribunals where the value falls within its limit.",
+        "zh": "《2003 年消费者保护（公平交易）法令》让消费者在供应商从事「不公平交易行为」时取得救济——例如就商品或服务作出误导陈述，或利用无法合理保护自身利益的消费者。若金额在上限之内，此类申索可在小额索偿审裁处提出。",
+        "ms": "Akta Perlindungan Pengguna (Perdagangan Adil) 2003 memberi pengguna remedi apabila pembekal melakukan 'amalan tidak adil' — contohnya mengelirukan pengguna tentang barang atau perkhidmatan, atau mengambil kesempatan ke atas pengguna yang tidak dapat melindungi kepentingan sendiri. Tuntutan sebegini boleh dibawa ke Tribunal Tuntutan Kecil jika nilainya dalam had.",
+        "ta": "2003 நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டம், வழங்குநர் 'நியாயமற்ற நடைமுறையில்' ஈடுபடும்போது நுகர்வோருக்கு தீர்வு அளிக்கிறது — எடுத்துக்காட்டாக பொருள் அல்லது சேவை குறித்து தவறாக வழிநடத்துதல், அல்லது தன் நலனைப் பாதுகாக்க இயலாத நுகர்வோரைப் பயன்படுத்திக் கொள்ளுதல். தொகை வரம்புக்குள் இருந்தால் இத்தகைய வழக்குகளை சிறு வழக்கு தீர்ப்பாயத்தில் தொடரலாம்."
+      },
+      "verify": {
+        "en": "Read section 4 and the Second Schedule of the Act on Singapore Statutes Online to see the listed unfair practices.",
+        "zh": "请在新加坡法规在线阅读该法令第 4 条及附表二，查看列明的不公平交易行为。",
+        "ms": "Baca seksyen 4 dan Jadual Kedua Akta ini di Singapore Statutes Online untuk melihat senarai amalan tidak adil.",
+        "ta": "பட்டியலிடப்பட்ட நியாயமற்ற நடைமுறைகளைக் காண, சட்டத்தின் பிரிவு 4 மற்றும் இரண்டாம் அட்டவணையை Singapore Statutes Online இல் படிக்கவும்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "Consumer Protection (Fair Trading) Act 2003 (SSO)", "url": "https://sso.agc.gov.sg/Act/CPFTA2003" },
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" }
+      ]
     },
-    "breach_of_contract_basics": {
-      "title": "Breach of contract - what generally needs to be shown",
-      "plainLanguage": "Generally, a breach-of-contract claim needs: (1) a valid agreement existed, (2) its terms, (3) how the other party failed to meet those terms, and (4) the loss that resulted. Clear evidence of the agreed terms is usually central.",
-      "verify": "This is a general contract-law framework, not advice on your specific facts - consider checking with a Legal Aid Bureau / Community Justice Centre resource.",
-      "confidence": "general_info_needs_verification"
+    "sale_of_goods_quality": {
+      "title": {
+        "en": "When goods you bought are faulty",
+        "zh": "买到有毛病的商品时",
+        "ms": "Apabila barang yang anda beli rosak",
+        "ta": "நீங்கள் வாங்கிய பொருள் பழுதாக இருக்கும்போது"
+      },
+      "plainLanguage": {
+        "en": "As a general contract-law principle, goods sold are expected to match their description and be of satisfactory quality. Where they are not, a buyer may seek a repair, replacement, price reduction or refund, depending on the contract and the circumstances. Second-hand and 'sold as seen' sales can change what you can expect, but they do not automatically remove every protection.",
+        "zh": "作为一般合约法原则，售出的商品应与描述相符并具备令人满意的品质。若不符合，买方可视合约与具体情况寻求维修、更换、减价或退款。二手买卖或「现状出售」会影响你可以期待的标准，但并不会自动免除所有保障。",
+        "ms": "Sebagai prinsip am undang-undang kontrak, barang yang dijual dijangka menepati perihalnya dan berkualiti memuaskan. Jika tidak, pembeli boleh menuntut pembaikan, penggantian, pengurangan harga atau bayaran balik, bergantung pada kontrak dan keadaan. Jualan terpakai atau 'dijual seadanya' boleh mengubah jangkaan anda, tetapi tidak menghapuskan semua perlindungan secara automatik.",
+        "ta": "பொது ஒப்பந்தச் சட்டக் கோட்பாட்டின்படி, விற்கப்படும் பொருள் அதன் விளக்கத்திற்கு ஏற்பவும் திருப்திகரமான தரத்திலும் இருக்க வேண்டும். இல்லையெனில், ஒப்பந்தத்தையும் சூழ்நிலையையும் பொறுத்து வாங்குபவர் பழுதுபார்ப்பு, மாற்றுப் பொருள், விலைக் குறைப்பு அல்லது பணத்தைத் திரும்பப் பெறக் கோரலாம். பழைய பொருள் அல்லது 'பார்த்தபடி விற்பனை' எதிர்பார்ப்பை மாற்றலாம்; ஆனால் எல்லாப் பாதுகாப்பையும் தானாக நீக்காது."
+      },
+      "verify": {
+        "en": "The exact remedy depends on the contract and on the Consumer Protection (Fair Trading) Act. Check the Act and consider a free legal clinic before relying on this.",
+        "zh": "具体救济取决于合约与《消费者保护（公平交易）法令》。依赖前请查阅法令，并考虑寻求免费法律咨询。",
+        "ms": "Remedi sebenar bergantung pada kontrak dan Akta Perlindungan Pengguna (Perdagangan Adil). Semak Akta dan pertimbangkan klinik guaman percuma sebelum bergantung padanya.",
+        "ta": "சரியான தீர்வு ஒப்பந்தத்தையும் நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டத்தையும் சார்ந்தது. நம்புவதற்கு முன் சட்டத்தைப் பார்க்கவும், இலவச சட்ட மையத்தை நாடவும்."
+      },
+      "confidence": "general_principle",
+      "sources": [
+        { "label": "Consumer Protection (Fair Trading) Act 2003 (SSO)", "url": "https://sso.agc.gov.sg/Act/CPFTA2003" },
+        { "label": "Pro Bono SG — free legal help", "url": "https://probono.sg/" }
+      ]
+    },
+    "contract_formation": {
+      "title": {
+        "en": "What makes an agreement a contract",
+        "zh": "什么样的约定才构成合约",
+        "ms": "Apa yang menjadikan perjanjian sebuah kontrak",
+        "ta": "ஒரு உடன்பாடு எப்போது ஒப்பந்தமாகிறது"
+      },
+      "plainLanguage": {
+        "en": "In Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3, the Court of Appeal set out the familiar building blocks of a contract: offer, acceptance, consideration (something of value each way), and an intention to create legal relations. A contract does not have to be a formal signed document — messages and conduct can form one — but you still have to prove what was agreed.",
+        "zh": "在 Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 一案中，上诉庭列明合约的基本要素：要约、承诺、对价（双方各有付出），以及创设法律关系的意图。合约不必是正式签署的文件——聊天记录与行为也可能成立合约——但你仍须证明双方约定了什么。",
+        "ms": "Dalam Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3, Mahkamah Rayuan menetapkan asas sesuatu kontrak: tawaran, penerimaan, balasan (sesuatu yang bernilai daripada kedua-dua pihak), dan niat untuk mewujudkan hubungan undang-undang. Kontrak tidak semestinya dokumen rasmi bertandatangan — mesej dan tingkah laku boleh membentuknya — tetapi anda tetap perlu membuktikan apa yang dipersetujui.",
+        "ta": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 வழக்கில், மேல்முறையீட்டு நீதிமன்றம் ஒப்பந்தத்தின் அடிப்படைக் கூறுகளைக் கூறியது: சலுகை, ஏற்பு, பரிசீலனை (இரு தரப்பிலும் மதிப்புள்ள ஏதேனும்), மற்றும் சட்ட உறவை உருவாக்கும் நோக்கம். ஒப்பந்தம் கையெழுத்திட்ட முறையான ஆவணமாக இருக்க வேண்டியதில்லை — செய்திகளும் நடத்தையும் ஒப்பந்தத்தை உருவாக்கலாம் — ஆனால் என்ன ஒப்புக்கொள்ளப்பட்டது என்பதை நீங்கள் நிரூபிக்க வேண்டும்."
+      },
+      "verify": {
+        "en": "Read the judgment itself on eLitigation. How these elements apply to your facts is a legal question — consider a free legal clinic.",
+        "zh": "可在 eLitigation 阅读判词全文。这些要素如何适用于你的事实属法律问题——建议寻求免费法律咨询。",
+        "ms": "Baca penghakiman itu sendiri di eLitigation. Bagaimana elemen ini terpakai kepada fakta anda ialah soalan undang-undang — pertimbangkan klinik guaman percuma.",
+        "ta": "தீர்ப்பை eLitigation இல் படிக்கவும். இந்தக் கூறுகள் உங்கள் உண்மைகளுக்கு எப்படிப் பொருந்தும் என்பது சட்டக் கேள்வி — இலவச சட்ட மையத்தை நாடவும்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2009_SGCA_3" }
+      ]
     },
     "tenancy_deposit_basics": {
-      "title": "Security deposits in tenancy disputes",
-      "plainLanguage": "Security deposits are generally refundable at the end of a tenancy, subject to lawful deductions such as unpaid rent, unpaid utilities, or damage beyond fair wear and tear, as set out in the tenancy agreement.",
-      "verify": "The exact terms depend on the specific tenancy agreement - review it directly, and check current SCT guidance on tenancy claims.",
-      "confidence": "general_info_needs_verification"
+      "title": {
+        "en": "Security deposits and 'fair wear and tear'",
+        "zh": "押金与「正常损耗」",
+        "ms": "Deposit sekuriti dan 'haus dan lusuh yang munasabah'",
+        "ta": "வைப்புத்தொகையும் 'சாதாரண தேய்மானமும்'"
+      },
+      "plainLanguage": {
+        "en": "A security deposit is generally refundable at the end of a tenancy, subject to lawful deductions set out in the tenancy agreement — for example unpaid rent, unpaid utilities, or damage that goes beyond fair wear and tear. Fair wear and tear means the ordinary deterioration that comes from normal use, and is generally not deductible. Disputes over residential tenancies not exceeding 2 years can go to the Small Claims Tribunals.",
+        "zh": "押金一般应在租约结束时退还，但可依租约条款作合法扣除——例如欠租、未缴水电费，或超出正常损耗的损坏。正常损耗指因一般使用而产生的自然折旧，通常不可扣除。不超过 2 年的住宅租约纠纷可交由小额索偿审裁处处理。",
+        "ms": "Deposit sekuriti umumnya boleh dikembalikan pada akhir penyewaan, tertakluk kepada potongan sah yang dinyatakan dalam perjanjian sewa — contohnya sewa tertunggak, bil utiliti tidak dibayar, atau kerosakan melebihi haus dan lusuh yang munasabah. Haus dan lusuh bermaksud kemerosotan biasa akibat penggunaan normal, dan umumnya tidak boleh ditolak. Pertikaian penyewaan kediaman tidak melebihi 2 tahun boleh dibawa ke Tribunal Tuntutan Kecil.",
+        "ta": "வைப்புத்தொகை பொதுவாக வாடகைக் காலம் முடிவில் திரும்பத் தரப்பட வேண்டும்; ஆனால் ஒப்பந்தத்தில் குறிப்பிட்ட சட்டப்பூர்வ கழிவுகள் பொருந்தும் — நிலுவை வாடகை, செலுத்தப்படாத பயன்பாட்டுக் கட்டணம், அல்லது சாதாரண தேய்மானத்தைத் தாண்டிய சேதம். சாதாரண தேய்மானம் என்பது வழக்கமான பயன்பாட்டால் ஏற்படும் இயல்பான தேய்வு; அது பொதுவாகக் கழிக்கப்படக் கூடாது. 2 ஆண்டுகளுக்கு மிகாத குடியிருப்பு வாடகைப் பிரச்சினைகளை சிறு வழக்கு தீர்ப்பாயத்திற்குக் கொண்டு செல்லலாம்."
+      },
+      "verify": {
+        "en": "Your own tenancy agreement governs. Read its deposit clause first, then check the Judiciary's eligibility page for tenancy claims.",
+        "zh": "以你自己的租约为准。请先阅读其押金条款，再查看司法机构关于租约申索受理范围的页面。",
+        "ms": "Perjanjian sewa anda sendiri yang mengawal. Baca klausa deposit dahulu, kemudian semak laman kelayakan Badan Kehakiman bagi tuntutan penyewaan.",
+        "ta": "உங்கள் சொந்த வாடகை ஒப்பந்தமே தீர்மானிக்கும். முதலில் அதன் வைப்புத்தொகை விதியைப் படியுங்கள், பிறகு நீதித்துறையின் தகுதிப் பக்கத்தைப் பாருங்கள்."
+      },
+      "confidence": "general_principle",
+      "sources": [
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" }
+      ]
     },
     "negligence_basics": {
-      "title": "Negligence - what generally needs to be shown",
-      "plainLanguage": "Generally, a negligence claim needs: (1) the other party owed a duty of care, (2) they breached that duty, (3) this caused the damage, and (4) the damage is not too remote.",
-      "verify": "This is a general legal framework - verify how it applies to your facts with an official or professional source.",
-      "confidence": "general_info_needs_verification"
+      "title": {
+        "en": "Negligence: the Singapore test for a duty of care",
+        "zh": "疏忽：新加坡的注意义务测试",
+        "ms": "Kecuaian: ujian Singapura bagi kewajipan berjaga-jaga",
+        "ta": "கவனக்குறைவு: கவனக் கடமைக்கான சிங்கப்பூர் சோதனை"
+      },
+      "plainLanguage": {
+        "en": "In Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37, the Court of Appeal set a single two-stage test for whether someone owed you a duty of care: first a threshold question of factual foreseeability, then (1) legal proximity between the parties, and (2) policy considerations that might negate the duty. You must then also show the duty was breached and that this caused your loss.",
+        "zh": "在 Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37 一案中，上诉庭确立了统一的两阶段测试，用以判断他人是否对你负有注意义务：先通过事实上可预见性的门槛问题，然后（一）双方是否具有法律上的密切关系，（二）是否有政策考量足以排除该义务。此外，你仍须证明义务被违反，并因此造成你的损失。",
+        "ms": "Dalam Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37, Mahkamah Rayuan menetapkan satu ujian dua peringkat untuk menentukan sama ada seseorang berhutang kewajipan berjaga-jaga kepada anda: mula-mula soalan ambang kebolehjangkaan fakta, kemudian (1) kedekatan undang-undang antara pihak, dan (2) pertimbangan dasar yang mungkin menafikan kewajipan itu. Anda juga perlu menunjukkan kewajipan itu dilanggar dan ia menyebabkan kerugian anda.",
+        "ta": "Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37 வழக்கில், ஒருவருக்கு உங்கள் மீது கவனக் கடமை உண்டா என்பதைத் தீர்மானிக்க மேல்முறையீட்டு நீதிமன்றம் ஒரே இரு-நிலைச் சோதனையை வகுத்தது: முதலில் உண்மையில் முன்கூட்டியே அறியக்கூடியதா என்ற வாசல் கேள்வி; பிறகு (1) தரப்பினரிடையே சட்ட நெருக்கம், (2) கடமையை நீக்கக்கூடிய கொள்கைக் காரணங்கள். மேலும் கடமை மீறப்பட்டதையும் அதுவே உங்கள் இழப்பை ஏற்படுத்தியதையும் நிரூபிக்க வேண்டும்."
+      },
+      "verify": {
+        "en": "Read the judgment on eLitigation. Whether a duty arises on your facts is a legal question — get proper advice.",
+        "zh": "可在 eLitigation 阅读判词。你的事实是否产生注意义务属法律问题——请寻求专业意见。",
+        "ms": "Baca penghakiman di eLitigation. Sama ada kewajipan timbul atas fakta anda ialah soalan undang-undang — dapatkan nasihat yang betul.",
+        "ta": "தீர்ப்பை eLitigation இல் படிக்கவும். உங்கள் உண்மைகளில் கடமை எழுகிறதா என்பது சட்டக் கேள்வி — முறையான ஆலோசனை பெறவும்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "Spandeck Engineering v DSTA [2007] SGCA 37 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2007_SGCA_37" },
+        { "label": "See Toh Siew Kee v Ho Ah Lam Ferrocement [2013] SGCA 29 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2013_SGCA_29" }
+      ]
     },
     "limitation_period": {
-      "title": "Time limits to bring a claim (limitation period)",
-      "plainLanguage": "Claims generally must be brought within a statutory time limit from when the cause of action arose (commonly several years for contract claims), after which the right to sue may be barred. Waiting too long can be fatal to an otherwise good claim.",
-      "verify": "Check the current Limitation Act provisions and how they apply to your claim type - do not assume you still have time without verifying.",
-      "confidence": "general_info_needs_verification"
+      "title": {
+        "en": "Limitation periods: the deadline to sue",
+        "zh": "时效期限：起诉的最后期限",
+        "ms": "Tempoh had masa: tarikh akhir untuk menyaman",
+        "ta": "கால வரம்பு: வழக்குத் தொடர கடைசி தேதி"
+      },
+      "plainLanguage": {
+        "en": "The Limitation Act 1959 sets deadlines for bringing civil claims. Actions founded on contract or on tort generally must be brought within 6 years of the date the cause of action accrued. Different rules apply to some claims, and the Small Claims Tribunals have their own shorter 2-year filing deadline. Once a limitation period expires, an otherwise strong claim can be barred.",
+        "zh": "《1959 年时效法令》规定民事申索的期限。基于合约或侵权的诉讼，一般须在诉因产生之日起 6 年内提出。部分申索适用不同规则，而小额索偿审裁处另有更短的 2 年期限。一旦超过时效，即使案情本身有力也可能被排除。",
+        "ms": "Akta Had Masa 1959 menetapkan tempoh untuk membawa tuntutan sivil. Tindakan berasaskan kontrak atau tort umumnya mesti dibawa dalam tempoh 6 tahun dari tarikh kausa tindakan terakru. Peraturan berbeza terpakai bagi sesetengah tuntutan, dan Tribunal Tuntutan Kecil mempunyai tempoh 2 tahun yang lebih singkat. Apabila tempoh had tamat, tuntutan yang kukuh pun boleh dihalang.",
+        "ta": "1959 கால வரம்புச் சட்டம் சிவில் வழக்குகளுக்கான காலக்கெடுவை நிர்ணயிக்கிறது. ஒப்பந்தம் அல்லது டார்ட் அடிப்படையிலான வழக்குகள் பொதுவாக வழக்குக் காரணம் எழுந்த நாளிலிருந்து 6 ஆண்டுகளுக்குள் தொடரப்பட வேண்டும். சில வழக்குகளுக்கு வேறு விதிகள் உண்டு; சிறு வழக்கு தீர்ப்பாயத்திற்கு 2 ஆண்டு என்ற குறுகிய கெடு உண்டு. கால வரம்பு முடிந்தால், வலுவான வழக்கும் தடைபடலாம்."
+      },
+      "verify": {
+        "en": "Limitation is technical and fact-sensitive. Read the Limitation Act 1959 on SSO and get advice rather than assuming you are in time.",
+        "zh": "时效问题技术性强且高度取决于事实。请在新加坡法规在线阅读《1959 年时效法令》并寻求意见，切勿自行假设仍在期限内。",
+        "ms": "Had masa bersifat teknikal dan bergantung pada fakta. Baca Akta Had Masa 1959 di SSO dan dapatkan nasihat, jangan andaikan anda masih dalam tempoh.",
+        "ta": "கால வரம்பு தொழில்நுட்பமானது, உண்மைகளைச் சார்ந்தது. 1959 கால வரம்புச் சட்டத்தை SSO இல் படித்து ஆலோசனை பெறவும்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "Limitation Act 1959 (SSO)", "url": "https://sso.agc.gov.sg/Act/LA1959" },
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" }
+      ]
+    },
+    "employment_claims": {
+      "title": {
+        "en": "Employment claims: TADM mediation, then the Employment Claims Tribunals",
+        "zh": "雇佣申索：先经 TADM 调解，再到雇佣申索审裁处",
+        "ms": "Tuntutan pekerjaan: pengantaraan TADM, kemudian Tribunal Tuntutan Pekerjaan",
+        "ta": "வேலை தொடர்பான கோரிக்கைகள்: TADM சமரசம், பின்னர் வேலை கோரிக்கை தீர்ப்பாயம்"
+      },
+      "plainLanguage": {
+        "en": "Salary and other employment disputes do not start at the Small Claims Tribunals. You must first register the claim for mediation at the Tripartite Alliance for Dispute Management (TADM). If mediation does not resolve it, TADM issues a claim referral certificate and you may then file at the Employment Claims Tribunals (ECT) through the Community Justice and Tribunals System. The ECT limit is $20,000, or $30,000 where the claim went through TADM or union-assisted mediation.",
+        "zh": "薪资等雇佣纠纷不能直接向小额索偿审裁处提出。你必须先向劳资政纠纷调解联盟（TADM）登记调解。若调解不成，TADM 会发出转介证明书，你才可通过社区司法与审裁系统（CJTS）向雇佣申索审裁处（ECT）提出申索。ECT 上限为 2 万元；若经 TADM 或工会协助调解，则为 3 万元。",
+        "ms": "Pertikaian gaji dan pekerjaan tidak bermula di Tribunal Tuntutan Kecil. Anda mesti mendaftarkan tuntutan untuk pengantaraan di Tripartite Alliance for Dispute Management (TADM) dahulu. Jika pengantaraan gagal, TADM mengeluarkan sijil rujukan tuntutan dan anda kemudian boleh memfailkan di Tribunal Tuntutan Pekerjaan (ECT) melalui Community Justice and Tribunals System. Had ECT ialah $20,000, atau $30,000 jika melalui pengantaraan TADM atau kesatuan.",
+        "ta": "சம்பளம் உள்ளிட்ட வேலை தொடர்பான பிரச்சினைகள் சிறு வழக்கு தீர்ப்பாயத்தில் தொடங்குவதில்லை. முதலில் TADM (Tripartite Alliance for Dispute Management) இல் சமரசத்திற்குப் பதிவு செய்ய வேண்டும். சமரசம் தோல்வியுற்றால், TADM ஒரு பரிந்துரைச் சான்றிதழ் வழங்கும்; பிறகு CJTS வழியாக வேலை கோரிக்கை தீர்ப்பாயத்தில் (ECT) தாக்கல் செய்யலாம். ECT வரம்பு $20,000; TADM அல்லது தொழிற்சங்க சமரசம் வழியாக வந்தால் $30,000."
+      },
+      "verify": {
+        "en": "Deadlines are short — for example there is a filing time limit if you are still employed. Check TADM and the Judiciary's employment claim pages immediately.",
+        "zh": "期限很短——例如你若仍在职，提出申索另有时限。请立即查看 TADM 与司法机构的雇佣申索页面。",
+        "ms": "Tempohnya singkat — contohnya ada had masa memfail jika anda masih bekerja. Semak laman TADM dan tuntutan pekerjaan Badan Kehakiman dengan segera.",
+        "ta": "கால அவகாசம் குறுகியது — உதாரணமாக நீங்கள் இன்னும் வேலையில் இருந்தால் தாக்கல் செய்யக் கால வரம்பு உண்டு. TADM மற்றும் நீதித்துறைப் பக்கங்களை உடனே பார்க்கவும்."
+      },
+      "confidence": "verified",
+      "sources": [
+        { "label": "TADM — Know your options in an employment dispute", "url": "https://www.tal.sg/tadm/know-your-options" },
+        { "label": "Singapore Judiciary — Cases eligible for an employment claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-employment-claim" },
+        { "label": "Employment Act 1968 (SSO)", "url": "https://sso.agc.gov.sg/Act/EmA1968" }
+      ]
     },
     "evidence_for_informal_agreements": {
-      "title": "Evidencing informal / verbal agreements",
-      "plainLanguage": "Verbal or informal agreements (e.g. between friends) are harder to prove. Messages, transfer records, witnesses, and any written acknowledgement of the debt or terms can substantially strengthen an otherwise word-against-word claim.",
-      "verify": "General evidentiary principle, not a guarantee of outcome.",
-      "confidence": "general_info"
+      "title": {
+        "en": "Proving an informal or verbal agreement",
+        "zh": "证明非正式或口头约定",
+        "ms": "Membuktikan perjanjian tidak formal atau lisan",
+        "ta": "முறைசாரா அல்லது வாய்மொழி உடன்பாட்டை நிரூபித்தல்"
+      },
+      "plainLanguage": {
+        "en": "Verbal agreements can be binding, but they are harder to prove. Messages, bank transfer records, invoices, witnesses and any written acknowledgement of the terms can turn a word-against-word dispute into a documented one. A transfer record alone usually shows only that money moved — the surrounding messages are what show it was a loan rather than a gift.",
+        "zh": "口头约定可能具有约束力，但更难证明。聊天记录、银行转账记录、发票、证人，以及任何对条件的书面确认，都能把「各说各话」变成有据可查。单凭转账记录通常只能证明款项曾经转移——真正能显示这是借款而非赠与的，是当时往来的信息。",
+        "ms": "Perjanjian lisan boleh mengikat, tetapi lebih sukar dibuktikan. Mesej, rekod pindahan bank, invois, saksi dan sebarang pengakuan bertulis tentang terma boleh mengubah pertikaian 'kata sama kata' menjadi berdokumen. Rekod pindahan sahaja biasanya hanya menunjukkan wang berpindah — mesej di sekelilingnya yang menunjukkan ia pinjaman, bukan hadiah.",
+        "ta": "வாய்மொழி உடன்பாடுகள் கட்டுப்படுத்தக்கூடியவை; ஆனால் நிரூபிப்பது கடினம். செய்திகள், வங்கிப் பரிமாற்றப் பதிவுகள், விலைப்பட்டியல்கள், சாட்சிகள், நிபந்தனைகளை ஏற்கும் எழுத்துப்பூர்வ ஒப்புதல் ஆகியவை 'சொல்லுக்கு எதிர் சொல்' பிரச்சினையை ஆவணப்பூர்வமாக்கும். பரிமாற்றப் பதிவு மட்டும் பணம் சென்றதைக் காட்டும் — அது கடனா அன்பளிப்பா என்பதைக் காட்டுவது அதைச் சுற்றியுள்ள செய்திகளே."
+      },
+      "verify": {
+        "en": "This is a general evidentiary principle, not a guarantee of outcome.",
+        "zh": "这是一般举证原则，并不保证结果。",
+        "ms": "Ini prinsip pembuktian am, bukan jaminan keputusan.",
+        "ta": "இது பொதுவான ஆதாரக் கோட்பாடு; முடிவுக்கு உத்தரவாதம் அல்ல."
+      },
+      "confidence": "general_principle",
+      "sources": [
+        { "label": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2009_SGCA_3" }
+      ]
     }
   },
+
+  "_evidenceSuggestionsNote": "Each suggestion has an id. Where the id matches a canonical evidence label (see evidenceLabels), evidence the user says they already have is matched to it and shown as Supported; other ids are always shown as items still to gather.",
   "evidenceSuggestions": {
-    "goods": ["Receipt or proof of purchase", "Photos of the item/defect", "Product listing or description", "Written correspondence with the seller", "Independent inspection/repair report (if any)"],
-    "services": ["Signed quote, invoice, or contract", "Written correspondence (email/WhatsApp) about scope and timeline", "Photos or video of the work delivered", "Proof of payment", "Any written complaint sent to the vendor"],
-    "deposit_tenancy": ["Tenancy agreement", "Move-in and move-out condition photos", "Correspondence about the deposit", "Proof of rent/utility payments", "Inventory list (if any)"],
-    "debt_loan": ["Any written IOU, message, or acknowledgement of the loan", "Bank transfer records", "Messages discussing repayment", "Witness to the agreement (if any)"],
-    "property_damage": ["Photos/video of the damage", "Repair quotes or invoices", "Witness accounts", "Any incident/police report", "CCTV footage (if available)"],
-    "other": ["Any documents, messages, or photos relevant to the dispute", "A written timeline of events while memory is fresh"]
+    "goods": [
+      { "id": "Receipt/Invoice", "label": { "en": "Receipt or proof of purchase", "zh": "收据或购买凭证", "ms": "Resit atau bukti pembelian", "ta": "ரசீது அல்லது கொள்முதல் சான்று" } },
+      { "id": "Photos/Video", "label": { "en": "Photos or video of the item and the defect", "zh": "商品与瑕疵的照片或影片", "ms": "Gambar atau video barang dan kerosakan", "ta": "பொருள் மற்றும் பழுதின் புகைப்படம் அல்லது வீடியோ" } },
+      { "id": "listing", "label": { "en": "The original product listing or advertisement", "zh": "原始商品页面或广告", "ms": "Iklan atau penyenaraian produk asal", "ta": "அசல் விளம்பரம் அல்லது பொருள் பட்டியல்" } },
+      { "id": "Written correspondence", "label": { "en": "Written correspondence with the seller", "zh": "与卖方的书面往来记录", "ms": "Surat-menyurat bertulis dengan penjual", "ta": "விற்பனையாளருடன் எழுத்துப்பூர்வத் தொடர்பு" } },
+      { "id": "inspection_report", "label": { "en": "Independent inspection or repair report", "zh": "独立检验或维修报告", "ms": "Laporan pemeriksaan atau pembaikan bebas", "ta": "சுயாதீன ஆய்வு அல்லது பழுதுபார்ப்பு அறிக்கை" } }
+    ],
+    "services": [
+      { "id": "Contract/Agreement", "label": { "en": "Signed quote, invoice or contract", "zh": "已签署的报价、发票或合约", "ms": "Sebut harga, invois atau kontrak yang ditandatangani", "ta": "கையெழுத்திட்ட மதிப்பீடு, விலைப்பட்டியல் அல்லது ஒப்பந்தம்" } },
+      { "id": "Written correspondence", "label": { "en": "Written messages about scope and timeline", "zh": "关于工作范围与时间的往来信息", "ms": "Mesej bertulis tentang skop dan jadual", "ta": "வேலையின் அளவு மற்றும் காலம் பற்றிய செய்திகள்" } },
+      { "id": "Photos/Video", "label": { "en": "Photos or video of the work delivered", "zh": "已完成工作的照片或影片", "ms": "Gambar atau video kerja yang disiapkan", "ta": "செய்யப்பட்ட வேலையின் புகைப்படம் அல்லது வீடியோ" } },
+      { "id": "Payment/transfer record", "label": { "en": "Proof of payment", "zh": "付款凭证", "ms": "Bukti pembayaran", "ta": "பணம் செலுத்திய சான்று" } },
+      { "id": "complaint_letter", "label": { "en": "Any written complaint you sent", "zh": "你曾发出的书面投诉", "ms": "Sebarang aduan bertulis yang anda hantar", "ta": "நீங்கள் அனுப்பிய எழுத்துப்பூர்வ புகார்" } }
+    ],
+    "deposit_tenancy": [
+      { "id": "Contract/Agreement", "label": { "en": "The tenancy agreement", "zh": "租约文件", "ms": "Perjanjian penyewaan", "ta": "வாடகை ஒப்பந்தம்" } },
+      { "id": "Photos/Video", "label": { "en": "Move-in and move-out condition photos", "zh": "入住与退租时的状况照片", "ms": "Gambar keadaan semasa masuk dan keluar", "ta": "குடியேறும்/வெளியேறும் நிலை புகைப்படங்கள்" } },
+      { "id": "Written correspondence", "label": { "en": "Correspondence about the deposit", "zh": "关于押金的往来记录", "ms": "Surat-menyurat tentang deposit", "ta": "வைப்புத்தொகை பற்றிய தொடர்பு" } },
+      { "id": "Payment/transfer record", "label": { "en": "Proof of rent and utility payments", "zh": "租金与水电费缴付凭证", "ms": "Bukti pembayaran sewa dan utiliti", "ta": "வாடகை மற்றும் பயன்பாட்டுக் கட்டணச் சான்று" } },
+      { "id": "inventory_list", "label": { "en": "Inventory list or handover checklist", "zh": "物品清单或交接检查表", "ms": "Senarai inventori atau senarai semak serahan", "ta": "பொருட்கள் பட்டியல் அல்லது ஒப்படைப்புப் பட்டியல்" } }
+    ],
+    "debt_loan": [
+      { "id": "Written correspondence", "label": { "en": "Written IOU, messages or acknowledgement of the loan", "zh": "书面借据、信息或对借款的确认", "ms": "IOU bertulis, mesej atau pengakuan pinjaman", "ta": "எழுத்துப்பூர்வ கடன் ஒப்புதல், செய்தி அல்லது ஏற்பு" } },
+      { "id": "Payment/transfer record", "label": { "en": "Bank or PayNow transfer records", "zh": "银行或 PayNow 转账记录", "ms": "Rekod pindahan bank atau PayNow", "ta": "வங்கி அல்லது PayNow பரிமாற்றப் பதிவுகள்" } },
+      { "id": "Witness", "label": { "en": "A witness to the agreement", "zh": "在场见证约定的证人", "ms": "Saksi kepada perjanjian itu", "ta": "உடன்பாட்டுக்கு சாட்சி" } },
+      { "id": "timeline_note", "label": { "en": "A written timeline of when the money was lent and chased", "zh": "记录借出与催讨时间的书面时间线", "ms": "Garis masa bertulis bila wang dipinjamkan dan dituntut", "ta": "பணம் கொடுத்த, கேட்ட தேதிகளின் கால வரிசை" } }
+    ],
+    "property_damage": [
+      { "id": "Photos/Video", "label": { "en": "Photos or video of the damage", "zh": "损坏的照片或影片", "ms": "Gambar atau video kerosakan", "ta": "சேதத்தின் புகைப்படம் அல்லது வீடியோ" } },
+      { "id": "repair_quote", "label": { "en": "Repair quotes or invoices", "zh": "维修报价或发票", "ms": "Sebut harga atau invois pembaikan", "ta": "பழுதுபார்ப்பு மதிப்பீடு அல்லது விலைப்பட்டியல்" } },
+      { "id": "Witness", "label": { "en": "Witness accounts", "zh": "证人陈述", "ms": "Keterangan saksi", "ta": "சாட்சிகளின் கூற்று" } },
+      { "id": "incident_report", "label": { "en": "Any incident or police report", "zh": "事故或警方报告", "ms": "Sebarang laporan insiden atau polis", "ta": "சம்பவ அல்லது காவல்துறை அறிக்கை" } },
+      { "id": "cctv", "label": { "en": "CCTV footage if available", "zh": "如有的闭路电视录像", "ms": "Rakaman CCTV jika ada", "ta": "கிடைத்தால் CCTV காட்சிகள்" } }
+    ],
+    "employment": [
+      { "id": "Contract/Agreement", "label": { "en": "Employment contract or letter of appointment", "zh": "雇佣合约或委任书", "ms": "Kontrak pekerjaan atau surat pelantikan", "ta": "வேலை ஒப்பந்தம் அல்லது நியமனக் கடிதம்" } },
+      { "id": "Payslip/salary record", "label": { "en": "Payslips and bank records of salary paid", "zh": "薪金单与银行入账记录", "ms": "Slip gaji dan rekod bank gaji dibayar", "ta": "சம்பளச் சீட்டு மற்றும் வங்கிப் பதிவுகள்" } },
+      { "id": "attendance_records", "label": { "en": "Attendance, roster or overtime records", "zh": "考勤、排班或加班记录", "ms": "Rekod kehadiran, jadual atau kerja lebih masa", "ta": "வருகை, பணி அட்டவணை அல்லது கூடுதல் நேரப் பதிவுகள்" } },
+      { "id": "Written correspondence", "label": { "en": "Messages with your employer about the shortfall", "zh": "与雇主讨论欠薪的信息", "ms": "Mesej dengan majikan tentang kekurangan bayaran", "ta": "முதலாளியுடன் சம்பளம் குறித்த செய்திகள்" } },
+      { "id": "tadm_docs", "label": { "en": "Any TADM mediation documents", "zh": "任何 TADM 调解文件", "ms": "Sebarang dokumen pengantaraan TADM", "ta": "TADM சமரச ஆவணங்கள்" } }
+    ],
+    "other": [
+      { "id": "Written correspondence", "label": { "en": "Any documents, messages or photos relevant to the dispute", "zh": "任何与纠纷相关的文件、信息或照片", "ms": "Sebarang dokumen, mesej atau gambar berkaitan pertikaian", "ta": "பிரச்சினை தொடர்பான ஆவணங்கள், செய்திகள் அல்லது புகைப்படங்கள்" } },
+      { "id": "timeline_note", "label": { "en": "A written timeline of events while your memory is fresh", "zh": "趁记忆清晰时写下的事件时间线", "ms": "Garis masa peristiwa yang ditulis semasa ingatan masih segar", "ta": "நினைவு தெளிவாக இருக்கும்போது எழுதிய நிகழ்வு கால வரிசை" } }
+    ]
+  },
+
+  "evidenceLabels": {
+    "Receipt/Invoice": { "en": "Receipt/Invoice", "zh": "收据／发票", "ms": "Resit/Invois", "ta": "ரசீது/விலைப்பட்டியல்" },
+    "Contract/Agreement": { "en": "Contract/Agreement", "zh": "合约／协议", "ms": "Kontrak/Perjanjian", "ta": "ஒப்பந்தம்/உடன்பாடு" },
+    "Written correspondence": { "en": "Written correspondence", "zh": "书面往来记录", "ms": "Surat-menyurat bertulis", "ta": "எழுத்துப்பூர்வத் தொடர்பு" },
+    "Photos/Video": { "en": "Photos/Video", "zh": "照片／影片", "ms": "Gambar/Video", "ta": "புகைப்படம்/வீடியோ" },
+    "Witness": { "en": "Witness", "zh": "证人", "ms": "Saksi", "ta": "சாட்சி" },
+    "Payment/transfer record": { "en": "Payment/transfer record", "zh": "付款／转账记录", "ms": "Rekod pembayaran/pindahan", "ta": "பணம்/பரிமாற்றப் பதிவு" },
+    "Payslip/salary record": { "en": "Payslip/salary record", "zh": "薪金单／薪资记录", "ms": "Slip gaji/rekod gaji", "ta": "சம்பளச் சீட்டு/பதிவு" }
   }
 }

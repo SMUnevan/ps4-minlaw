@@ -1,0 +1,169 @@
+{
+  "track": {
+    "id": "evidence",
+    "order": 2,
+    "icon": "▤",
+    "title": {
+      "en": "Building your evidence",
+      "zh": "建立你的证据",
+      "ms": "Membina bukti anda",
+      "ta": "உங்கள் ஆதாரத்தை உருவாக்குதல்"
+    },
+    "description": {
+      "en": "What actually persuades a tribunal, and how to prove an agreement nobody wrote down.",
+      "zh": "什么才能真正说服审裁处，以及如何证明没有白纸黑字的约定。",
+      "ms": "Apa yang benar-benar meyakinkan tribunal, dan cara membuktikan perjanjian yang tidak bertulis.",
+      "ta": "தீர்ப்பாயத்தை உண்மையில் நம்பவைப்பது எது, எழுதாத உடன்பாட்டை எப்படி நிரூபிப்பது."
+    }
+  },
+  "lessons": [
+    {
+      "id": "evidence-over-memory",
+      "order": 1,
+      "minutes": 3,
+      "tags": ["evidence", "goods", "services", "tenancy", "debt", "negligence", "employment"],
+      "title": {
+        "en": "Why documents beat memory",
+        "zh": "为何文件胜过记忆",
+        "ms": "Mengapa dokumen mengatasi ingatan",
+        "ta": "நினைவை விட ஆவணம் ஏன் வலிமையானது"
+      },
+      "summary": {
+        "en": "Both sides will remember it differently. Records are what break the tie.",
+        "zh": "双方的记忆必然不同。真正能分出高下的是记录。",
+        "ms": "Kedua-dua pihak akan mengingatinya secara berbeza. Rekod yang menentukan.",
+        "ta": "இரு தரப்பும் வெவ்வேறாக நினைவில் வைத்திருப்பர். பதிவுகளே முடிவு செய்யும்."
+      },
+      "content": {
+        "en": [
+          "In almost every dispute, both sides are sincere and both remember it differently. A tribunal cannot look inside your head, so it works from what can be checked: documents, messages, photos, records.",
+          "Start a dated timeline today, while your memory is fresh. Write what happened, when, who said what, and what you did in response. A timeline written early is far more persuasive than one reconstructed months later.",
+          "Save the evidence before it disappears. Export chat histories, photograph physical items and damage, download receipts and bank records, and keep them somewhere that survives losing your phone.",
+          "Keep the other side's words too. A message where they apologise, promise to fix something, or acknowledge an amount owed is often the single most useful document in the whole file."
+        ],
+        "zh": [
+          "几乎每一宗纠纷中，双方都是真诚的，却记得不一样。审裁处无法读取你的想法，只能依据可查证的东西：文件、信息、照片、记录。",
+          "趁记忆清晰，今天就开始写下带日期的时间线：发生了什么、何时发生、谁说了什么、你如何回应。及早写下的时间线，远比几个月后回忆重建的更有说服力。",
+          "在证据消失前保存它。导出聊天记录、拍下实物与损坏情况、下载收据与银行记录，并存放在即使手机遗失也不会丢失的地方。",
+          "也要保留对方说过的话。对方道歉、承诺修理，或承认欠款金额的信息，往往是整份卷宗中最有用的一份文件。"
+        ],
+        "ms": [
+          "Dalam hampir setiap pertikaian, kedua-dua pihak ikhlas dan kedua-duanya mengingati perkara berbeza. Tribunal tidak boleh melihat isi fikiran anda, jadi ia bekerja dengan apa yang boleh disemak: dokumen, mesej, gambar, rekod.",
+          "Mulakan garis masa bertarikh hari ini, semasa ingatan anda masih segar. Tulis apa yang berlaku, bila, siapa kata apa, dan apa tindakan anda. Garis masa yang ditulis awal jauh lebih meyakinkan daripada yang dibina semula berbulan kemudian.",
+          "Simpan bukti sebelum ia hilang. Eksport sejarah sembang, ambil gambar barang dan kerosakan, muat turun resit dan rekod bank, dan simpan di tempat yang kekal walaupun telefon anda hilang.",
+          "Simpan juga kata-kata pihak lawan. Mesej di mana mereka meminta maaf, berjanji membaiki sesuatu, atau mengakui jumlah terhutang selalunya dokumen paling berguna dalam keseluruhan fail."
+        ],
+        "ta": [
+          "கிட்டத்தட்ட ஒவ்வொரு பிரச்சினையிலும் இரு தரப்பும் நேர்மையாக இருப்பர், ஆனால் வெவ்வேறாக நினைவில் வைத்திருப்பர். தீர்ப்பாயம் உங்கள் மனதைப் பார்க்க முடியாது; சரிபார்க்கக்கூடியவற்றையே நம்பும்: ஆவணங்கள், செய்திகள், புகைப்படங்கள், பதிவுகள்.",
+          "நினைவு தெளிவாக இருக்கும் இன்றே தேதியிட்ட கால வரிசையைத் தொடங்குங்கள். என்ன நடந்தது, எப்போது, யார் என்ன சொன்னார்கள், நீங்கள் என்ன செய்தீர்கள் என எழுதுங்கள். ஆரம்பத்திலேயே எழுதியது, மாதங்கள் கழித்து நினைவிலிருந்து எழுதியதை விட நம்பகமானது.",
+          "ஆதாரம் மறைவதற்கு முன் சேமியுங்கள். உரையாடல்களை ஏற்றுமதி செய்யுங்கள், பொருளையும் சேதத்தையும் படமெடுங்கள், ரசீதுகளையும் வங்கிப் பதிவுகளையும் தரவிறக்குங்கள், தொலைபேசி தொலைந்தாலும் மிஞ்சும் இடத்தில் வையுங்கள்.",
+          "எதிர்த் தரப்பின் வார்த்தைகளையும் வைத்திருங்கள். அவர்கள் மன்னிப்புக் கேட்ட, சரிசெய்வதாக வாக்குறுதி அளித்த, அல்லது தொகையை ஒப்புக்கொண்ட செய்தி பெரும்பாலும் கோப்பிலேயே மிக முக்கியமான ஆவணமாக இருக்கும்."
+        ]
+      },
+      "sources": [
+        { "label": "Singapore Judiciary — File a small claim", "url": "https://www.judiciary.gov.sg/civil/file-small-claim" },
+        { "label": "Pro Bono SG — free legal help", "url": "https://probono.sg/" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "Which is usually the most valuable single document in a dispute file?",
+          "zh": "在纠纷卷宗中，通常最有价值的单一文件是哪一份？",
+          "ms": "Yang mana biasanya dokumen tunggal paling bernilai dalam fail pertikaian?",
+          "ta": "ஒரு வழக்குக் கோப்பில் பொதுவாக மிக மதிப்புமிக்க ஒற்றை ஆவணம் எது?"
+        },
+        "options": {
+          "en": ["Your own written summary of events", "A message where the other side acknowledges the problem or the amount owed", "A photo of yourself at the shop", "A list of what you plan to say"],
+          "zh": ["你自己撰写的事件摘要", "对方承认问题或欠款金额的信息", "你本人在店里的照片", "你打算陈述内容的清单"],
+          "ms": ["Ringkasan peristiwa yang anda tulis sendiri", "Mesej di mana pihak lawan mengakui masalah atau jumlah terhutang", "Gambar anda di kedai", "Senarai apa yang anda rancang untuk katakan"],
+          "ta": ["நீங்கள் எழுதிய நிகழ்வுச் சுருக்கம்", "எதிர்த் தரப்பு பிரச்சினையையோ தொகையையோ ஒப்புக்கொள்ளும் செய்தி", "கடையில் உங்கள் புகைப்படம்", "நீங்கள் சொல்லப் போவதன் பட்டியல்"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "An admission from the other side is hard for them to walk back, and it does not depend on the tribunal believing your account over theirs.",
+          "zh": "对方的承认最难反口，而且不需要审裁处在你与对方的说法之间选边。",
+          "ms": "Pengakuan daripada pihak lawan sukar ditarik balik, dan ia tidak bergantung pada tribunal mempercayai cerita anda berbanding mereka.",
+          "ta": "எதிர்த் தரப்பின் ஒப்புதலை அவர்கள் திரும்பப் பெறுவது கடினம்; உங்கள் கூற்றை நம்ப வேண்டிய தேவையும் இல்லை."
+        }
+      }
+    },
+    {
+      "id": "verbal-agreements",
+      "order": 2,
+      "minutes": 3,
+      "tags": ["evidence", "debt", "contracts", "services"],
+      "title": {
+        "en": "Proving a handshake deal",
+        "zh": "证明「口头约定」",
+        "ms": "Membuktikan perjanjian lisan",
+        "ta": "வாய்மொழி உடன்பாட்டை நிரூபித்தல்"
+      },
+      "summary": {
+        "en": "Verbal agreements can bind. The hard part is proving what was agreed.",
+        "zh": "口头约定可能具有约束力，难的是证明约定了什么。",
+        "ms": "Perjanjian lisan boleh mengikat. Yang sukar ialah membuktikan apa yang dipersetujui.",
+        "ta": "வாய்மொழி உடன்பாடு கட்டுப்படுத்தலாம்; கடினம் என்னவென்றால் என்ன ஒப்புக்கொள்ளப்பட்டது என்பதை நிரூபிப்பது."
+      },
+      "content": {
+        "en": [
+          "A contract does not need to be a signed document. Messages and conduct can form one. But if nothing was written down, you carry the burden of showing what the terms actually were.",
+          "Loans between friends are the classic trap. A PayNow or bank transfer record proves money moved — it does not prove the money was a loan rather than a gift. What proves that is the conversation around it.",
+          "Look for indirect evidence: messages agreeing an amount or a repayment date, a partial repayment (which implies a debt was accepted), an invoice, or someone who was present when the agreement was made.",
+          "If the debt is still live and unpaid, one practical step is to send a polite message summarising the agreement as you understand it and asking them to confirm. Their reply — agreeing, disputing, or going silent — becomes evidence either way."
+        ],
+        "zh": [
+          "合约不一定要是签署的文件，信息往来与行为也可能成立合约。但如果什么都没写下来，举证责任就落在你身上：你必须证明当初的条件是什么。",
+          "朋友之间的借款是典型陷阱。PayNow 或银行转账记录只能证明款项曾经转移——并不能证明那是借款而非赠与。真正能证明的，是转账前后的对话。",
+          "寻找间接证据：约定金额或还款日期的信息、已部分还款（暗示对方承认欠债）、发票，或当时在场见证约定的人。",
+          "如果这笔债务仍未清偿，一个实用做法是发出一则礼貌的信息，把你理解的约定内容摘要写出，请对方确认。无论对方是同意、反驳还是不回复，都会成为证据。"
+        ],
+        "ms": [
+          "Kontrak tidak perlu berbentuk dokumen bertandatangan. Mesej dan tingkah laku boleh membentuknya. Tetapi jika tiada apa-apa bertulis, beban membuktikan terma sebenar terletak pada anda.",
+          "Pinjaman antara kawan ialah perangkap klasik. Rekod pindahan PayNow atau bank membuktikan wang berpindah — bukan membuktikan ia pinjaman dan bukan hadiah. Perbualan di sekelilingnya yang membuktikannya.",
+          "Cari bukti tidak langsung: mesej yang mempersetujui jumlah atau tarikh bayaran balik, bayaran balik separa (yang membayangkan hutang diakui), invois, atau seseorang yang hadir semasa perjanjian dibuat.",
+          "Jika hutang masih belum dijelaskan, satu langkah praktikal ialah menghantar mesej sopan meringkaskan perjanjian mengikut kefahaman anda dan meminta mereka mengesahkannya. Jawapan mereka — bersetuju, membantah, atau senyap — menjadi bukti."
+        ],
+        "ta": [
+          "ஒப்பந்தம் கையெழுத்திட்ட ஆவணமாக இருக்க வேண்டியதில்லை; செய்திகளும் நடத்தையும் ஒப்பந்தத்தை உருவாக்கலாம். ஆனால் எதுவும் எழுதப்படாவிட்டால், நிபந்தனைகள் என்ன என்பதை நிரூபிக்கும் பொறுப்பு உங்களுடையது.",
+          "நண்பர்களிடையே கடன் என்பது வழக்கமான சிக்கல். PayNow அல்லது வங்கிப் பதிவு பணம் சென்றதை நிரூபிக்கும் — அது கடனா அன்பளிப்பா என்பதை அல்ல. அதைச் சுற்றியுள்ள உரையாடலே அதை நிரூபிக்கும்.",
+          "மறைமுக ஆதாரங்களைத் தேடுங்கள்: தொகை அல்லது திருப்பிச் செலுத்தும் தேதியை ஒப்புக்கொள்ளும் செய்திகள், பகுதி திருப்பிச் செலுத்துதல் (கடன் ஏற்கப்பட்டதைக் குறிக்கும்), விலைப்பட்டியல், அல்லது உடன்பாட்டின்போது இருந்த நபர்.",
+          "கடன் இன்னும் நிலுவையில் இருந்தால், நீங்கள் புரிந்துகொண்ட உடன்பாட்டைச் சுருக்கமாக எழுதி, உறுதிப்படுத்தக் கேட்டு ஒரு கண்ணியமான செய்தி அனுப்புவது நடைமுறை நடவடிக்கை. அவர்களின் பதில் — ஒப்புக்கொள்வது, மறுப்பது, அல்லது மௌனம் — எப்படியும் ஆதாரமாகும்."
+        ]
+      },
+      "sources": [
+        { "label": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2009_SGCA_3" }
+      ],
+      "caseNote": {
+        "citation": "Gay Choon Ing v Loh Sze Ti Terence Peter [2009] SGCA 3; [2009] 2 SLR(R) 332",
+        "url": "https://www.elitigation.sg/gd/s/2009_SGCA_3",
+        "why": {
+          "en": "The Court of Appeal restated the building blocks of a contract — offer, acceptance, consideration, and an intention to create legal relations. None of them require a signed document, which is why informal deals can still be binding.",
+          "zh": "上诉庭重申了合约的构成要素——要约、承诺、对价，以及创设法律关系的意图。这些要素都不要求签署文件，这正是非正式约定仍可能具有约束力的原因。",
+          "ms": "Mahkamah Rayuan menyatakan semula asas sesuatu kontrak — tawaran, penerimaan, balasan, dan niat mewujudkan hubungan undang-undang. Tiada satu pun memerlukan dokumen bertandatangan, sebab itu perjanjian tidak formal masih boleh mengikat.",
+          "ta": "மேல்முறையீட்டு நீதிமன்றம் ஒப்பந்தத்தின் அடிப்படைக் கூறுகளை மீண்டும் கூறியது — சலுகை, ஏற்பு, பரிசீலனை, சட்ட உறவை உருவாக்கும் நோக்கம். இவற்றில் எதற்கும் கையெழுத்திட்ட ஆவணம் தேவையில்லை; அதனால்தான் முறைசாரா உடன்பாடுகளும் கட்டுப்படுத்தும்."
+        }
+      },
+      "check": {
+        "question": {
+          "en": "You transferred $2,000 to a friend who now says it was a gift. What best supports your claim it was a loan?",
+          "zh": "你转了 2000 元给朋友，对方现在说那是赠与。什么最能支持你「那是借款」的主张？",
+          "ms": "Anda memindahkan $2,000 kepada kawan yang kini berkata ia hadiah. Apa yang paling menyokong dakwaan anda bahawa ia pinjaman?",
+          "ta": "நீங்கள் நண்பருக்கு $2,000 அனுப்பினீர்கள்; அவர் இப்போது அது அன்பளிப்பு என்கிறார். அது கடன் என்பதற்கு எது சிறந்த ஆதாரம்?"
+        },
+        "options": {
+          "en": ["The bank transfer record on its own", "Messages where they agree a repayment date", "The fact that you are certain about it", "That you have known each other a long time"],
+          "zh": ["单凭银行转账记录", "对方同意还款日期的信息", "你自己非常确定这件事", "你们认识很久了"],
+          "ms": ["Rekod pindahan bank sahaja", "Mesej di mana mereka bersetuju dengan tarikh bayaran balik", "Hakikat bahawa anda pasti tentangnya", "Anda sudah lama kenal antara satu sama lain"],
+          "ta": ["வங்கிப் பரிமாற்றப் பதிவு மட்டும்", "திருப்பிச் செலுத்தும் தேதியை அவர் ஒப்புக்கொள்ளும் செய்திகள்", "உங்களுக்கு உறுதியாகத் தெரியும் என்பது", "நீங்கள் நீண்ட காலமாக அறிமுகம்"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "The transfer only shows money moved. A message agreeing repayment shows both sides treated it as a debt.",
+          "zh": "转账只能证明款项转移。而同意还款的信息，则显示双方都把它当作债务。",
+          "ms": "Pindahan hanya menunjukkan wang berpindah. Mesej yang mempersetujui bayaran balik menunjukkan kedua-dua pihak menganggapnya hutang.",
+          "ta": "பரிமாற்றம் பணம் சென்றதை மட்டுமே காட்டும். திருப்பிச் செலுத்துதலை ஒப்புக்கொள்ளும் செய்தி, இருவரும் அதைக் கடனாகக் கருதியதைக் காட்டும்."
+        }
+      }
+    }
+  ]
+}

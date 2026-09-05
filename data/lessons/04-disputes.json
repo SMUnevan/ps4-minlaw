@@ -1,0 +1,240 @@
+{
+  "track": {
+    "id": "disputes",
+    "order": 4,
+    "icon": "◈",
+    "title": {
+      "en": "Everyday disputes",
+      "zh": "常见的日常纠纷",
+      "ms": "Pertikaian harian",
+      "ta": "அன்றாடப் பிரச்சினைகள்"
+    },
+    "description": {
+      "en": "Deposits, accidents and damage — plus the preparation habit that helps in every one of them.",
+      "zh": "押金、意外与损坏——以及在每一种情况下都管用的准备习惯。",
+      "ms": "Deposit, kemalangan dan kerosakan — serta tabiat persediaan yang membantu dalam setiap satunya.",
+      "ta": "வைப்புத்தொகை, விபத்துகள், சேதம் — மேலும் எல்லாவற்றிலும் உதவும் தயாரிப்புப் பழக்கம்."
+    }
+  },
+  "lessons": [
+    {
+      "id": "deposit-wear-tear",
+      "order": 1,
+      "minutes": 3,
+      "tags": ["tenancy", "housing", "evidence"],
+      "title": {
+        "en": "Deposits and 'fair wear and tear'",
+        "zh": "押金与「正常损耗」",
+        "ms": "Deposit dan 'haus dan lusuh yang munasabah'",
+        "ta": "வைப்புத்தொகையும் 'சாதாரண தேய்மானமும்'"
+      },
+      "summary": {
+        "en": "The line between damage a landlord can deduct for and ordinary use they cannot.",
+        "zh": "房东可以扣款的「损坏」与不可扣款的「正常使用」之间的界线。",
+        "ms": "Garis antara kerosakan yang boleh ditolak tuan rumah dan penggunaan biasa yang tidak boleh.",
+        "ta": "வீட்டு உரிமையாளர் கழிக்கக்கூடிய சேதத்திற்கும், கழிக்க முடியாத சாதாரணப் பயன்பாட்டிற்கும் இடையிலான எல்லை."
+      },
+      "content": {
+        "en": [
+          "A security deposit is generally refundable at the end of a tenancy, subject to the lawful deductions set out in your tenancy agreement — typically unpaid rent, unpaid utilities, and damage that goes beyond fair wear and tear.",
+          "Fair wear and tear is the ordinary deterioration that comes from living in a place normally: faded paint, minor scuffs on a floor, a worn mattress. That is generally not deductible. A cracked basin, a burnt countertop or a hole in a wall is a different matter.",
+          "The single most effective thing you can do is photograph every room at move-in and again at move-out, with dates. Most deposit disputes are really disputes about what condition the unit was in on day one.",
+          "If deductions look excessive, ask for an itemised breakdown with receipts or quotes. A landlord who cannot show what was actually repaired, and at what cost, is in a much weaker position. Residential tenancies not exceeding 2 years can be taken to the Small Claims Tribunals."
+        ],
+        "zh": [
+          "押金一般应在租约结束时退还，但可依你的租约条款作合法扣除——通常包括欠租、未缴水电费，以及超出正常损耗的损坏。",
+          "正常损耗指正常居住所产生的自然折旧：油漆褪色、地板轻微刮痕、床垫用旧。这些一般不可扣款。但洗手盆破裂、台面烧焦或墙上破洞，则是另一回事。",
+          "你能做的最有效一件事，就是在入住时与退租时把每个房间都拍照，并保留日期。大多数押金纠纷，实质上都是在争论单位一开始的状况如何。",
+          "若扣款看来过高，可要求提供逐项明细，并附上收据或报价。房东若无法说明实际修了什么、花了多少，其立场会弱很多。不超过 2 年的住宅租约纠纷，可交由小额索偿审裁处处理。"
+        ],
+        "ms": [
+          "Deposit sekuriti umumnya boleh dikembalikan pada akhir penyewaan, tertakluk kepada potongan sah dalam perjanjian sewa anda — biasanya sewa tertunggak, bil utiliti tidak dibayar, dan kerosakan melebihi haus dan lusuh yang munasabah.",
+          "Haus dan lusuh yang munasabah ialah kemerosotan biasa akibat mendiami sesuatu tempat secara normal: cat pudar, calar kecil pada lantai, tilam yang lusuh. Itu umumnya tidak boleh ditolak. Sinki retak, kaunter terbakar atau lubang pada dinding adalah perkara berbeza.",
+          "Perkara paling berkesan yang boleh anda lakukan ialah mengambil gambar setiap bilik semasa masuk dan semasa keluar, lengkap dengan tarikh. Kebanyakan pertikaian deposit sebenarnya pertikaian tentang keadaan unit pada hari pertama.",
+          "Jika potongan kelihatan keterlaluan, minta pecahan terperinci berserta resit atau sebut harga. Tuan rumah yang tidak dapat menunjukkan apa yang sebenarnya dibaiki, dan pada kos berapa, berada dalam kedudukan jauh lebih lemah. Penyewaan kediaman tidak melebihi 2 tahun boleh dibawa ke Tribunal Tuntutan Kecil."
+        ],
+        "ta": [
+          "வைப்புத்தொகை பொதுவாக வாடகைக் காலம் முடிவில் திரும்பத் தரப்பட வேண்டும்; உங்கள் ஒப்பந்தத்தில் உள்ள சட்டப்பூர்வ கழிவுகளுக்கு உட்பட்டு — பொதுவாக நிலுவை வாடகை, செலுத்தப்படாத பயன்பாட்டுக் கட்டணம், சாதாரண தேய்மானத்தைத் தாண்டிய சேதம்.",
+          "சாதாரண தேய்மானம் என்பது ஒரு இடத்தில் இயல்பாக வாழ்வதால் ஏற்படும் தேய்வு: மங்கிய வண்ணப்பூச்சு, தரையில் சிறு கீறல்கள், பழகிய மெத்தை. அவை பொதுவாகக் கழிக்கப்படக் கூடாது. வெடித்த வாஷ்பேசின், எரிந்த சமையல் மேடை, சுவரில் ஓட்டை — இவை வேறு.",
+          "நீங்கள் செய்யக்கூடிய மிகப் பயனுள்ள ஒரு விஷயம்: குடியேறும்போதும் வெளியேறும்போதும் ஒவ்வொரு அறையையும் தேதியுடன் படமெடுப்பது. பெரும்பாலான வைப்புத்தொகைப் பிரச்சினைகள், உண்மையில் முதல் நாள் வீட்டின் நிலை என்ன என்பது பற்றியவையே.",
+          "கழிவுகள் அதிகமாகத் தோன்றினால், ரசீது அல்லது மதிப்பீட்டுடன் விவரப் பட்டியலைக் கேளுங்கள். உண்மையில் என்ன பழுதுபார்க்கப்பட்டது, எவ்வளவு செலவு என்று காட்ட முடியாத உரிமையாளரின் நிலை மிகவும் பலவீனமானது. 2 ஆண்டுகளுக்கு மிகாத குடியிருப்பு வாடகைப் பிரச்சினைகளை SCT-க்குக் கொண்டு செல்லலாம்."
+        ]
+      },
+      "sources": [
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" },
+        { "label": "Singapore Judiciary — Small claims", "url": "https://www.judiciary.gov.sg/civil/small-claims" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "Which of these is normally 'fair wear and tear' rather than deductible damage?",
+          "zh": "以下哪一项通常属于「正常损耗」，而非可扣款的损坏？",
+          "ms": "Antara berikut, yang manakah biasanya 'haus dan lusuh' dan bukan kerosakan yang boleh ditolak?",
+          "ta": "இவற்றில் எது பொதுவாக 'சாதாரண தேய்மானம்', கழிக்கத்தக்க சேதம் அல்ல?"
+        },
+        "options": {
+          "en": ["A cracked wash basin", "Faded paint after two years of normal living", "A hole punched in a wall", "A burnt kitchen countertop"],
+          "zh": ["洗手盆破裂", "正常居住两年后油漆褪色", "墙上被打出的破洞", "厨房台面被烧焦"],
+          "ms": ["Sinki yang retak", "Cat pudar selepas dua tahun kediaman biasa", "Lubang yang ditebuk pada dinding", "Kaunter dapur yang terbakar"],
+          "ta": ["வெடித்த வாஷ்பேசின்", "இரண்டு ஆண்டு இயல்பான வாழ்வுக்குப் பின் மங்கிய வண்ணப்பூச்சு", "சுவரில் ஏற்படுத்தப்பட்ட ஓட்டை", "எரிந்த சமையலறை மேடை"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "Faded paint is ordinary deterioration from normal use. The others are damage a landlord may be entitled to deduct for.",
+          "zh": "油漆褪色属于正常使用造成的自然折旧。其余各项则属房东可能有权扣款的损坏。",
+          "ms": "Cat pudar ialah kemerosotan biasa akibat penggunaan normal. Yang lain ialah kerosakan yang mungkin boleh ditolak oleh tuan rumah.",
+          "ta": "மங்கிய வண்ணப்பூச்சு இயல்பான பயன்பாட்டால் ஏற்படும் தேய்வு. மற்றவை உரிமையாளர் கழிக்க உரிமையுள்ள சேதங்கள்."
+        }
+      }
+    },
+    {
+      "id": "negligence-duty",
+      "order": 2,
+      "minutes": 4,
+      "tags": ["negligence", "housing", "evidence"],
+      "title": {
+        "en": "When is someone legally careless?",
+        "zh": "什么时候才算法律上的「疏忽」？",
+        "ms": "Bilakah seseorang cuai di sisi undang-undang?",
+        "ta": "ஒருவர் எப்போது சட்டப்படி கவனக்குறைவானவர்?"
+      },
+      "summary": {
+        "en": "Singapore uses one two-stage test for duty of care, from the Spandeck case.",
+        "zh": "新加坡采用统一的两阶段注意义务测试，源自 Spandeck 一案。",
+        "ms": "Singapura menggunakan satu ujian dua peringkat bagi kewajipan berjaga-jaga, daripada kes Spandeck.",
+        "ta": "கவனக் கடமைக்கு சிங்கப்பூர் ஒரே இரு-நிலைச் சோதனையைப் பயன்படுத்துகிறது — Spandeck வழக்கிலிருந்து."
+      },
+      "content": {
+        "en": [
+          "Saying 'they were careless' is not enough. In law you generally need to show four things: that the other party owed you a duty of care, that they breached it, that the breach caused your loss, and that the loss is not too remote.",
+          "For the first element, Singapore uses a single test set out in Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37. It begins with a threshold question of factual foreseeability, then asks (1) whether there was sufficient legal proximity between the parties, and (2) whether any policy considerations should negate the duty.",
+          "The Court of Appeal later confirmed in See Toh Siew Kee v Ho Ah Lam Ferrocement (Pte) Ltd [2013] SGCA 29 that this same test applies to occupiers — the people responsible for premises — rather than the older separate categories of visitor.",
+          "Practically: photograph the hazard and the damage immediately, get repair quotes, note who was responsible for the place or the activity, and find out whether they knew about the risk beforehand. Note that personal injury claims are outside the Small Claims Tribunals."
+        ],
+        "zh": [
+          "光说「对方很不小心」是不够的。在法律上，你一般须证明四点：对方对你负有注意义务、他们违反了该义务、该违反造成你的损失，且损失并非过于间接。",
+          "就第一项要素，新加坡采用 Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37 所确立的统一测试。它先处理事实上可预见性的门槛问题，再问：（一）双方之间是否具备足够的法律密切关系；（二）是否有政策考量应排除该义务。",
+          "上诉庭其后在 See Toh Siew Kee v Ho Ah Lam Ferrocement (Pte) Ltd [2013] SGCA 29 中确认，同一测试同样适用于场所占有人，而不再沿用旧有按访客类别区分的做法。",
+          "实务上：立即拍下危险源与损坏情况、取得维修报价、记下谁负责该场所或该项活动，并查明对方事前是否已知悉该风险。请注意，人身伤害申索不属于小额索偿审裁处的受理范围。"
+        ],
+        "ms": [
+          "Berkata 'mereka cuai' sahaja tidak memadai. Di sisi undang-undang anda umumnya perlu menunjukkan empat perkara: pihak lawan berhutang kewajipan berjaga-jaga kepada anda, mereka melanggarnya, pelanggaran itu menyebabkan kerugian anda, dan kerugian itu tidak terlalu jauh.",
+          "Bagi elemen pertama, Singapura menggunakan satu ujian yang ditetapkan dalam Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37. Ia bermula dengan soalan ambang kebolehjangkaan fakta, kemudian bertanya (1) sama ada terdapat kedekatan undang-undang yang mencukupi antara pihak, dan (2) sama ada pertimbangan dasar patut menafikan kewajipan itu.",
+          "Mahkamah Rayuan kemudiannya mengesahkan dalam See Toh Siew Kee v Ho Ah Lam Ferrocement (Pte) Ltd [2013] SGCA 29 bahawa ujian yang sama terpakai kepada penghuni premis, dan bukan lagi kategori pelawat yang lama.",
+          "Secara praktikal: ambil gambar bahaya dan kerosakan dengan segera, dapatkan sebut harga pembaikan, catat siapa bertanggungjawab ke atas tempat atau aktiviti itu, dan siasat sama ada mereka sedia tahu tentang risiko itu. Perhatikan bahawa tuntutan kecederaan diri berada di luar Tribunal Tuntutan Kecil."
+        ],
+        "ta": [
+          "'அவர்கள் கவனக்குறைவாக இருந்தார்கள்' என்று சொல்வது போதாது. சட்டப்படி பொதுவாக நான்கு விஷயங்களை நிரூபிக்க வேண்டும்: எதிர்த் தரப்புக்கு உங்கள் மீது கவனக் கடமை இருந்தது, அதை மீறினார்கள், அந்த மீறல் உங்கள் இழப்பை ஏற்படுத்தியது, அந்த இழப்பு மிகத் தொலைவானது அல்ல.",
+          "முதல் கூறுக்கு, Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37 வகுத்த ஒரே சோதனையை சிங்கப்பூர் பயன்படுத்துகிறது. இது உண்மையில் முன்கூட்டியே அறியக்கூடியதா என்ற வாசல் கேள்வியில் தொடங்கி, (1) தரப்பினரிடையே போதிய சட்ட நெருக்கம் இருந்ததா, (2) கடமையை நீக்கக்கூடிய கொள்கைக் காரணங்கள் உண்டா என்று கேட்கிறது.",
+          "பின்னர் See Toh Siew Kee v Ho Ah Lam Ferrocement (Pte) Ltd [2013] SGCA 29 வழக்கில், இதே சோதனை இடத்திற்குப் பொறுப்பானவர்களுக்கும் பொருந்தும் என மேல்முறையீட்டு நீதிமன்றம் உறுதிப்படுத்தியது; பழைய பார்வையாளர் வகைப்பாடு அல்ல.",
+          "நடைமுறையில்: ஆபத்தையும் சேதத்தையும் உடனே படமெடுங்கள், பழுதுபார்ப்பு மதிப்பீடு பெறுங்கள், அந்த இடத்திற்கு அல்லது செயலுக்கு யார் பொறுப்பு என்று குறித்து வையுங்கள், அவர்களுக்கு ஆபத்து முன்பே தெரிந்திருந்ததா எனக் கண்டறியுங்கள். உடல் காயக் கோரிக்கைகள் SCT-க்கு வெளியே என்பதைக் கவனியுங்கள்."
+        ]
+      },
+      "sources": [
+        { "label": "Spandeck Engineering v DSTA [2007] SGCA 37 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2007_SGCA_37" },
+        { "label": "See Toh Siew Kee v Ho Ah Lam Ferrocement [2013] SGCA 29 (eLitigation)", "url": "https://www.elitigation.sg/gd/s/2013_SGCA_29" }
+      ],
+      "caseNote": {
+        "citation": "Spandeck Engineering (S) Pte Ltd v Defence Science & Technology Agency [2007] SGCA 37; [2007] 4 SLR(R) 100",
+        "url": "https://www.elitigation.sg/gd/s/2007_SGCA_37",
+        "why": {
+          "en": "The Court of Appeal replaced the older patchwork of tests with a single two-stage test — factual foreseeability as a threshold, then proximity, then policy — that now applies across negligence claims in Singapore.",
+          "zh": "上诉庭以统一的两阶段测试取代旧有零散的判准——先以事实上可预见性作为门槛，再看密切关系，最后考量政策——现已通用于新加坡的疏忽申索。",
+          "ms": "Mahkamah Rayuan menggantikan pelbagai ujian lama dengan satu ujian dua peringkat — kebolehjangkaan fakta sebagai ambang, kemudian kedekatan, kemudian dasar — yang kini terpakai merentas tuntutan kecuaian di Singapura.",
+          "ta": "பழைய பல்வேறு சோதனைகளுக்குப் பதிலாக மேல்முறையீட்டு நீதிமன்றம் ஒரே இரு-நிலைச் சோதனையை அமைத்தது — வாசலாக உண்மை முன்னறிதல், பின் நெருக்கம், பின் கொள்கை — இது இப்போது சிங்கப்பூரின் கவனக்குறைவு வழக்குகளுக்குப் பொருந்தும்."
+        }
+      },
+      "check": {
+        "question": {
+          "en": "Under Spandeck, what comes first before proximity and policy are considered?",
+          "zh": "依据 Spandeck，在考量密切关系与政策之前，首先要处理什么？",
+          "ms": "Di bawah Spandeck, apakah yang didahulukan sebelum kedekatan dan dasar dipertimbangkan?",
+          "ta": "Spandeck-இன் படி, நெருக்கம் மற்றும் கொள்கையைப் பரிசீலிக்கும் முன் முதலில் என்ன?"
+        },
+        "options": {
+          "en": ["A threshold question of factual foreseeability", "Whether the claimant has a lawyer", "The amount of money claimed", "Whether the parties had a written contract"],
+          "zh": ["事实上可预见性的门槛问题", "申索人是否聘有律师", "申索的金额大小", "双方是否订有书面合约"],
+          "ms": ["Soalan ambang kebolehjangkaan fakta", "Sama ada penuntut mempunyai peguam", "Jumlah wang yang dituntut", "Sama ada pihak-pihak mempunyai kontrak bertulis"],
+          "ta": ["உண்மையில் முன்கூட்டியே அறியக்கூடியதா என்ற வாசல் கேள்வி", "கோருபவருக்கு வழக்கறிஞர் உள்ளாரா", "கோரப்படும் தொகை", "எழுத்துப்பூர்வ ஒப்பந்தம் இருந்ததா"]
+        },
+        "answerIndex": 0,
+        "explanation": {
+          "en": "Spandeck begins with the threshold question of factual foreseeability, before the two stages of legal proximity and then policy considerations.",
+          "zh": "Spandeck 先处理事实上可预见性的门槛问题，然后才进入法律密切关系与政策考量这两个阶段。",
+          "ms": "Spandeck bermula dengan soalan ambang kebolehjangkaan fakta, sebelum dua peringkat kedekatan undang-undang dan pertimbangan dasar.",
+          "ta": "Spandeck முதலில் உண்மை முன்னறிதல் என்ற வாசல் கேள்வியில் தொடங்கும்; பிறகே சட்ட நெருக்கம், கொள்கை என்ற இரு நிலைகள்."
+        }
+      }
+    },
+    {
+      "id": "anticipate-arguments",
+      "order": 3,
+      "minutes": 3,
+      "tags": ["evidence", "procedure", "goods", "services", "tenancy", "debt", "negligence", "employment"],
+      "title": {
+        "en": "Argue against yourself before they do",
+        "zh": "在对方开口之前，先反驳自己",
+        "ms": "Bantah diri sendiri sebelum mereka lakukannya",
+        "ta": "அவர்கள் செய்வதற்கு முன் நீங்களே எதிர்வாதம் செய்யுங்கள்"
+      },
+      "summary": {
+        "en": "The preparation habit that changes outcomes: build the other side's case first.",
+        "zh": "真正改变结果的准备习惯：先把对方的说法建立起来。",
+        "ms": "Tabiat persediaan yang mengubah keputusan: bina hujah pihak lawan dahulu.",
+        "ta": "முடிவை மாற்றும் தயாரிப்புப் பழக்கம்: முதலில் எதிர்த் தரப்பின் வாதத்தை உருவாக்குங்கள்."
+      },
+      "content": {
+        "en": [
+          "Most people prepare by rehearsing their own story until it sounds convincing. That feels productive, but it only strengthens the version nobody is going to challenge — your own.",
+          "The other side will have a coherent account too, and it will not be 'I was wrong'. It will be something like: the item was fine when it left me, you approved the extra work, that money was a gift, the damage was already there.",
+          "Write down the three strongest arguments against yourself. For each one, ask: what document, message, photo or witness answers this? Where you have nothing, that is a gap to fill now, not a surprise to discover at a hearing.",
+          "Answering a challenge calmly with a specific date, figure or document is far more persuasive than repeating that you are telling the truth. That is exactly what this app's Opposing Party and Tribunal Questioning modes are for."
+        ],
+        "zh": [
+          "多数人的准备方式，是反复演练自己的说法，直到听起来足够有说服力。这感觉很有成效，但它强化的，只是那个没有人会来挑战的版本——你自己的版本。",
+          "对方同样会有一套自洽的说法，而且绝不会是「我错了」。那更可能是：货品离开我手时好好的、额外的工程是你同意的、那笔钱是赠与、损坏本来就存在。",
+          "把三个最有力的、针对你自己的反驳写下来。逐一自问：有什么文件、信息、照片或证人能回应它？凡是你答不上来的地方，就是现在要补的缺口，而不是留到聆讯当天才发现的意外。",
+          "面对质疑时，冷静地以具体日期、数字或文件回应，远比一再重申「我说的是实话」更有说服力。这正是本应用「对方当事人模式」与「审裁提问模式」的用意。"
+        ],
+        "ms": [
+          "Kebanyakan orang bersedia dengan mengulang cerita sendiri sehingga kedengaran meyakinkan. Ia terasa produktif, tetapi ia hanya menguatkan versi yang tiada siapa akan cabar — versi anda sendiri.",
+          "Pihak lawan juga akan mempunyai cerita yang teratur, dan ia bukan 'saya salah'. Ia lebih kepada: barang itu elok semasa saya serahkan, anda yang meluluskan kerja tambahan, wang itu hadiah, kerosakan itu memang sudah ada.",
+          "Tuliskan tiga hujah paling kuat terhadap diri anda sendiri. Bagi setiap satu, tanya: dokumen, mesej, gambar atau saksi apa yang menjawabnya? Di mana anda tiada apa-apa, itulah jurang untuk diisi sekarang, bukan kejutan untuk ditemui semasa perbicaraan.",
+          "Menjawab cabaran dengan tenang menggunakan tarikh, angka atau dokumen tertentu jauh lebih meyakinkan daripada mengulang bahawa anda bercakap benar. Itulah tujuan Mod Pihak Lawan dan Mod Soal Jawab Tribunal dalam aplikasi ini."
+        ],
+        "ta": [
+          "பெரும்பாலானோர் தங்கள் கதையை நம்பும்படி ஒலிக்கும் வரை பயிற்சி செய்வதன் மூலம் தயாராகிறார்கள். அது பயனுள்ளதாகத் தோன்றும்; ஆனால் யாரும் சவால் விடாத பதிப்பையே — உங்கள் சொந்தப் பதிப்பையே — அது வலுப்படுத்துகிறது.",
+          "எதிர்த் தரப்புக்கும் ஒரு ஒழுங்கான கதை இருக்கும்; அது 'நான் தவறு செய்தேன்' அல்ல. அது இப்படி இருக்கும்: பொருள் என்னிடமிருந்து சென்றபோது நன்றாக இருந்தது, கூடுதல் வேலைக்கு நீங்கள்தான் ஒப்புக்கொண்டீர்கள், அந்தப் பணம் அன்பளிப்பு, சேதம் ஏற்கனவே இருந்தது.",
+          "உங்களுக்கு எதிரான மூன்று வலுவான வாதங்களை எழுதுங்கள். ஒவ்வொன்றுக்கும் கேளுங்கள்: இதற்கு எந்த ஆவணம், செய்தி, புகைப்படம் அல்லது சாட்சி பதிலளிக்கும்? எதுவும் இல்லாத இடமே இப்போது நிரப்ப வேண்டிய இடைவெளி; விசாரணையின்போது கண்டுபிடிக்க வேண்டிய அதிர்ச்சி அல்ல.",
+          "ஒரு சவாலுக்கு குறிப்பிட்ட தேதி, தொகை அல்லது ஆவணத்துடன் அமைதியாகப் பதிலளிப்பது, 'நான் உண்மையைச் சொல்கிறேன்' என்று திரும்பச் சொல்வதை விட மிக நம்பகமானது. இந்தச் செயலியின் எதிர்த் தரப்பு மற்றும் தீர்ப்பாய கேள்வி முறைகளின் நோக்கம் அதுவே."
+        ]
+      },
+      "sources": [
+        { "label": "Singapore Judiciary — File a small claim", "url": "https://www.judiciary.gov.sg/civil/file-small-claim" },
+        { "label": "Pro Bono SG — free legal help", "url": "https://probono.sg/" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "What is the main benefit of writing down the strongest arguments against your own case?",
+          "zh": "写下最不利于自己案件的有力反驳，主要好处是什么？",
+          "ms": "Apakah manfaat utama menulis hujah terkuat terhadap kes anda sendiri?",
+          "ta": "உங்கள் வழக்குக்கு எதிரான வலுவான வாதங்களை எழுதுவதன் முக்கியப் பயன் என்ன?"
+        },
+        "options": {
+          "en": ["It guarantees you will win", "It reveals evidence gaps while you still have time to fill them", "It replaces the need for documents", "It shortens the hearing"],
+          "zh": ["可以保证你胜诉", "能在你还有时间补救时，暴露证据缺口", "可以取代对文件的需求", "可以缩短聆讯时间"],
+          "ms": ["Ia menjamin anda akan menang", "Ia mendedahkan jurang bukti semasa anda masih ada masa mengisinya", "Ia menggantikan keperluan dokumen", "Ia memendekkan perbicaraan"],
+          "ta": ["நீங்கள் வெல்வது உறுதி", "நிரப்ப நேரம் இருக்கும்போதே ஆதார இடைவெளிகளை வெளிப்படுத்தும்", "ஆவணங்களின் தேவையை நீக்கும்", "விசாரணையைக் குறைக்கும்"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "Nothing guarantees an outcome. The value is surfacing gaps early, while there is still time to gather what is missing.",
+          "zh": "没有任何做法能保证结果。其价值在于及早发现缺口，让你还有时间去补齐所缺的东西。",
+          "ms": "Tiada apa yang menjamin keputusan. Nilainya ialah mendedahkan jurang lebih awal, semasa masih ada masa mengumpul apa yang tiada.",
+          "ta": "எந்த முடிவுக்கும் உத்தரவாதம் இல்லை. இடைவெளிகளை முன்கூட்டியே வெளிப்படுத்துவதே மதிப்பு — விடுபட்டதைச் சேகரிக்க நேரம் இருக்கும்போதே."
+        }
+      }
+    }
+  ]
+}

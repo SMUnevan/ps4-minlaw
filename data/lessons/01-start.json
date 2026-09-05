@@ -1,0 +1,233 @@
+{
+  "track": {
+    "id": "start",
+    "order": 1,
+    "icon": "◎",
+    "title": {
+      "en": "Where does my case go?",
+      "zh": "我的案件该去哪里？",
+      "ms": "Ke mana kes saya pergi?",
+      "ta": "என் வழக்கு எங்கே செல்ல வேண்டும்?"
+    },
+    "description": {
+      "en": "Before anything else: which forum hears your dispute, how much you can claim, and how long you have.",
+      "zh": "首先要弄清楚：哪个机构受理你的纠纷、可索赔多少，以及你还有多少时间。",
+      "ms": "Sebelum apa-apa lagi: forum mana yang membicarakan pertikaian anda, berapa yang boleh dituntut, dan berapa lama masa anda ada.",
+      "ta": "முதலில்: உங்கள் பிரச்சினையை எந்த அமைப்பு விசாரிக்கும், எவ்வளவு கோரலாம், எவ்வளவு காலம் உள்ளது."
+    }
+  },
+  "lessons": [
+    {
+      "id": "sct-basics",
+      "order": 1,
+      "minutes": 3,
+      "tags": ["procedure", "goods", "services", "tenancy", "debt", "negligence"],
+      "title": {
+        "en": "What the Small Claims Tribunals can hear",
+        "zh": "小额索偿审裁处受理什么案件",
+        "ms": "Apa yang boleh dibicarakan Tribunal Tuntutan Kecil",
+        "ta": "சிறு வழக்கு தீர்ப்பாயம் எவற்றை விசாரிக்கும்"
+      },
+      "summary": {
+        "en": "The claim limit, the kinds of disputes that qualify, and why you generally appear without a lawyer.",
+        "zh": "索赔上限、哪些纠纷符合资格，以及为何一般无须律师出庭。",
+        "ms": "Had tuntutan, jenis pertikaian yang layak, dan sebab anda biasanya hadir tanpa peguam.",
+        "ta": "கோரிக்கை வரம்பு, தகுதியான பிரச்சினை வகைகள், வழக்கறிஞர் இல்லாமல் ஆஜராவது ஏன்."
+      },
+      "content": {
+        "en": [
+          "The Small Claims Tribunals (SCT) are part of the State Courts. They exist so ordinary people can resolve everyday disputes quickly, cheaply, and without hiring a lawyer.",
+          "The SCT can hear claims up to $20,000. If both parties sign a Memorandum of Consent, that rises to $30,000. If your claim is worth more, you either reduce your claim to fit, or take it to a different court.",
+          "The main categories are: contracts for the sale of goods, contracts for the provision of services, damage to property (but not personal injury), residential tenancy agreements not exceeding 2 years, and unfair practice claims under the Consumer Protection (Fair Trading) Act.",
+          "Note what is not on that list: personal injury, employment disputes, and disputes over long leases go elsewhere. Filing in the wrong forum wastes your fee and your time, so check eligibility first."
+        ],
+        "zh": [
+          "小额索偿审裁处（SCT）隶属国家法院。它的存在是为了让普通人能够快速、低成本地解决日常纠纷，而无须聘请律师。",
+          "SCT 可受理不超过 2 万元的申索。若双方签署同意书（Memorandum of Consent），上限可提高至 3 万元。若你的申索金额更高，你可以选择削减申索额，或改向其他法庭提出。",
+          "主要类别包括：买卖货品合约、提供服务合约、财物损坏（不含人身伤害）、不超过 2 年的住宅租约，以及《消费者保护（公平交易）法令》下的不公平交易行为申索。",
+          "请留意名单上没有的项目：人身伤害、雇佣纠纷，以及长期租约纠纷须循其他途径处理。向错误的机构提出申索会白白浪费费用与时间，因此请先确认资格。"
+        ],
+        "ms": [
+          "Tribunal Tuntutan Kecil (SCT) ialah sebahagian daripada Mahkamah Negeri. Ia wujud supaya orang biasa boleh menyelesaikan pertikaian harian dengan cepat, murah, dan tanpa mengupah peguam.",
+          "SCT boleh membicarakan tuntutan sehingga $20,000. Jika kedua-dua pihak menandatangani Memorandum Persetujuan, had itu naik kepada $30,000. Jika tuntutan anda lebih tinggi, anda boleh mengurangkan tuntutan agar muat, atau membawanya ke mahkamah lain.",
+          "Kategori utama ialah: kontrak jualan barang, kontrak perkhidmatan, kerosakan harta benda (bukan kecederaan diri), perjanjian penyewaan kediaman tidak melebihi 2 tahun, dan tuntutan amalan tidak adil di bawah Akta Perlindungan Pengguna (Perdagangan Adil).",
+          "Perhatikan apa yang tiada dalam senarai itu: kecederaan diri, pertikaian pekerjaan, dan pajakan jangka panjang pergi ke tempat lain. Memfail di forum yang salah membazirkan yuran dan masa anda, jadi semak kelayakan dahulu."
+        ],
+        "ta": [
+          "சிறு வழக்கு தீர்ப்பாயங்கள் (SCT) மாநில நீதிமன்றங்களின் ஒரு பகுதி. சாதாரண மக்கள் அன்றாடப் பிரச்சினைகளை விரைவாக, குறைந்த செலவில், வழக்கறிஞர் இல்லாமல் தீர்க்கவே இவை உள்ளன.",
+          "SCT $20,000 வரையிலான கோரிக்கைகளை விசாரிக்கும். இரு தரப்பும் ஒப்புதல் ஆவணத்தில் கையெழுத்திட்டால் அது $30,000 ஆக உயரும். உங்கள் கோரிக்கை அதிகமானால், தொகையைக் குறைக்கலாம் அல்லது வேறு நீதிமன்றத்திற்குச் செல்லலாம்.",
+          "முக்கிய வகைகள்: பொருள் விற்பனை ஒப்பந்தம், சேவை ஒப்பந்தம், சொத்து சேதம் (உடல் காயம் அல்ல), 2 ஆண்டுகளுக்கு மிகாத குடியிருப்பு வாடகை ஒப்பந்தம், நுகர்வோர் பாதுகாப்பு (நியாய வணிக) சட்டத்தின் கீழ் நியாயமற்ற நடைமுறை.",
+          "பட்டியலில் இல்லாதவற்றைக் கவனியுங்கள்: உடல் காயம், வேலை தொடர்பான பிரச்சினைகள், நீண்டகால குத்தகைகள் வேறு இடங்களுக்குச் செல்லும். தவறான இடத்தில் தாக்கல் செய்தால் கட்டணமும் நேரமும் வீணாகும்; எனவே முதலில் தகுதியைச் சரிபார்க்கவும்."
+        ]
+      },
+      "sources": [
+        { "label": "Singapore Judiciary — Small claims", "url": "https://www.judiciary.gov.sg/civil/small-claims" },
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" },
+        { "label": "Small Claims Tribunals Act 1984 (SSO)", "url": "https://sso.agc.gov.sg/Act/SCTA1984" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "What is the SCT claim limit if both parties sign a Memorandum of Consent?",
+          "zh": "若双方签署同意书，小额索偿审裁处的申索上限是多少？",
+          "ms": "Apakah had tuntutan SCT jika kedua-dua pihak menandatangani Memorandum Persetujuan?",
+          "ta": "இரு தரப்பும் ஒப்புதல் ஆவணத்தில் கையெழுத்திட்டால் SCT வரம்பு என்ன?"
+        },
+        "options": {
+          "en": ["$10,000", "$20,000", "$30,000", "There is no limit"],
+          "zh": ["1 万元", "2 万元", "3 万元", "没有上限"],
+          "ms": ["$10,000", "$20,000", "$30,000", "Tiada had"],
+          "ta": ["$10,000", "$20,000", "$30,000", "வரம்பு இல்லை"]
+        },
+        "answerIndex": 2,
+        "explanation": {
+          "en": "The standard limit is $20,000, rising to $30,000 where both parties sign a Memorandum of Consent.",
+          "zh": "一般上限为 2 万元；若双方签署同意书，可提高至 3 万元。",
+          "ms": "Had biasa ialah $20,000, meningkat kepada $30,000 apabila kedua-dua pihak menandatangani Memorandum Persetujuan.",
+          "ta": "வழக்கமான வரம்பு $20,000; இரு தரப்பும் ஒப்புதல் ஆவணத்தில் கையெழுத்திட்டால் $30,000."
+        }
+      }
+    },
+    {
+      "id": "sct-deadline",
+      "order": 2,
+      "minutes": 2,
+      "tags": ["procedure", "goods", "services", "tenancy", "negligence"],
+      "title": {
+        "en": "The 2-year deadline that catches people out",
+        "zh": "最容易被忽略的 2 年期限",
+        "ms": "Tempoh 2 tahun yang sering terlepas pandang",
+        "ta": "பலரும் தவறவிடும் 2 ஆண்டு கால அவகாசம்"
+      },
+      "summary": {
+        "en": "The SCT has its own filing deadline, and it is much shorter than the general limitation period.",
+        "zh": "小额索偿审裁处有自己的申请期限，而且远短于一般时效。",
+        "ms": "SCT mempunyai tempoh memfail sendiri, jauh lebih singkat daripada tempoh had umum.",
+        "ta": "SCT-க்கு தனி கால அவகாசம் உண்டு; பொது வரம்பை விட அது மிகக் குறைவு."
+      },
+      "content": {
+        "en": [
+          "A small claim must be filed within 2 years of the event that gave rise to it. Miss that window and the Tribunals can no longer hear you, however strong your case is.",
+          "This trips people up because the general limitation period under the Limitation Act 1959 for contract and tort claims is 6 years. People assume they have years to act — and they may, but not at the SCT.",
+          "Delay also quietly damages a case: receipts get thrown away, chat histories get deleted when phones are changed, witnesses forget details, and the other side may close their business.",
+          "Practical rule: work out the date the problem arose and write it down today. If you are anywhere near the 2-year mark, treat it as urgent."
+        ],
+        "zh": [
+          "小额索偿必须在引发申索的事件发生后 2 年内提出。一旦错过这个窗口，无论案情多有力，审裁处都不能再受理。",
+          "很多人在这里栽跟头，因为《1959 年时效法令》下合约与侵权申索的一般时效是 6 年。人们以为自己还有好几年——也许在别处确实如此，但在小额索偿审裁处并非如此。",
+          "拖延还会悄悄削弱案件：收据被丢掉、换手机时聊天记录被删除、证人忘记细节，对方公司也可能已经结业。",
+          "实用做法：算出问题发生的日期，今天就把它写下来。如果已接近 2 年的临界点，请当作紧急事项处理。"
+        ],
+        "ms": [
+          "Tuntutan kecil mesti difailkan dalam tempoh 2 tahun dari peristiwa yang menimbulkannya. Jika terlepas tempoh itu, Tribunal tidak lagi boleh mendengar kes anda, walau sekuat mana pun kes itu.",
+          "Ramai terperangkap di sini kerana tempoh had umum di bawah Akta Had Masa 1959 bagi tuntutan kontrak dan tort ialah 6 tahun. Orang menyangka mereka ada bertahun-tahun — mungkin di tempat lain, tetapi bukan di SCT.",
+          "Kelewatan juga merosakkan kes secara senyap: resit dibuang, sejarah sembang terpadam apabila tukar telefon, saksi lupa butiran, dan pihak lawan mungkin menutup perniagaan.",
+          "Panduan praktikal: kira tarikh masalah itu berlaku dan tuliskannya hari ini. Jika anda hampir dengan tanda 2 tahun, anggap ia mendesak."
+        ],
+        "ta": [
+          "சிறு வழக்கு, அதற்குக் காரணமான நிகழ்வு நடந்த 2 ஆண்டுகளுக்குள் தாக்கல் செய்யப்பட வேண்டும். அந்தக் காலம் கடந்தால், வழக்கு எவ்வளவு வலுவாக இருந்தாலும் தீர்ப்பாயம் விசாரிக்க முடியாது.",
+          "1959 கால வரம்புச் சட்டத்தின் கீழ் ஒப்பந்தம் மற்றும் டார்ட் வழக்குகளுக்கு பொதுவான வரம்பு 6 ஆண்டுகள் என்பதால் பலர் தவறாக நினைக்கிறார்கள். வேறு இடங்களில் அது சரியாக இருக்கலாம்; ஆனால் SCT-இல் அல்ல.",
+          "தாமதம் வழக்கை அமைதியாகப் பலவீனப்படுத்தும்: ரசீதுகள் தூக்கி எறியப்படும், தொலைபேசி மாற்றும்போது உரையாடல்கள் அழியும், சாட்சிகள் மறப்பார்கள், எதிர்த் தரப்பு வணிகத்தை மூடிவிடலாம்.",
+          "நடைமுறை விதி: பிரச்சினை தொடங்கிய தேதியைக் கணக்கிட்டு இன்றே எழுதி வையுங்கள். 2 ஆண்டுகளை நெருங்கினால் அதை அவசரமாகக் கருதுங்கள்."
+        ]
+      },
+      "sources": [
+        { "label": "Singapore Judiciary — Cases eligible for a small claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-small-claim" },
+        { "label": "Limitation Act 1959 (SSO)", "url": "https://sso.agc.gov.sg/Act/LA1959" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "Your dispute arose 3 years ago. What is the position at the SCT?",
+          "zh": "你的纠纷发生在 3 年前。在小额索偿审裁处的情况如何？",
+          "ms": "Pertikaian anda berlaku 3 tahun lalu. Apakah kedudukannya di SCT?",
+          "ta": "உங்கள் பிரச்சினை 3 ஆண்டுகளுக்கு முன் ஏற்பட்டது. SCT-இல் நிலை என்ன?"
+        },
+        "options": {
+          "en": ["Still fine — the limit is 6 years everywhere", "Outside the SCT's 2-year filing window", "The SCT has no deadline at all", "You automatically get an extension"],
+          "zh": ["仍然可以——各处时效都是 6 年", "已超出小额索偿审裁处的 2 年期限", "小额索偿审裁处没有任何期限", "会自动获得延期"],
+          "ms": ["Masih boleh — hadnya 6 tahun di mana-mana", "Di luar tempoh 2 tahun SCT", "SCT langsung tiada tempoh", "Anda automatik mendapat lanjutan"],
+          "ta": ["இன்னும் சரி — எங்கும் வரம்பு 6 ஆண்டுகள்", "SCT-இன் 2 ஆண்டு காலத்தைத் தாண்டிவிட்டது", "SCT-க்கு கால வரம்பே இல்லை", "தானாக நீட்டிப்பு கிடைக்கும்"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "The 6-year general limitation period is separate. The SCT's own filing window is 2 years, so a 3-year-old dispute falls outside it.",
+          "zh": "6 年是一般时效，属另一回事。小额索偿审裁处自身的申请期限为 2 年，因此 3 年前的纠纷已超出范围。",
+          "ms": "Tempoh had umum 6 tahun adalah berasingan. Tempoh memfail SCT sendiri ialah 2 tahun, jadi pertikaian berusia 3 tahun berada di luarnya.",
+          "ta": "6 ஆண்டு என்பது பொது வரம்பு; அது தனி. SCT-இன் தாக்கல் காலம் 2 ஆண்டுகள்; எனவே 3 ஆண்டு பழைய பிரச்சினை அதற்கு வெளியே."
+        }
+      }
+    },
+    {
+      "id": "employment-route",
+      "order": 3,
+      "minutes": 3,
+      "tags": ["employment", "procedure"],
+      "title": {
+        "en": "Unpaid salary? You start at TADM, not the SCT",
+        "zh": "被拖欠薪金？先找 TADM，而非小额索偿审裁处",
+        "ms": "Gaji tidak dibayar? Anda mula di TADM, bukan SCT",
+        "ta": "சம்பளம் தரவில்லையா? SCT அல்ல, TADM-இல் தொடங்குங்கள்"
+      },
+      "summary": {
+        "en": "Employment disputes have their own route: mediation first, then the Employment Claims Tribunals.",
+        "zh": "雇佣纠纷有专属途径：先调解，再到雇佣申索审裁处。",
+        "ms": "Pertikaian pekerjaan mempunyai laluan sendiri: pengantaraan dahulu, kemudian Tribunal Tuntutan Pekerjaan.",
+        "ta": "வேலை தொடர்பான பிரச்சினைகளுக்கு தனி வழி: முதலில் சமரசம், பிறகு வேலை கோரிக்கை தீர்ப்பாயம்."
+      },
+      "content": {
+        "en": [
+          "If your employer has not paid your salary, do not file at the Small Claims Tribunals. Employment claims follow a different route.",
+          "Step one is to register the claim for mediation at the Tripartite Alliance for Dispute Management (TADM). Many claims are resolved at this stage without any tribunal hearing at all.",
+          "If mediation does not resolve it, TADM issues a claim referral certificate. You then file at the Employment Claims Tribunals (ECT) through the Community Justice and Tribunals System within the time stated.",
+          "The ECT limit is $20,000, or $30,000 where the claim went through TADM mediation or union-assisted mediation. Deadlines here are short — for example there is a filing time limit if you are still employed — so act quickly rather than waiting."
+        ],
+        "zh": [
+          "若雇主拖欠你的薪金，请勿向小额索偿审裁处提出申索。雇佣申索走的是另一条途径。",
+          "第一步是向劳资政纠纷调解联盟（TADM）登记调解。许多申索在这个阶段就获得解决，根本无须开庭。",
+          "若调解未能解决，TADM 会发出申索转介证明书。你随后须在指定期限内，通过社区司法与审裁系统（CJTS）向雇佣申索审裁处（ECT）提出申索。",
+          "ECT 的上限为 2 万元；若申索经过 TADM 调解或工会协助调解，则为 3 万元。这里的期限很短——例如你若仍在职，提出申索另有时限——因此请尽快行动，切勿拖延。"
+        ],
+        "ms": [
+          "Jika majikan anda tidak membayar gaji, jangan failkan di Tribunal Tuntutan Kecil. Tuntutan pekerjaan mengikut laluan berbeza.",
+          "Langkah pertama ialah mendaftarkan tuntutan untuk pengantaraan di Tripartite Alliance for Dispute Management (TADM). Banyak tuntutan selesai di peringkat ini tanpa sebarang perbicaraan tribunal.",
+          "Jika pengantaraan gagal, TADM mengeluarkan sijil rujukan tuntutan. Anda kemudian memfail di Tribunal Tuntutan Pekerjaan (ECT) melalui Community Justice and Tribunals System dalam tempoh yang dinyatakan.",
+          "Had ECT ialah $20,000, atau $30,000 jika tuntutan melalui pengantaraan TADM atau kesatuan. Tempohnya singkat — contohnya ada had masa memfail jika anda masih bekerja — jadi bertindak cepat."
+        ],
+        "ta": [
+          "உங்கள் முதலாளி சம்பளம் தரவில்லை என்றால், சிறு வழக்கு தீர்ப்பாயத்தில் தாக்கல் செய்ய வேண்டாம். வேலை தொடர்பான கோரிக்கைகளுக்கு வேறு வழி உண்டு.",
+          "முதல் படி: TADM (Tripartite Alliance for Dispute Management) இல் சமரசத்திற்குப் பதிவு செய்வது. பல கோரிக்கைகள் தீர்ப்பாய விசாரணையே இல்லாமல் இந்த நிலையிலேயே தீர்ந்துவிடும்.",
+          "சமரசம் தோல்வியடைந்தால், TADM ஒரு பரிந்துரைச் சான்றிதழ் வழங்கும். பிறகு குறிப்பிட்ட காலத்திற்குள் CJTS வழியாக வேலை கோரிக்கை தீர்ப்பாயத்தில் (ECT) தாக்கல் செய்யலாம்.",
+          "ECT வரம்பு $20,000; TADM அல்லது தொழிற்சங்க சமரசம் வழியாக வந்தால் $30,000. இங்கு கால அவகாசம் குறுகியது — நீங்கள் இன்னும் வேலையில் இருந்தால் தாக்கல் செய்யக் கால வரம்பு உண்டு — எனவே விரைவாகச் செயல்படுங்கள்."
+        ]
+      },
+      "sources": [
+        { "label": "TADM — Know your options in an employment dispute", "url": "https://www.tal.sg/tadm/know-your-options" },
+        { "label": "Singapore Judiciary — Cases eligible for an employment claim", "url": "https://www.judiciary.gov.sg/civil/cases-eligible-employment-claim" },
+        { "label": "Employment Act 1968 (SSO)", "url": "https://sso.agc.gov.sg/Act/EmA1968" }
+      ],
+      "caseNote": null,
+      "check": {
+        "question": {
+          "en": "Your employer owes you two months' salary. What is the correct first step?",
+          "zh": "雇主拖欠你两个月薪金。正确的第一步是什么？",
+          "ms": "Majikan anda berhutang gaji dua bulan. Apakah langkah pertama yang betul?",
+          "ta": "உங்கள் முதலாளி இரு மாத சம்பளம் தர வேண்டும். சரியான முதல் படி என்ன?"
+        },
+        "options": {
+          "en": ["File at the Small Claims Tribunals", "Register the claim for mediation at TADM", "Sue in the High Court immediately", "Nothing can be done without a lawyer"],
+          "zh": ["向小额索偿审裁处提出申索", "向 TADM 登记调解", "立即向高等法院起诉", "没有律师就什么都做不了"],
+          "ms": ["Failkan di Tribunal Tuntutan Kecil", "Daftarkan tuntutan untuk pengantaraan di TADM", "Saman di Mahkamah Tinggi serta-merta", "Tiada apa boleh dibuat tanpa peguam"],
+          "ta": ["சிறு வழக்கு தீர்ப்பாயத்தில் தாக்கல் செய்யவும்", "TADM-இல் சமரசத்திற்குப் பதிவு செய்யவும்", "உடனே உயர் நீதிமன்றத்தில் வழக்குத் தொடரவும்", "வழக்கறிஞர் இல்லாமல் எதுவும் செய்ய முடியாது"]
+        },
+        "answerIndex": 1,
+        "explanation": {
+          "en": "Employment claims start with mediation at TADM. Only if that fails, and with a claim referral certificate, do you go to the Employment Claims Tribunals.",
+          "zh": "雇佣申索须先经 TADM 调解。只有在调解失败并取得转介证明书后，才可向雇佣申索审裁处提出。",
+          "ms": "Tuntutan pekerjaan bermula dengan pengantaraan di TADM. Hanya jika ia gagal, dan dengan sijil rujukan tuntutan, anda pergi ke Tribunal Tuntutan Pekerjaan.",
+          "ta": "வேலை கோரிக்கைகள் TADM சமரசத்தில் தொடங்கும். அது தோல்வியடைந்து பரிந்துரைச் சான்றிதழ் கிடைத்த பிறகே ECT-க்குச் செல்ல வேண்டும்."
+        }
+      }
+    }
+  ]
+}

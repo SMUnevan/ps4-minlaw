@@ -1,0 +1,157 @@
+{
+  "_note": "Keyword lists that let the offline rule engine classify free text in all four languages. English dispute-type keywords live in legal-concepts.json; these extend them. Matching is plain case-insensitive substring matching, so entries should be distinctive word stems rather than full sentences.",
+  "disputeTypes": {
+    "goods": {
+      "zh": ["买", "购买", "商品", "货品", "产品", "退款", "卖家", "坏了", "故障", "瑕疵", "二手", "手机", "电脑", "全新", "送错"],
+      "ms": ["beli", "membeli", "barang", "produk", "bayaran balik", "penjual", "rosak", "kecacatan", "terpakai", "telefon", "komputer", "salah barang"],
+      "ta": ["வாங்கி", "வாங்கிய", "பொருள்", "பொருட்கள்", "பணத்தைத் திரும்ப", "விற்பனையாளர்", "பழுது", "கெட்டு", "தொலைபேசி", "கணினி"]
+    },
+    "services": {
+      "zh": ["承包商", "装修", "服务", "维修", "预订", "取消", "没做完", "工程", "空调", "水电", "摄影", "搬家"],
+      "ms": ["kontraktor", "renovasi", "pengubahsuaian", "perkhidmatan", "pembaikan", "tempah", "batal", "tidak siap", "penghawa dingin", "paip", "jurugambar", "pindah rumah"],
+      "ta": ["ஒப்பந்ததாரர்", "புதுப்பிப்பு", "சேவை", "பழுதுபார்ப்பு", "முன்பதிவு", "ரத்து", "முடிக்கவில்லை", "குளிரூட்டி", "குழாய்"]
+    },
+    "deposit_tenancy": {
+      "zh": ["押金", "房东", "租客", "租金", "租约", "退租", "单位", "房间出租"],
+      "ms": ["deposit", "tuan rumah", "penyewa", "sewa", "perjanjian sewa", "pindah keluar", "unit", "bilik sewa"],
+      "ta": ["வைப்புத்தொகை", "வீட்டு உரிமையாளர்", "வாடகைதாரர்", "வாடகை", "வாடகை ஒப்பந்தம்", "வெளியேறி", "அறை"]
+    },
+    "debt_loan": {
+      "zh": ["欠我钱", "借款", "借钱", "还钱", "债务", "借给", "欠款", "转账给"],
+      "ms": ["hutang", "pinjaman", "pinjam", "bayar balik", "berhutang", "wang saya"],
+      "ta": ["கடன்", "பணம் தர", "கடனாக", "திருப்பித் தர", "பாக்கி", "கொடுத்த பணம்"]
+    },
+    "property_damage": {
+      "zh": ["损坏", "弄坏", "刮花", "撞坏", "漏水", "天花板", "意外", "邻居"],
+      "ms": ["rosakkan", "merosakkan", "calar", "kemalangan", "bocor", "siling", "jiran", "kerosakan harta"],
+      "ta": ["சேதம்", "உடைத்து", "கீறல்", "விபத்து", "கசிவு", "கூரை", "அண்டை வீட்டார்"]
+    },
+    "employment": {
+      "zh": ["薪水", "工资", "欠薪", "雇主", "老板", "加班", "解雇", "辞退", "公积金", "薪金单", "通知期"],
+      "ms": ["gaji", "upah", "majikan", "bos", "kerja lebih masa", "dipecat", "diberhentikan", "slip gaji", "notis"],
+      "ta": ["சம்பளம்", "ஊதியம்", "முதலாளி", "கூடுதல் நேரம்", "வேலையிலிருந்து நீக்க", "சம்பளச் சீட்டு"]
+    }
+  },
+  "evidence": {
+    "Receipt/Invoice": {
+      "zh": ["收据", "发票", "单据", "购买凭证"],
+      "ms": ["resit", "invois", "bukti pembelian"],
+      "ta": ["ரசீது", "விலைப்பட்டியல்", "கொள்முதல் சான்று"]
+    },
+    "Contract/Agreement": {
+      "zh": ["合约", "合同", "协议", "租约"],
+      "ms": ["kontrak", "perjanjian", "surat perjanjian"],
+      "ta": ["ஒப்பந்தம்", "உடன்பாடு"]
+    },
+    "Written correspondence": {
+      "zh": ["信息", "短信", "微信", "聊天记录", "电邮", "邮件", "对话记录"],
+      "ms": ["mesej", "whatsapp", "e-mel", "emel", "sembang", "surat-menyurat"],
+      "ta": ["செய்தி", "செய்திகள்", "மின்னஞ்சல்", "உரையாடல்"]
+    },
+    "Photos/Video": {
+      "zh": ["照片", "相片", "影片", "视频", "截图"],
+      "ms": ["gambar", "foto", "video", "tangkap layar"],
+      "ta": ["புகைப்படம்", "படங்கள்", "வீடியோ", "திரைப்பிடிப்பு"]
+    },
+    "Witness": {
+      "zh": ["证人", "见证"],
+      "ms": ["saksi"],
+      "ta": ["சாட்சி"]
+    },
+    "Payment/transfer record": {
+      "zh": ["转账记录", "汇款", "付款记录", "银行记录"],
+      "ms": ["rekod pindahan", "pindahan bank", "bukti bayaran", "rekod bank"],
+      "ta": ["பரிமாற்றப் பதிவு", "வங்கிப் பதிவு", "பணம் அனுப்பிய"]
+    },
+    "Payslip/salary record": {
+      "zh": ["薪金单", "工资单", "薪水单"],
+      "ms": ["slip gaji", "penyata gaji"],
+      "ta": ["சம்பளச் சீட்டு", "ஊதியப் பதிவு"]
+    }
+  },
+  "negation": {
+    "en": ["no ", "not ", "n't", "without", "never", "lack", "missing", "none"],
+    "zh": ["没有", "没", "无", "不曾", "未", "缺"],
+    "ms": ["tiada", "tak ada", "tidak ada", "bukan", "tanpa", "belum"],
+    "ta": ["இல்லை", "இல்லாத", "அல்ல", "இன்றி"]
+  },
+  "priorContact": {
+    "yes": {
+      "zh": ["我问过", "已经联系", "已联系", "告诉过", "投诉过", "发信息给", "要求过"],
+      "ms": ["saya sudah tanya", "sudah hubungi", "telah hubungi", "sudah beritahu", "sudah adu", "minta bayaran balik"],
+      "ta": ["கேட்டேன்", "தொடர்பு கொண்டேன்", "சொன்னேன்", "புகார் அளித்தேன்"]
+    },
+    "no": {
+      "zh": ["还没联系", "没有联系", "没告诉", "还没问"],
+      "ms": ["belum hubungi", "tidak hubungi", "belum tanya", "belum beritahu"],
+      "ta": ["தொடர்பு கொள்ளவில்லை", "கேட்கவில்லை", "சொல்லவில்லை"]
+    }
+  },
+  "desiredOutcome": {
+    "refund": {
+      "en": ["full refund", "refund", "money back"],
+      "zh": ["退款", "退钱", "还我钱"],
+      "ms": ["bayaran balik", "pulangkan wang", "refund"],
+      "ta": ["பணத்தைத் திரும்ப", "பணம் திரும்ப"]
+    },
+    "replacement": {
+      "en": ["replace", "replacement", "exchange it"],
+      "zh": ["更换", "换货", "换一个"],
+      "ms": ["ganti", "penggantian", "tukar"],
+      "ta": ["மாற்றுப் பொருள்", "மாற்றி"]
+    },
+    "repair": {
+      "en": ["repair", "fix it", "fixed"],
+      "zh": ["维修", "修理", "修好"],
+      "ms": ["baiki", "pembaikan"],
+      "ta": ["பழுதுபார்", "சரிசெய்"]
+    },
+    "compensation": {
+      "en": ["compensat", "damages"],
+      "zh": ["赔偿", "补偿"],
+      "ms": ["pampasan", "ganti rugi"],
+      "ta": ["இழப்பீடு"]
+    },
+    "deposit_return": {
+      "en": ["deposit back", "return my deposit", "return the deposit"],
+      "zh": ["退还押金", "还我押金"],
+      "ms": ["pulangkan deposit", "deposit dikembalikan"],
+      "ta": ["வைப்புத்தொகையைத் திரும்ப"]
+    },
+    "repayment": {
+      "en": ["pay me back", "repay", "owed", "owes me"],
+      "zh": ["还款", "还我", "偿还"],
+      "ms": ["bayar balik hutang", "langsaikan"],
+      "ta": ["கடனைத் திருப்ப", "பணத்தைத் திருப்ப"]
+    },
+    "unpaid_salary": {
+      "en": ["unpaid salary", "my salary", "owed salary", "back pay"],
+      "zh": ["拖欠的薪水", "欠薪", "我的工资"],
+      "ms": ["gaji tertunggak", "gaji saya"],
+      "ta": ["தராத சம்பளம்", "என் சம்பளம்"]
+    }
+  },
+  "outcomeLabels": {
+    "refund": { "en": "A refund", "zh": "退款", "ms": "Bayaran balik", "ta": "பணத்தைத் திரும்பப் பெறுதல்" },
+    "replacement": { "en": "A replacement", "zh": "更换商品", "ms": "Penggantian", "ta": "மாற்றுப் பொருள்" },
+    "repair": { "en": "A repair", "zh": "维修", "ms": "Pembaikan", "ta": "பழுதுபார்ப்பு" },
+    "compensation": { "en": "Compensation for losses", "zh": "损失赔偿", "ms": "Pampasan kerugian", "ta": "இழப்பீடு" },
+    "deposit_return": { "en": "Return of deposit", "zh": "退还押金", "ms": "Pemulangan deposit", "ta": "வைப்புத்தொகை திரும்பப் பெறுதல்" },
+    "repayment": { "en": "Repayment of money owed", "zh": "偿还欠款", "ms": "Pembayaran balik hutang", "ta": "கடன் திருப்பிச் செலுத்துதல்" },
+    "unpaid_salary": { "en": "Payment of unpaid salary", "zh": "支付拖欠薪金", "ms": "Pembayaran gaji tertunggak", "ta": "தராத சம்பளம் வழங்குதல்" }
+  },
+  "priorContactLabels": {
+    "Yes": { "en": "Yes", "zh": "是", "ms": "Ya", "ta": "ஆம்" },
+    "No": { "en": "No", "zh": "否", "ms": "Tidak", "ta": "இல்லை" }
+  },
+  "amountPatterns": [
+    "(?:s\\$|\\$|sgd)\\s?([\\d,]+(?:\\.\\d{1,2})?)",
+    "([\\d,]+(?:\\.\\d{1,2})?)\\s?(?:dollars|bucks|dolar|ringgit|元|块|டாலர்)"
+  ],
+  "timelineHints": {
+    "en": ["yesterday", "last week", "last month", "last year", "ago", "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"],
+    "zh": ["昨天", "上周", "上个月", "去年", "前", "年", "月", "日"],
+    "ms": ["semalam", "minggu lepas", "bulan lepas", "tahun lepas", "lalu", "januari", "februari", "mac", "april", "mei", "jun", "julai", "ogos", "september", "oktober", "november", "disember"],
+    "ta": ["நேற்று", "கடந்த வாரம்", "கடந்த மாதம்", "கடந்த ஆண்டு", "முன்பு", "மாதம்", "ஆண்டு"]
+  }
+}

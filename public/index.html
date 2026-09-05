@@ -8,15 +8,21 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark">&#9673;</span>
+    <button class="brand" id="brandHome" type="button">
+      <span class="brand-mark" aria-hidden="true">◈</span>
       <span class="brand-name">Case Compass</span>
-    </div>
-    <nav class="tabs">
-      <button class="tab-btn active" data-tab="case">Case Preparation</button>
-      <button class="tab-btn" data-tab="literacy">Legal Literacy Hub</button>
+    </button>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="case" data-i18n="nav.case">Case Preparation</button>
+      <button class="tab-btn" data-tab="learn" data-i18n="nav.learn">Learning Hub</button>
+      <button class="tab-btn" data-tab="forum" data-i18n="nav.forum">Community Forum</button>
     </nav>
-    <div class="ai-badge" id="aiBadge" title="Shows which engine is answering you">Checking engine…</div>
+
+    <div class="topbar-right">
+      <div class="lang-switch" id="langSwitch" role="group"></div>
+      <span class="ai-badge" id="aiBadge">…</span>
+    </div>
   </header>
 
   <main id="main">
@@ -24,159 +30,222 @@
     <!-- LANDING -->
     <section class="view active" id="view-landing">
       <div class="hero">
-        <h1>A case-prep companion that challenges you before the other side does.</h1>
-        <p class="pitch">
-          Case Compass helps self-represented persons (SRPs) organise a dispute into facts, evidence and
-          relevant law — then stress-tests it in role-play as the opposing party or a probing tribunal,
-          so weak points surface in practice, not for the first time at a hearing.
-        </p>
+        <span class="eyebrow">Problem Statement 4 · Ministry of Law</span>
+        <h1 data-i18n="hero.title">A case-prep companion that challenges you before the other side does.</h1>
+        <p class="pitch" data-i18n="hero.pitch"></p>
         <div class="hero-actions">
-          <button class="btn btn-primary" id="btnStartCase">Start My Case</button>
-          <button class="btn btn-ghost" id="btnGoLiteracyFromHero">Explore the Legal Literacy Hub</button>
+          <button class="btn btn-primary btn-lg" id="btnStartCase" data-i18n="hero.start">Start My Case</button>
+          <button class="btn btn-ghost" id="btnGoLearnHero" data-i18n="hero.learn">Explore the Learning Hub</button>
+          <button class="btn btn-ghost" id="btnGoForumHero" data-i18n="hero.forum">Browse the Community Forum</button>
         </div>
       </div>
 
       <div class="how-it-works">
-        <div class="step-card">
+        <article class="step-card">
           <div class="step-num">1</div>
-          <h3>Describe your dispute</h3>
-          <p>Explain what happened in plain language. Targeted follow-up questions fill in the gaps.</p>
-        </div>
-        <div class="step-card">
+          <h3 data-i18n="step1.title"></h3>
+          <p data-i18n="step1.body"></p>
+        </article>
+        <article class="step-card">
           <div class="step-num">2</div>
-          <h3>See your Fact–Evidence–Law map</h3>
-          <p>Everything you've shared is organised into what's supported, uncertain, or still missing.</p>
-        </div>
-        <div class="step-card">
+          <h3 data-i18n="step2.title"></h3>
+          <p data-i18n="step2.body"></p>
+        </article>
+        <article class="step-card">
           <div class="step-num">3</div>
-          <h3>Stress-test it</h3>
-          <p>Face role-played objections (Opposing Party) or probing questions (Tribunal Questioning).</p>
-        </div>
-        <div class="step-card">
+          <h3 data-i18n="step3.title"></h3>
+          <p data-i18n="step3.body"></p>
+        </article>
+        <article class="step-card">
           <div class="step-num">4</div>
-          <h3>Get a readiness report</h3>
-          <p>A neutral view of strengths, weak points, missing documents — never a prediction of outcome.</p>
-        </div>
+          <h3 data-i18n="step4.title"></h3>
+          <p data-i18n="step4.body"></p>
+        </article>
       </div>
 
-      <div class="principles">
-        <h2>Responsible by design</h2>
+      <section class="principles">
+        <h2 data-i18n="principles.title"></h2>
         <ul>
-          <li><strong>No black-box conclusions.</strong> Legal points are linked to a named, checkable source — and flagged when unverified.</li>
-          <li><strong>Confirmation-bias resistant.</strong> The system is built to surface counterarguments, not just validate your story.</li>
-          <li><strong>Information, not representation.</strong> This is a preparation aid, not a lawyer, and never predicts a result.</li>
-          <li><strong>Depends on you.</strong> Output quality depends entirely on the completeness and accuracy of what you provide.</li>
+          <li data-i18n-html="principles.1"></li>
+          <li data-i18n-html="principles.2"></li>
+          <li data-i18n-html="principles.3"></li>
+          <li data-i18n-html="principles.4"></li>
         </ul>
-      </div>
+      </section>
     </section>
 
-    <!-- INTAKE (chat) -->
+    <!-- INTAKE -->
     <section class="view" id="view-intake">
       <div class="panel-header">
-        <h2>Structured Intake</h2>
-        <p class="subtle">Describe your situation. I'll ask a few targeted questions to fill in the gaps.</p>
+        <h2 data-i18n="intake.title"></h2>
+        <p class="subtle" data-i18n="intake.sub"></p>
       </div>
-      <div class="chat-log" id="intakeLog"></div>
+      <div class="chat-log" id="intakeLog" aria-live="polite"></div>
       <div class="chat-input-row">
-        <textarea id="intakeInput" rows="2" placeholder="Type your answer… (Enter to send, Shift+Enter for new line)"></textarea>
-        <button class="btn btn-primary" id="btnIntakeSend">Send</button>
+        <textarea id="intakeInput" rows="2" data-i18n-ph="intake.placeholder"></textarea>
+        <button class="btn btn-primary" id="btnIntakeSend" data-i18n="intake.send">Send</button>
       </div>
       <div class="cta-bar" id="intakeCompleteBar" hidden>
-        <span>Intake looks complete.</span>
-        <button class="btn btn-primary" id="btnBuildMap">Build My Case Map</button>
+        <span data-i18n="intake.complete"></span>
+        <button class="btn btn-primary" id="btnBuildMap" data-i18n="intake.build"></button>
       </div>
     </section>
 
-    <!-- CASE MAP + READINESS REPORT -->
+    <!-- CASE MAP -->
     <section class="view" id="view-map">
       <div class="panel-header">
-        <h2>Fact–Evidence–Law Map</h2>
+        <h2 data-i18n="map.title"></h2>
         <p class="subtle" id="mapDisputeType"></p>
       </div>
-      <div id="mapLoading" class="loading" hidden>Analysing your case…</div>
+      <div id="mapLoading" class="loading" hidden><span class="spinner" aria-hidden="true"></span><span data-i18n="map.loading"></span></div>
       <div class="map-grid" id="mapGrid"></div>
 
-      <div class="panel-header" style="margin-top:2rem;">
-        <h2>Case Readiness Report</h2>
+      <div class="panel-header section-gap">
+        <h2 data-i18n="report.title"></h2>
       </div>
       <div class="disclaimer-banner" id="reportDisclaimer"></div>
       <div class="report-grid" id="reportGrid"></div>
 
-      <div class="panel-header" style="margin-top:2rem;">
-        <h2>Stress-Test Your Case</h2>
-        <p class="subtle">Simulation only — neither mode is a real person, lawyer, or tribunal.</p>
+      <!-- Cross-links into Forum + Learning Hub -->
+      <div class="panel-header section-gap">
+        <h2 data-i18n="related.threads.title"></h2>
+        <p class="subtle" data-i18n="related.threads.sub"></p>
+      </div>
+      <div class="related-grid" id="relatedThreads"></div>
+
+      <div class="panel-header section-gap">
+        <h2 data-i18n="related.lessons.title"></h2>
+        <p class="subtle" data-i18n="related.lessons.sub"></p>
+      </div>
+      <div class="related-grid" id="relatedLessons"></div>
+
+      <div class="panel-header section-gap">
+        <h2 data-i18n="stress.title"></h2>
+        <p class="subtle" data-i18n="stress.sub"></p>
       </div>
       <div class="mode-cards">
-        <div class="mode-card">
-          <h3>Opposing Party Mode</h3>
-          <p>The AI argues as the other side would — raising objections and disagreements about your facts.</p>
-          <button class="btn btn-secondary" id="btnStartOpposing">Start Opposing Party Mode</button>
-        </div>
-        <div class="mode-card">
-          <h3>Tribunal Questioning Mode</h3>
-          <p>The AI asks probing questions to expose unclear facts or missing evidence — it does not impersonate a real judge.</p>
-          <button class="btn btn-secondary" id="btnStartTribunal">Start Tribunal Questioning Mode</button>
-        </div>
+        <article class="mode-card">
+          <h3 data-i18n="stress.opposing.title"></h3>
+          <p data-i18n="stress.opposing.body"></p>
+          <button class="btn btn-secondary" id="btnStartOpposing" data-i18n="stress.opposing.start"></button>
+        </article>
+        <article class="mode-card">
+          <h3 data-i18n="stress.tribunal.title"></h3>
+          <p data-i18n="stress.tribunal.body"></p>
+          <button class="btn btn-secondary" id="btnStartTribunal" data-i18n="stress.tribunal.start"></button>
+        </article>
       </div>
     </section>
 
-    <!-- ROLEPLAY (chat) -->
+    <!-- ROLEPLAY -->
     <section class="view" id="view-roleplay">
       <div class="panel-header">
-        <h2 id="roleplayTitle">Role-Play</h2>
+        <h2 id="roleplayTitle"></h2>
       </div>
-      <div class="disclaimer-banner" id="roleplayDisclaimer"></div>
-      <div class="chat-log" id="roleplayLog"></div>
+      <div class="disclaimer-banner warn" id="roleplayDisclaimer"></div>
+      <div class="chat-log" id="roleplayLog" aria-live="polite"></div>
       <div class="chat-input-row">
-        <textarea id="roleplayInput" rows="2" placeholder="Respond as you would in real life… (Enter to send)"></textarea>
-        <button class="btn btn-primary" id="btnRoleplaySend">Send</button>
+        <textarea id="roleplayInput" rows="2" data-i18n-ph="rp.placeholder"></textarea>
+        <button class="btn btn-primary" id="btnRoleplaySend" data-i18n="intake.send"></button>
       </div>
       <div class="cta-bar">
         <span></span>
-        <button class="btn btn-primary" id="btnEndRoleplay">End Session &amp; Get Report</button>
+        <button class="btn btn-primary" id="btnEndRoleplay" data-i18n="rp.end"></button>
       </div>
     </section>
 
     <!-- SIMULATION REPORT -->
     <section class="view" id="view-simreport">
       <div class="panel-header">
-        <h2>Post-Simulation Report</h2>
+        <h2 data-i18n="sim.title"></h2>
         <p class="subtle" id="simModeLabel"></p>
       </div>
       <div class="sim-grid" id="simGrid"></div>
-      <div class="panel-header" style="margin-top:1.5rem;">
-        <h3>Suggested next steps</h3>
+      <div class="panel-header section-gap">
+        <h3 data-i18n="sim.next"></h3>
       </div>
       <ul class="rec-list" id="simRecommendations"></ul>
-      <div class="hero-actions" style="margin-top:1.5rem;">
-        <button class="btn btn-secondary" id="btnBackToMapFromSim">Back to Case Map</button>
-        <button class="btn btn-ghost" id="btnGoLiteracyFromSim">Visit Legal Literacy Hub</button>
+      <div class="hero-actions start-left">
+        <button class="btn btn-secondary" id="btnBackToMapFromSim" data-i18n="sim.back"></button>
+        <button class="btn btn-ghost" id="btnGoLearnFromSim" data-i18n="nav.learn"></button>
       </div>
     </section>
 
-    <!-- LITERACY HUB -->
-    <section class="view" id="view-literacy">
+    <!-- LEARNING HUB -->
+    <section class="view" id="view-learn">
       <div class="panel-header">
-        <h2>Legal Literacy Hub</h2>
-        <p class="subtle">Short, plain-language lessons — separate from your active case, so a real dispute is never trivialised.</p>
+        <h2 data-i18n="learn.title"></h2>
+        <p class="subtle" data-i18n="learn.sub"></p>
       </div>
-      <div class="lesson-grid" id="lessonGrid"></div>
+      <div class="progress-strip" id="learnProgress"></div>
+      <div id="trackList"></div>
     </section>
 
-    <!-- LESSON DETAIL -->
+    <!-- LESSON -->
     <section class="view" id="view-lesson">
-      <button class="btn btn-ghost" id="btnBackToHub">&larr; Back to Hub</button>
-      <h2 id="lessonTitle"></h2>
-      <div id="lessonContent" class="lesson-content"></div>
-      <div class="lesson-check" id="lessonCheck"></div>
+      <button class="btn btn-ghost btn-back" id="btnBackToLearn" data-i18n="learn.back"></button>
+      <article class="lesson">
+        <div class="lesson-meta" id="lessonMeta"></div>
+        <h2 id="lessonTitle"></h2>
+        <div class="lesson-content" id="lessonContent"></div>
+        <div id="lessonCase"></div>
+        <div class="lesson-sources" id="lessonSources"></div>
+        <div class="lesson-check" id="lessonCheck"></div>
+        <div class="lesson-nav" id="lessonNav"></div>
+      </article>
+    </section>
+
+    <!-- FORUM -->
+    <section class="view" id="view-forum">
+      <div class="panel-header">
+        <h2 data-i18n="forum.title"></h2>
+        <p class="subtle" data-i18n="forum.sub"></p>
+      </div>
+      <div class="disclaimer-banner info" data-i18n-html="forum.moderation"></div>
+      <div class="disclaimer-banner demo" data-i18n="forum.seedNotice"></div>
+
+      <div class="forum-controls">
+        <input type="search" id="forumSearch" data-i18n-ph="forum.search" />
+        <select id="forumTopic"></select>
+        <button class="btn btn-primary" id="btnAskQuestion" data-i18n="forum.ask"></button>
+      </div>
+      <div id="threadList"></div>
+    </section>
+
+    <!-- THREAD -->
+    <section class="view" id="view-thread">
+      <button class="btn btn-ghost btn-back" id="btnBackToForum" data-i18n="forum.back"></button>
+      <article id="threadDetail"></article>
+    </section>
+
+    <!-- ASK -->
+    <section class="view" id="view-ask">
+      <button class="btn btn-ghost btn-back" id="btnCancelAsk" data-i18n="forum.cancel"></button>
+      <div class="panel-header">
+        <h2 data-i18n="forum.askTitle"></h2>
+      </div>
+      <div class="disclaimer-banner info" data-i18n-html="forum.anonymity"></div>
+      <form class="ask-form" id="askForm">
+        <label for="askTitle" data-i18n="forum.askLabel"></label>
+        <input type="text" id="askTitle" maxlength="200" required />
+        <label for="askBody" data-i18n="forum.askLabel"></label>
+        <textarea id="askBody" rows="6" maxlength="4000" data-i18n-ph="forum.askPlaceholder" required></textarea>
+        <div class="ask-row">
+          <div>
+            <label for="askTopic" data-i18n="forum.topicLabel"></label>
+            <select id="askTopic"></select>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" data-i18n="forum.submit"></button>
+      </form>
+      <div id="askResult"></div>
     </section>
 
   </main>
 
   <footer class="disclaimer-footer">
-    Case Compass is an information and preparation aid. It is not legal advice, not a lawyer, and does not
-    represent a court or tribunal or predict outcomes. Always verify important legal information against
-    official sources, and check figures/limits before relying on them.
+    <p data-i18n="footer"></p>
+    <p class="lang-note" data-i18n="lang.notice"></p>
   </footer>
 
   <script src="js/app.js"></script>
