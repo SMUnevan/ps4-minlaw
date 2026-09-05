@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Compass — Responsible AI Case Preparation</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">&#9673;</span>
+      <span class="brand-name">Case Compass</span>
+    </div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="case">Case Preparation</button>
+      <button class="tab-btn" data-tab="literacy">Legal Literacy Hub</button>
+    </nav>
+    <div class="ai-badge" id="aiBadge" title="Shows which engine is answering you">Checking engine…</div>
+  </header>
+
+  <main id="main">
+
+    <!-- LANDING -->
+    <section class="view active" id="view-landing">
+      <div class="hero">
+        <h1>A case-prep companion that challenges you before the other side does.</h1>
+        <p class="pitch">
+          Case Compass helps self-represented persons (SRPs) organise a dispute into facts, evidence and
+          relevant law — then stress-tests it in role-play as the opposing party or a probing tribunal,
+          so weak points surface in practice, not for the first time at a hearing.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="btnStartCase">Start My Case</button>
+          <button class="btn btn-ghost" id="btnGoLiteracyFromHero">Explore the Legal Literacy Hub</button>
+        </div>
+      </div>
+
+      <div class="how-it-works">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Describe your dispute</h3>
+          <p>Explain what happened in plain language. Targeted follow-up questions fill in the gaps.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>See your Fact–Evidence–Law map</h3>
+          <p>Everything you've shared is organised into what's supported, uncertain, or still missing.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Stress-test it</h3>
+          <p>Face role-played objections (Opposing Party) or probing questions (Tribunal Questioning).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h3>Get a readiness report</h3>
+          <p>A neutral view of strengths, weak points, missing documents — never a prediction of outcome.</p>
+        </div>
+      </div>
+
+      <div class="principles">
+        <h2>Responsible by design</h2>
+        <ul>
+          <li><strong>No black-box conclusions.</strong> Legal points are linked to a named, checkable source — and flagged when unverified.</li>
+          <li><strong>Confirmation-bias resistant.</strong> The system is built to surface counterarguments, not just validate your story.</li>
+          <li><strong>Information, not representation.</strong> This is a preparation aid, not a lawyer, and never predicts a result.</li>
+          <li><strong>Depends on you.</strong> Output quality depends entirely on the completeness and accuracy of what you provide.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- INTAKE (chat) -->
+    <section class="view" id="view-intake">
+      <div class="panel-header">
+        <h2>Structured Intake</h2>
+        <p class="subtle">Describe your situation. I'll ask a few targeted questions to fill in the gaps.</p>
+      </div>
+      <div class="chat-log" id="intakeLog"></div>
+      <div class="chat-input-row">
+        <textarea id="intakeInput" rows="2" placeholder="Type your answer… (Enter to send, Shift+Enter for new line)"></textarea>
+        <button class="btn btn-primary" id="btnIntakeSend">Send</button>
+      </div>
+      <div class="cta-bar" id="intakeCompleteBar" hidden>
+        <span>Intake looks complete.</span>
+        <button class="btn btn-primary" id="btnBuildMap">Build My Case Map</button>
+      </div>
+    </section>
+
+    <!-- CASE MAP + READINESS REPORT -->
+    <section class="view" id="view-map">
+      <div class="panel-header">
+        <h2>Fact–Evidence–Law Map</h2>
+        <p class="subtle" id="mapDisputeType"></p>
+      </div>
+      <div id="mapLoading" class="loading" hidden>Analysing your case…</div>
+      <div class="map-grid" id="mapGrid"></div>
+
+      <div class="panel-header" style="margin-top:2rem;">
+        <h2>Case Readiness Report</h2>
+      </div>
+      <div class="disclaimer-banner" id="reportDisclaimer"></div>
+      <div class="report-grid" id="reportGrid"></div>
+
+      <div class="panel-header" style="margin-top:2rem;">
+        <h2>Stress-Test Your Case</h2>
+        <p class="subtle">Simulation only — neither mode is a real person, lawyer, or tribunal.</p>
+      </div>
+      <div class="mode-cards">
+        <div class="mode-card">
+          <h3>Opposing Party Mode</h3>
+          <p>The AI argues as the other side would — raising objections and disagreements about your facts.</p>
+          <button class="btn btn-secondary" id="btnStartOpposing">Start Opposing Party Mode</button>
+        </div>
+        <div class="mode-card">
+          <h3>Tribunal Questioning Mode</h3>
+          <p>The AI asks probing questions to expose unclear facts or missing evidence — it does not impersonate a real judge.</p>
+          <button class="btn btn-secondary" id="btnStartTribunal">Start Tribunal Questioning Mode</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLEPLAY (chat) -->
+    <section class="view" id="view-roleplay">
+      <div class="panel-header">
+        <h2 id="roleplayTitle">Role-Play</h2>
+      </div>
+      <div class="disclaimer-banner" id="roleplayDisclaimer"></div>
+      <div class="chat-log" id="roleplayLog"></div>
+      <div class="chat-input-row">
+        <textarea id="roleplayInput" rows="2" placeholder="Respond as you would in real life… (Enter to send)"></textarea>
+        <button class="btn btn-primary" id="btnRoleplaySend">Send</button>
+      </div>
+      <div class="cta-bar">
+        <span></span>
+        <button class="btn btn-primary" id="btnEndRoleplay">End Session &amp; Get Report</button>
+      </div>
+    </section>
+
+    <!-- SIMULATION REPORT -->
+    <section class="view" id="view-simreport">
+      <div class="panel-header">
+        <h2>Post-Simulation Report</h2>
+        <p class="subtle" id="simModeLabel"></p>
+      </div>
+      <div class="sim-grid" id="simGrid"></div>
+      <div class="panel-header" style="margin-top:1.5rem;">
+        <h3>Suggested next steps</h3>
+      </div>
+      <ul class="rec-list" id="simRecommendations"></ul>
+      <div class="hero-actions" style="margin-top:1.5rem;">
+        <button class="btn btn-secondary" id="btnBackToMapFromSim">Back to Case Map</button>
+        <button class="btn btn-ghost" id="btnGoLiteracyFromSim">Visit Legal Literacy Hub</button>
+      </div>
+    </section>
+
+    <!-- LITERACY HUB -->
+    <section class="view" id="view-literacy">
+      <div class="panel-header">
+        <h2>Legal Literacy Hub</h2>
+        <p class="subtle">Short, plain-language lessons — separate from your active case, so a real dispute is never trivialised.</p>
+      </div>
+      <div class="lesson-grid" id="lessonGrid"></div>
+    </section>
+
+    <!-- LESSON DETAIL -->
+    <section class="view" id="view-lesson">
+      <button class="btn btn-ghost" id="btnBackToHub">&larr; Back to Hub</button>
+      <h2 id="lessonTitle"></h2>
+      <div id="lessonContent" class="lesson-content"></div>
+      <div class="lesson-check" id="lessonCheck"></div>
+    </section>
+
+  </main>
+
+  <footer class="disclaimer-footer">
+    Case Compass is an information and preparation aid. It is not legal advice, not a lawyer, and does not
+    represent a court or tribunal or predict outcomes. Always verify important legal information against
+    official sources, and check figures/limits before relying on them.
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

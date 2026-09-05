@@ -1,0 +1,110 @@
+[
+  {
+    "id": "l1",
+    "title": "What is the Small Claims Tribunal?",
+    "tags": ["goods", "services", "deposit_tenancy", "debt_loan", "property_damage", "other"],
+    "summary": "A quick, plain-language introduction to what the SCT does and what kinds of disputes it typically handles.",
+    "content": [
+      "The Small Claims Tribunal (SCT) is a forum designed to let people resolve certain civil disputes without needing a lawyer.",
+      "It generally handles disputes such as claims over goods and services, and some tenancy-related claims, within a set claim-value limit.",
+      "Proceedings are meant to be simpler and faster than a full court case, and are generally conducted by the parties themselves.",
+      "Always verify current jurisdiction, limits, and procedure on the official State Courts / Community Justice and Tribunals System resources - this lesson is a general orientation, not a procedural guide."
+    ],
+    "check": {
+      "question": "Who typically represents the parties in an SCT hearing?",
+      "options": ["Always a lawyer", "The parties themselves, generally without lawyers", "A police officer", "A jury"],
+      "answerIndex": 1,
+      "explanation": "SCT proceedings are designed to be accessible without a lawyer, though rules on when representation is allowed can vary - verify current rules if unsure."
+    }
+  },
+  {
+    "id": "l2",
+    "title": "Why evidence matters more than memory",
+    "tags": ["goods", "services", "debt_loan", "property_damage"],
+    "summary": "Understand why documents, messages, and photos usually matter more than your recollection of events.",
+    "content": [
+      "Memory fades and can be challenged. Written records - receipts, messages, contracts, photos - are generally harder to dispute.",
+      "A useful habit: whenever a dispute starts, write down a dated timeline of what happened while it's fresh, and gather any documents immediately.",
+      "If an agreement was only verbal, look for indirect evidence: payment records, messages referencing the agreement, or witnesses.",
+      "This does not mean a claim without perfect evidence is hopeless - it means identifying gaps early lets you decide what more to gather."
+    ],
+    "check": {
+      "question": "If an agreement was only made verbally, what can still help support your case?",
+      "options": ["Nothing can help", "Payment records or messages referencing the agreement", "Only a written contract counts", "Waiting until the hearing to explain it well"],
+      "answerIndex": 1,
+      "explanation": "Indirect evidence like payment records, messages, or witnesses can meaningfully support an otherwise verbal agreement."
+    }
+  },
+  {
+    "id": "l3",
+    "title": "Time limits: why waiting can cost you your claim",
+    "tags": ["goods", "services", "deposit_tenancy", "debt_loan", "property_damage", "other"],
+    "summary": "A short explainer on why claims generally can't be brought indefinitely, and why checking time limits early matters.",
+    "content": [
+      "Most civil claims are subject to a 'limitation period' - a deadline, counted from when the issue arose, after which you may lose the right to sue.",
+      "Limitation periods vary by claim type and jurisdiction, and this app does not calculate them for you.",
+      "The practical lesson: don't sit on a dispute. Check the applicable time limit early, ideally with an official or professional source.",
+      "Delay can also weaken a case even where a claim is still technically in time, since evidence and memory degrade."
+    ],
+    "check": {
+      "question": "What is a 'limitation period'?",
+      "options": ["The maximum amount you can claim", "A deadline for bringing a claim after which the right to sue may be lost", "The length of a tribunal hearing", "A limit on how many witnesses you can call"],
+      "answerIndex": 1,
+      "explanation": "A limitation period is a time limit for bringing a claim - not a claim-value cap or hearing length."
+    }
+  },
+  {
+    "id": "l4",
+    "title": "Understanding the other side's likely arguments",
+    "tags": ["goods", "services", "deposit_tenancy", "debt_loan", "property_damage", "other"],
+    "summary": "Why anticipating counterarguments - rather than only building your own story - is one of the strongest things you can do to prepare.",
+    "content": [
+      "A one-sided account, however true, is rarely the full picture a tribunal will hear. The other side will have their own version.",
+      "Strong preparation means asking: what will they say happened instead? What will they say I'm missing or got wrong?",
+      "This is exactly what this app's Opposing Party and Tribunal Questioning modes are for - practising against pushback before it happens for real.",
+      "Being able to calmly respond to a counterargument with evidence is often more persuasive than a passionate but unchallenged narrative."
+    ],
+    "check": {
+      "question": "What is the main benefit of anticipating the other side's arguments before a hearing?",
+      "options": ["It guarantees you will win", "It lets you prepare calm, evidence-based responses instead of being caught off guard", "It is not useful, only your own story matters", "It replaces the need for evidence"],
+      "answerIndex": 1,
+      "explanation": "Anticipating counterarguments helps you prepare responses and identify evidence gaps - it doesn't guarantee an outcome."
+    }
+  },
+  {
+    "id": "l5",
+    "title": "Deposits: what 'fair wear and tear' usually means",
+    "tags": ["deposit_tenancy"],
+    "summary": "A short explainer on the common deposit-dispute distinction between damage and normal wear and tear.",
+    "content": [
+      "Landlords can generally deduct from a deposit for damage caused by the tenant, but not for 'fair wear and tear' - the ordinary, gradual deterioration that happens through normal use.",
+      "Photos taken at move-in and move-out are one of the strongest ways to settle disagreements about condition.",
+      "If deductions seem excessive, ask for an itemised breakdown and, where possible, receipts or quotes for the claimed repairs.",
+      "This is general guidance - the specific tenancy agreement's terms govern the actual dispute."
+    ],
+    "check": {
+      "question": "What is generally NOT deductible from a security deposit?",
+      "options": ["Unpaid rent", "Damage caused by the tenant", "Fair wear and tear from normal use", "Unpaid utility bills"],
+      "answerIndex": 2,
+      "explanation": "Fair wear and tear is the ordinary deterioration from normal use, which is generally distinguished from tenant-caused damage."
+    }
+  },
+  {
+    "id": "l6",
+    "title": "Lending money informally: reducing 'he said, she said'",
+    "tags": ["debt_loan"],
+    "summary": "Practical habits that make informal loans between individuals much easier to prove later.",
+    "content": [
+      "Informal loans between friends or family are common, and also commonly disputed, because terms are rarely written down.",
+      "Even a short text message confirming 'this is a loan of $X, to be repaid by [date]' can be far more useful later than a verbal promise.",
+      "Bank transfer records establish that money moved, but not necessarily that it was a loan rather than a gift - the surrounding messages matter.",
+      "If you're currently owed money informally, consider (respectfully) getting the other party to confirm the terms in writing now, before a dispute escalates."
+    ],
+    "check": {
+      "question": "Why might a bank transfer record alone not be enough to prove a loan?",
+      "options": ["Banks don't keep records", "It shows money moved but not that both parties agreed it was a loan rather than a gift", "Transfers are not admissible evidence", "It is always enough on its own"],
+      "answerIndex": 1,
+      "explanation": "A transfer shows money moved, but surrounding context (messages, agreement) is usually needed to show it was a loan, not a gift."
+    }
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "_disclaimer": "General, plain-language information only. Figures and procedures change over time and this file is NOT a substitute for checking the current official source. Every entry below carries a 'verify' field naming where to confirm it is still accurate. This app never presents these as certain legal conclusions.",
+  "disputeTypes": [
+    {
+      "id": "goods",
+      "label": "Goods / purchase dispute",
+      "keywords": ["bought", "purchase", "product", "item", "defective", "faulty", "refund", "seller", "shop", "store", "goods", "warranty", "broken", "delivered", "wrong item"],
+      "concepts": ["sct_jurisdiction", "consumer_protection_fair_trading", "sale_of_goods_basics", "limitation_period"],
+      "counterarguments": [
+        "The item was in good condition when it left the seller; any defect arose afterwards from misuse or normal wear and tear.",
+        "The buyer did not report the problem within a reasonable time after discovering it.",
+        "The buyer inspected or tested the item before accepting it and raised no objection at the time.",
+        "Any defect was minor and does not justify a full refund rather than a repair or replacement."
+      ]
+    },
+    {
+      "id": "services",
+      "label": "Services dispute (contractor, repair, event, etc.)",
+      "keywords": ["contractor", "renovation", "service", "repair", "booked", "vendor", "deposit", "cancelled", "incomplete work", "shoddy", "quality", "did not finish", "photographer", "mover"],
+      "concepts": ["sct_jurisdiction", "consumer_protection_fair_trading", "breach_of_contract_basics", "limitation_period"],
+      "counterarguments": [
+        "The scope of work was verbally changed or expanded by the customer beyond the original agreement.",
+        "The customer delayed payment or access, which caused the delay or incomplete work.",
+        "The standard of work delivered was reasonable and any dissatisfaction is subjective.",
+        "The customer did not give an opportunity to rectify the issue before making a claim."
+      ]
+    },
+    {
+      "id": "deposit_tenancy",
+      "label": "Deposit / tenancy dispute",
+      "keywords": ["deposit", "landlord", "tenant", "rental", "lease", "tenancy agreement", "security deposit", "did not return my deposit", "damages to unit"],
+      "concepts": ["sct_jurisdiction", "tenancy_deposit_basics", "limitation_period"],
+      "counterarguments": [
+        "Deductions from the deposit were for damage beyond fair wear and tear.",
+        "The tenant did not give the required notice period before vacating.",
+        "There are unpaid utility bills or outstanding rent owed by the tenant.",
+        "The condition of the unit at move-out was documented and differs from the tenant's account."
+      ]
+    },
+    {
+      "id": "debt_loan",
+      "label": "Money owed / loan between individuals",
+      "keywords": ["owes me money", "loan", "borrowed", "iou", "repay", "debt", "lent him", "lent her", "friend owes"],
+      "concepts": ["sct_jurisdiction", "breach_of_contract_basics", "limitation_period", "evidence_for_informal_agreements"],
+      "counterarguments": [
+        "There was no agreement that the money was a loan rather than a gift.",
+        "The amount or repayment terms alleged are disputed.",
+        "Partial repayment has already been made and should be offset.",
+        "There is no written record, so the terms alleged cannot be verified."
+      ]
+    },
+    {
+      "id": "property_damage",
+      "label": "Property damage dispute",
+      "keywords": ["damaged my", "broke my", "scratched", "accident", "damaged property", "car park", "neighbour damaged"],
+      "concepts": ["sct_jurisdiction", "negligence_basics", "limitation_period"],
+      "counterarguments": [
+        "The damage pre-existed and was not caused by the respondent.",
+        "The amount claimed for repair or replacement is excessive relative to the actual damage.",
+        "The claimant contributed to the damage through their own actions.",
+        "There is no independent evidence (photos, witness, report) linking the respondent to the damage."
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other / not sure yet",
+      "keywords": [],
+      "concepts": ["sct_jurisdiction", "limitation_period"],
+      "counterarguments": [
+        "The facts alleged are disputed and require independent evidence.",
+        "The claim may fall outside the tribunal's jurisdiction and needs to be checked."
+      ]
+    }
+  ],
+  "concepts": {
+    "sct_jurisdiction": {
+      "title": "Small Claims Tribunal (SCT) jurisdiction & claim limits",
+      "plainLanguage": "Singapore's Small Claims Tribunals handle certain civil claims (e.g. disputes over goods and services, and some tenancy claims) without the parties needing lawyers, generally where the claim value falls within a statutory limit (commonly cited as $20,000, or up to $30,000 if both parties consent in writing). Rules on what qualifies and current limits can change.",
+      "verify": "Check the current limits and eligible claim types on the Community Justice and Tribunals System / State Courts of Singapore website before relying on this.",
+      "confidence": "general_info_needs_verification"
+    },
+    "consumer_protection_fair_trading": {
+      "title": "Consumer protection for unfair practices",
+      "plainLanguage": "Singapore's Consumer Protection (Fair Trading) Act gives consumers remedies against unfair practices by suppliers, such as false claims about goods/services or failing to deliver as promised, in addition to any contractual remedies.",
+      "verify": "Check the current text and scope of the Consumer Protection (Fair Trading) Act on the Singapore Statutes Online website.",
+      "confidence": "general_info_needs_verification"
+    },
+    "sale_of_goods_basics": {
+      "title": "Basic rights when goods are faulty",
+      "plainLanguage": "As a general contract-law concept, goods sold are generally expected to match their description and be of acceptable quality. If they are not, a buyer may have a right to repair, replacement, price reduction, or refund depending on the circumstances.",
+      "verify": "Specific remedies depend on the contract and applicable law (e.g. Sale of Goods Act / Consumer Protection (Fair Trading) Act) - verify against the actual statute or a legal aid resource.",
+      "confidence": "general_info_needs_verification"
+    },
+    "breach_of_contract_basics": {
+      "title": "Breach of contract - what generally needs to be shown",
+      "plainLanguage": "Generally, a breach-of-contract claim needs: (1) a valid agreement existed, (2) its terms, (3) how the other party failed to meet those terms, and (4) the loss that resulted. Clear evidence of the agreed terms is usually central.",
+      "verify": "This is a general contract-law framework, not advice on your specific facts - consider checking with a Legal Aid Bureau / Community Justice Centre resource.",
+      "confidence": "general_info_needs_verification"
+    },
+    "tenancy_deposit_basics": {
+      "title": "Security deposits in tenancy disputes",
+      "plainLanguage": "Security deposits are generally refundable at the end of a tenancy, subject to lawful deductions such as unpaid rent, unpaid utilities, or damage beyond fair wear and tear, as set out in the tenancy agreement.",
+      "verify": "The exact terms depend on the specific tenancy agreement - review it directly, and check current SCT guidance on tenancy claims.",
+      "confidence": "general_info_needs_verification"
+    },
+    "negligence_basics": {
+      "title": "Negligence - what generally needs to be shown",
+      "plainLanguage": "Generally, a negligence claim needs: (1) the other party owed a duty of care, (2) they breached that duty, (3) this caused the damage, and (4) the damage is not too remote.",
+      "verify": "This is a general legal framework - verify how it applies to your facts with an official or professional source.",
+      "confidence": "general_info_needs_verification"
+    },
+    "limitation_period": {
+      "title": "Time limits to bring a claim (limitation period)",
+      "plainLanguage": "Claims generally must be brought within a statutory time limit from when the cause of action arose (commonly several years for contract claims), after which the right to sue may be barred. Waiting too long can be fatal to an otherwise good claim.",
+      "verify": "Check the current Limitation Act provisions and how they apply to your claim type - do not assume you still have time without verifying.",
+      "confidence": "general_info_needs_verification"
+    },
+    "evidence_for_informal_agreements": {
+      "title": "Evidencing informal / verbal agreements",
+      "plainLanguage": "Verbal or informal agreements (e.g. between friends) are harder to prove. Messages, transfer records, witnesses, and any written acknowledgement of the debt or terms can substantially strengthen an otherwise word-against-word claim.",
+      "verify": "General evidentiary principle, not a guarantee of outcome.",
+      "confidence": "general_info"
+    }
+  },
+  "evidenceSuggestions": {
+    "goods": ["Receipt or proof of purchase", "Photos of the item/defect", "Product listing or description", "Written correspondence with the seller", "Independent inspection/repair report (if any)"],
+    "services": ["Signed quote, invoice, or contract", "Written correspondence (email/WhatsApp) about scope and timeline", "Photos or video of the work delivered", "Proof of payment", "Any written complaint sent to the vendor"],
+    "deposit_tenancy": ["Tenancy agreement", "Move-in and move-out condition photos", "Correspondence about the deposit", "Proof of rent/utility payments", "Inventory list (if any)"],
+    "debt_loan": ["Any written IOU, message, or acknowledgement of the loan", "Bank transfer records", "Messages discussing repayment", "Witness to the agreement (if any)"],
+    "property_damage": ["Photos/video of the damage", "Repair quotes or invoices", "Witness accounts", "Any incident/police report", "CCTV footage (if available)"],
+    "other": ["Any documents, messages, or photos relevant to the dispute", "A written timeline of events while memory is fresh"]
+  }
+}

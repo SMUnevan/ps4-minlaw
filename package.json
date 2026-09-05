@@ -1,0 +1,20 @@
+{
+  "name": "case-compass",
+  "version": "1.0.0",
+  "description": "Case Compass - a responsible AI case-preparation companion for self-represented persons, with a role-play stress-test mode and a legal literacy hub. Built for SMU LIT Legal-Tech Hackathon 2026, Problem Statement 4 (Ministry of Law).",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=14.18.0"
+  }
+}
