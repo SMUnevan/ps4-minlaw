@@ -73,7 +73,7 @@ LATEST USER MESSAGE: ${userText}
 
 Return the JSON object described in the system prompt.`;
 
-  return { systemPrompt: system, userPrompt, maxTokens: 1024 };
+  return { systemPrompt: system, userPrompt, maxTokens: 2048 };
 }
 
 function buildReadinessReportRequest(caseRecord, map, lang) {
@@ -95,7 +95,7 @@ Respond with ONLY a JSON object:
 Counterarguments for this dispute type: ${JSON.stringify(pick(dt.counterarguments, lang))}
 Use this exact disclaimer text: ${JSON.stringify(require('../lib/i18n').t(lang, 'report.disclaimer'))}`;
 
-  return { systemPrompt: system, userPrompt, maxTokens: 2000 };
+  return { systemPrompt: system, userPrompt, maxTokens: 4096 };
 }
 
 function buildRoleplaySystem(caseRecord, mode, lang) {

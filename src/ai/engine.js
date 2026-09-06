@@ -42,16 +42,19 @@ async function intakeTurn(caseRecord, userText, lang, aiResult) {
   caseRecord.intake.messages.push({ role: 'user', text: userText });
 
   let result = aiResult;
-  if (result) {
-    if (!validResult(result, ['slots', 'assistantText'])) throw new Error('Invalid AI response');
-    caseRecord.intake.slots = { ...caseRecord.intake.slots, ...result.slots };
+  const fallback = !result || !result.slots || typeof result.slots !== 'object' || Array.isArray(result.slots) ||
+    !Array.isArray(result.slots.evidence) || !result.slots.evidence.every((item) => typeof item === 'string') ||
+    typeof result.assistantText !== 'string' || !result.assistantText.trim() || typeof result.complete !== 'boolean';
+  if (fallback) {
+    result = rulesEngine.intakeTurn(caseRecord, userText, l);
   } else {
-    result = rulesEngine.intakeTurn(caseRecord, userText, l); // mutates slots directly
+    caseRecord.intake.slots = { ...caseRecord.intake.slots, ...result.slots };
   }
-
+  caseRecord.map = null;
+  caseRecord.report = null;
   caseRecord.intake.messages.push({ role: 'assistant', text: result.assistantText });
   if (result.complete) caseRecord.intake.complete = true;
-  return { assistantText: result.assistantText, complete: !!result.complete };
+  return { assistantText: result.assistantText, complete: !!result.complete, fallback };
 }
 
 function buildCaseMap(caseRecord, lang) {
@@ -75,10 +78,12 @@ async function buildReadinessReport(caseRecord, lang, aiResult) {
 
   const map = await buildCaseMap(caseRecord, l);
   let report = aiResult;
-  if (report && !validResult(report, ['strengths', 'weaknesses', 'missingInfo', 'documentsToGather', 'counterarguments', 'disclaimer'])) {
-    throw new Error('Invalid AI response');
+  if (!report || typeof report.disclaimer !== 'string' || !report.disclaimer.trim() ||
+      !['strengths', 'weaknesses', 'missingInfo', 'documentsToGather', 'counterarguments'].every((field) =>
+        Array.isArray(report[field]) && report[field].every((item) => typeof item === 'string'))) {
+    report = rulesEngine.buildReadinessReport(caseRecord, map, l);
+    report.fallback = true;
   }
-  if (!report) report = rulesEngine.buildReadinessReport(caseRecord, map, l);
 
   caseRecord.report = report;
   caseRecord.reportLang = l;

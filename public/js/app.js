@@ -175,19 +175,24 @@
     setSettingsResult('Saved API key removed from this device.', '');
   }
 
-  function parseProviderJSON(text) {
-    if (typeof text !== 'string' || !text.trim()) {
+  function parseProviderJSON(value) {
+    if (value && typeof value === 'object' && !Array.isArray(value)) return value;
+    if (typeof value !== 'string' || !value.trim()) {
       throw providerError('malformed', 'The model returned an empty response instead of the required JSON object.');
     }
-    const start = text.indexOf('{');
-    const end = text.lastIndexOf('}');
-    if (start === -1 || end < start) {
-      throw providerError('malformed', 'The model returned an incomplete response instead of the required JSON object. Try again.');
-    }
     try {
-      return JSON.parse(text.slice(start, end + 1));
+      return JSON.parse(value);
     } catch {
-      throw providerError('malformed', 'The model returned malformed JSON. Try again.');
+      const start = value.indexOf('{');
+      const end = value.lastIndexOf('}');
+      if (start === -1 || end < start) {
+        throw providerError('malformed', 'The model returned an incomplete response instead of the required JSON object. Try again.');
+      }
+      try {
+        return JSON.parse(value.slice(start, end + 1));
+      } catch {
+        throw providerError('malformed', 'The model returned malformed JSON. Try again.');
+      }
     }
   }
 
@@ -292,6 +297,19 @@
   }
 
   async function callProvider(config, request) {
+    // Reasoning models share their output allowance with internal thinking.
+    let maxTokens = Math.max(request.maxTokens || 0, 8192);
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        return await callProviderAttempt(config, { ...request, maxTokens });
+      } catch (err) {
+        if (err.providerKind !== 'malformed' || attempt === 1) throw err;
+        maxTokens *= 2;
+      }
+    }
+  }
+
+  async function callProviderAttempt(config, request) {
     let response;
     if (config.provider === 'gemini') {
       const parts = [{ text: request.userPrompt }];
@@ -309,7 +327,7 @@
       }, 'completion');
       const data = await providerJSON(response, 'Gemini');
       const text = data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts
-        ? data.candidates[0].content.parts.map((part) => part.text || '').join('')
+        ? data.candidates[0].content.parts.filter((part) => !part.thought).map((part) => part.text || '').join('')
         : '';
       return parseProviderJSON(text);
     }
@@ -337,10 +355,25 @@
     const content = data.choices && data.choices[0] && data.choices[0].message
       ? data.choices[0].message.content
       : null;
-    if (typeof content !== 'string' || !content.trim()) {
+    if (Array.isArray(content)) {
+      return parseProviderJSON(content.map((part) => part.text || '').join(''));
+    }
+    if ((!content || typeof content !== 'object') && (typeof content !== 'string' || !content.trim())) {
       throw providerError('malformed', 'OpenRouter returned a malformed completion response (missing choices[0].message.content).');
     }
     return parseProviderJSON(content);
+  }
+
+  async function requestAIOrFallback(task, payload) {
+    try {
+      return await requestAI(task, payload);
+    } catch (err) {
+      // The server has a deterministic, multilingual engine for these tasks.
+      // Use it if a provider returns an unusable completion rather than losing
+      // the user's entered case details.
+      if (err.providerKind === 'malformed') return null;
+      throw err;
+    }
   }
 
   async function requestAI(task, payload) {
@@ -667,11 +700,12 @@
     input.value = '';
     input.disabled = true;
     try {
-      const aiResult = await requestAI('intake', { message });
+      const aiResult = await requestAIOrFallback('intake', { message });
       const result = await api(`/api/case/${state.caseId}/intake`, {
         method: 'POST',
         body: JSON.stringify({ message, aiResult })
       });
+      if (result.fallback) addBubble($('intakeLog'), 'system', 'The AI response was incomplete. Continuing with the local rule-based preparation assistant; uploaded files have not been reviewed.');
       addBubble($('intakeLog'), 'assistant', result.assistantText);
       if (result.complete) $('intakeCompleteBar').hidden = false;
     } catch (err) {
@@ -717,7 +751,9 @@
   }
 
   function renderReport(report) {
-    $('reportDisclaimer').textContent = report.disclaimer;
+    $('reportDisclaimer').textContent = report.fallback
+      ? 'Rule-based preparation report (AI output unavailable). Uploaded files have not been reviewed for this report. ' + report.disclaimer
+      : report.disclaimer;
     const sections = [
       ['strengths', t('report.strengths'), report.strengths],
       ['weaknesses', t('report.weaknesses'), report.weaknesses],
@@ -793,7 +829,7 @@
     showView('map');
     $('mapLoading').hidden = false;
     try {
-      const aiResult = await requestAI('report', {});
+      const aiResult = await requestAIOrFallback('report', {});
       const { map, report, related } = await api(`/api/case/${state.caseId}/analyze`, {
         method: 'POST',
         body: JSON.stringify({ aiResult })
